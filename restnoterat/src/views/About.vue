@@ -11,8 +11,8 @@ import GetData from "@/components/GetData.vue";
 export default {
   name: "About",
   components: {
-    GetData,
-  },
+    GetData
+  }
   // mounted() {
   //   fetch("testing.json")
   //     .then((response) => {

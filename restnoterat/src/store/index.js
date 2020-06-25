@@ -8,6 +8,6 @@ Vue.use(Vuex);
 // Skapa lagring
 export default new Vuex.Store({
   modules: {
-    supplies,
-  },
+    supplies
+  }
 });
