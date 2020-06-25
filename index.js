@@ -12,14 +12,35 @@ console.log(typeof(data))
  */
 data = data.replace(/&/g, '&amp;') 
 
+var obj = {
+  npl1: {
+    date: 2020
+  }
+}
+var i = 'npl1'
+console.log(obj[i].date)
+
 // instansera parser
 var parser = new xml2js.Parser();
 parser.parseString(data, function (err, result) {
+  var resultObject = {}
+  for (var s of result.supplyshortages.supplyshortage) {
+    
+    var nplid = s.medicinalproducts[0].medicinalproduct[0].nplid
+    var packs = s.medicinalproducts[0].medicinalproduct[0].packages[0].package
+
+    resultObject[nplid] = {
+      nplid: nplid,
+      packs: packs
+    }
+    
+  }
+
+  // resultObject = JSON.stringify(result, true, 2)
+  //  console.log(err)
    
-   var resultObject = JSON.stringify(result, true, 2)
-   console.log(err)
-   console.log(resultObject)
-   var resultfile = fs.createWriteStream(outputfile)
-   resultfile.write(resultObject)
+  
+  var resultfile = fs.createWriteStream(outputfile)
+  resultfile.write(JSON.stringify(resultObject))
 })
 
