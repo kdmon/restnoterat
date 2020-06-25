@@ -11,7 +11,7 @@ const getters = {
 
 const actions = {
   async fetchSupplies({ commit }) {
-    const response = await axios.get("testing.json");
+    const response = await axios.get("supplyshortage.json");
     console.log(response.data.supplyshortages.supplyshortage);
     commit('saveSupplies', response.data.supplyshortages.supplyshortage)
     

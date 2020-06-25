@@ -1,52 +1,25 @@
 var fs = require('fs')
 var xml2js = require('xml2js')
 
-
-
-
-var inputfile = "test.xml"
-
+var inputfile = __dirname + '/restnoterat.xml'
+var outputfile =  __dirname + '/restnoterat/public/supplyshortage.json'
 // läs in data filen, t.ex. restnoteringar.xml
-var data = fs.readFileSync(__dirname + '/' + inputfile)
+var data = fs.readFileSync(inputfile, 'utf8')
+console.log(typeof(data))
 
- //data = '<x>' + data + '</x>'
-  
-  
-  // instansera parser
+/*  The XML document is not well formated
+    since it contains "&", solution: replace "&" to &amp;
+ */
+data = data.replace(/&/g, '&amp;') 
+
+// instansera parser
 var parser = new xml2js.Parser();
 parser.parseString(data, function (err, result) {
-    //console.log(result)
-
-  // console.log(JSON.stringify(result, true, 2))
-  // TODO: converta till ett objekt som serialiseras till text (JSON.stringify())
+   
    var resultObject = JSON.stringify(result, true, 2)
+   console.log(err)
    console.log(resultObject)
-   var outputfile = fs.createWriteStream("output.json")
-   outputfile.write(resultObject)
+   var resultfile = fs.createWriteStream(outputfile)
+   resultfile.write(resultObject)
 })
 
-// Skriv json objektet till en fil
-//  var outputfile = fs.createWriteStream("output.json")
-//  outputfile.write(resultObject)
-
-
-
-
-
-
-
-
-// var parser = new xml2js.Parser();
-
-
-// fs.readFile(__dirname + '/test.xml', function (err, data) {
-    
-//     parser.parseString(data, function (err, result) {
-        
-//         console.log('done')
-//         var resultObject = JSON.stringify(result, true, 2)
-//         console.log(resultObject)
-//         // var outputfile = fs.createWriteStream("output.json")
-//         // outputfile.write(resultObject)
-//     });
-// });
