@@ -1,14 +1,28 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+  <div>
+    <h1>HELLO</h1>
+    <GetData />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
+import GetData from "@/components/GetData.vue";
 
 export default {
-  mounted() {}
+  name: "Home",
+  components: {
+    GetData
+  }
+  // mounted() {
+  //   fetch("testing.json")
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       console.log(data);
+  //     });
+  // },
 };
 </script>
+
+<style scoped></style>
