@@ -26,17 +26,18 @@ var parser = new xml2js.Parser();
 parser.parseString(data, function (err, result) {
   var resultObject = {}
   for (var s of result.supplyshortages.supplyshortage) {
-    
-    var nplId = s.medicinalproducts[0].medicinalproduct[0].nplid
-    var packs = s.medicinalproducts[0].medicinalproduct[0].packages[0].package
-    var startDate = s.medicinalproducts[0].medicinalproduct[0]['forecast-start-date']
-    var endDate = s.medicinalproducts[0].medicinalproduct[0]['forecast-end-date']
-    var referenceNumber = s.referencenumber
-    var firstPublication = s['first-publication-date']
-    var lastPublication = s['last-publication-date']
-    var advice = s.advice
-    var publicContact = s.publiccontactinfo 
-
+    // We assume that there is only one medicinalproduct per row
+    var nplId = s.medicinalproducts[0].medicinalproduct[0].nplid ? s.medicinalproducts[0].medicinalproduct[0].nplid[0] : ''
+    // We can't assume that there is only a single package per nplid
+    var packs = s.medicinalproducts[0].medicinalproduct[0].packages ? s.medicinalproducts[0].medicinalproduct[0].packages[0] : ''
+    var startDate = s.medicinalproducts[0].medicinalproduct[0]['forecast-start-date'] ? s.medicinalproducts[0].medicinalproduct[0]['forecast-start-date'][0] : ''
+    var endDate = s.medicinalproducts[0].medicinalproduct[0]['forecast-end-date'] ? s.medicinalproducts[0].medicinalproduct[0]['forecast-end-date'][0] : ''
+    var referenceNumber = s.referencenumber ? s.referencenumber[0] : ''
+    var firstPublication = s['first-publication-date'] ? s['first-publication-date'][0] : ''
+    var lastPublication = s['last-publication-date'] ? s['last-publication-date'][0] : ''
+    var advice = s.advice ? s.advice[0] : ''
+    var publicContact = s.publiccontactinfo ? s.publiccontactinfo[0] : ''
+    // console.log(packs.nplpackid.length >  1 ? 'två' : '')
     resultObject[nplId] = {
       nplId: nplId,
       packs: packs,
