@@ -14,8 +14,12 @@ const actions = {
     const response = await axios.get("supplyshortage.json");
     console.log(response.data);
     commit('saveSupplies', response.data)
-    
-  }
+  },
+  async fetchSuppliesTwo({ commit }) {
+    const response = await axios.get("/supplyshortage.json");
+    console.log(response.data);
+    commit('saveSupplies', response.data)
+  },
 };
 
 const mutations = {
