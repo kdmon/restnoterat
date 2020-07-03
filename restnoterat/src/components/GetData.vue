@@ -10,6 +10,7 @@
       <p>Contact: {{ supply.publicContact }}</p>
       <br>
     </div> -->
+
      <table class="table table-striped">
   <thead>
     <tr>
@@ -18,6 +19,8 @@
       <th>Packs</th>
       <th>Reference</th>
       <th>Contact</th>
+      <th>Publication</th>
+      <th>Forecast</th>
     </tr>
   </thead>
   <tbody>
@@ -28,6 +31,8 @@
        <td>{{ supply.packs }}</td>  
        <td>{{ supply.referenceNumber }}</td>
        <td>{{ supply.publicContact }}</td>    
+       <td>{{ supply.publicationDate }}</td> 
+       <td>{{ supply.forecastDate }}</td>
     </tr> 
    </tbody>
 </table>
@@ -43,7 +48,7 @@ export default {
   methods: mapActions(["fetchSupplies"]),
   computed: mapGetters(["allSupplies"]),
   created() {
-    this.fetchSupplies();
+    //  this.fetchSupplies();
   }
 };
 </script>

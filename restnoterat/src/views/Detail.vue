@@ -18,8 +18,8 @@ export default {
   methods: mapActions(["fetchSuppliesTwo"]),
   computed: mapGetters(["allSupplies"]),
   created() {
-    this.fetchSuppliesTwo();
-    console.log(this.allSupplies[19930528000047])
+    // this.fetchSuppliesTwo();
+    // console.log(this.allSupplies[19930528000047])
   }
 };
 </script>
