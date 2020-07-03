@@ -5,15 +5,14 @@
 </template>
 
 <script>
-import GetData from "@/components/GetData.vue";
+import GetData from '@/components/GetData.vue'
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     GetData
   }
- 
-};
+}
 </script>
 
 <style scoped></style>
