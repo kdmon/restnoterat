@@ -3,11 +3,18 @@ import Vue from 'vue'
 
 const state = {
   shortages: {},
-  products: []
+  products: {}
 }
 
 const getters = {
-  allSupplies: state => state.shortages
+  allSupplies: state => state.shortages,
+  productByNplId: (state) => (id) => {
+    let o = {}
+    o.name = state.products[id].name
+    o.advice = state.shortages[id].advice
+    o.atc = state.products[id].atc
+    return o
+  }
 }
 
 const actions = {
@@ -22,10 +29,8 @@ const actions = {
     commit('saveSupplies', response.data)
   },
   async fetchProducts ({ commit }) {
-    const response = await axios.get(
-      'https://webappeditor.com/uploads/output_new.json'
-    )
-    console.log(response.data)
+    const response = await axios.get('products.json')
+    console.log('Products', response.data)
     commit('saveProducts', response.data)
   }
 }
