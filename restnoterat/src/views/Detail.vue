@@ -2,13 +2,6 @@
   <div>
     <h4>Details</h4>
     <div v-if='productByNplId($route.params.id)'>
-      <!-- <h4
-        v-for="(supply, index) in allSupplies[$route.params.id]"
-        v-bind:key="index"
-      >
-        {{ supply }}
-
-      </h4> -->
       <h4 v-if='productByNplId($route.params.id).name'>Name: {{ productByNplId($route.params.id).name }}</h4>
       <h4>Prod: {{ productByNplId($route.params.id).prod }}</h4>
       <h4>Rx: {{ productByNplId($route.params.id).rx }}</h4>
@@ -25,6 +18,9 @@
       <h4>Contact: {{ productByNplId($route.params.id).publicContact }}</h4>
       <h4>Publication: {{ productByNplId($route.params.id).publicationDate }}</h4>
       <h4>Reference: {{ productByNplId($route.params.id).referenceNumber }}</h4>
+      <pre>
+        {{ JSON.stringify(productByNplId($route.params.id).shortages, null, 2) }}
+      </pre>
     </div>
     <h4 v-else>Can't find the nplid you are searching for</h4>
   </div>

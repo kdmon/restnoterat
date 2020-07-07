@@ -12,8 +12,7 @@ new Vue({
   router,
   render: h => h(App),
   mounted: function () {
-    this.fetchSupplies()
-    this.fetchProducts()
+    this.fetchData()
   },
-  methods: mapActions(['fetchSupplies', 'fetchProducts'])
+  methods: mapActions(['fetchData'])
 }).$mount('#app')

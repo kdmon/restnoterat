@@ -3,7 +3,9 @@ import Vue from 'vue'
 
 const state = {
   shortages: {},
-  products: {}
+  products: {},
+  loading: true
+
 }
 
 /*
@@ -28,13 +30,13 @@ const getters = {
     product.atc = state.products[id].atc
 
     // Data from shortages state
-    product.advice = state.shortages[id].advice
-    product.forecastDate = state.shortages[id].forecastDate
-    product.nplId = state.shortages[id].nplId
-    product.packs = state.shortages[id].packs
-    product.publiccontact = state.shortages[id].publicContact
-    product.publicationDate = state.shortages[id].publicationDate
-    product.referenceNumber = state.shortages[id].referenceNumber
+    product.shortages = state.shortages[id].shortages
+    // product.forecastDate = state.shortages[id].forecastDate
+    // product.nplId = state.shortages[id].nplId
+    // product.packs = state.shortages[id].packs
+    // product.publiccontact = state.shortages[id].publicContact
+    // product.publicationDate = state.shortages[id].publicationDate
+    // product.referenceNumber = state.shortages[id].referenceNumber
     return product
   }
 }
@@ -57,10 +59,14 @@ const actions = {
     console.log(response.data)
     commit('saveSupplies', response.data)
   },
-  async fetchSuppliesTwo ({ commit }) {
-    const response = await axios.get('/supplyshortage.json')
-    console.log(response.data)
+  async fetchData ({ commit }) {
+    commit('setLoading', 'Hämtar restnoteringar')
+    let response = await axios.get('/supplyshortage.json')
     commit('saveSupplies', response.data)
+    commit('setLoading', 'Hämtar läkemedelskatalog')
+    response = await axios.get('/products.json')
+    commit('saveProducts', response.data)
+    commit('setLoading', false)
   },
   async fetchProducts ({ commit }) {
     const response = await axios.get('products.json')
@@ -76,6 +82,9 @@ const mutations = {
   },
   saveProducts (state, products) {
     Vue.set(state, 'products', products)
+  },
+  setLoading (state, value) {
+    state.loading = value
   }
 }
 
