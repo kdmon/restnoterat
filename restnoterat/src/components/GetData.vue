@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <pre>{{JSON.stringify(allSupplies, null, 2)}}</pre> -->
+    <pre> zzzz {{JSON.stringify(shortages(), null, 2)}}</pre>
     <!-- <div v-for="supply in allSupplies" v-bind:key="supply.id" class="supplies">
       <p>Advice: {{ supply.advice }}</p>
       <p>Npldid: {{ supply.nplId }}</p>
@@ -20,20 +20,22 @@
           <th>Contact</th>
           <th>Publication</th>
           <th>Forecast</th>
+          <th>Pågående</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="supply in allSupplies" v-bind:key="supply.nplId">
+        <tr v-for="supply in shortages()" v-bind:key="supply.nplId">
           <td>{{ supply.advice }}</td>
           <router-link :to="{ path: '/nplid/' + supply.nplId }"
             ><td>{{ supply.nplId }}</td></router-link
           >
           <!-- <td v-link=>{{ supply.nplId }} </td> -->
-          <td>{{ supply.packs }}</td>
-          <td>{{ supply.referenceNumber }}</td>
+          <td>{{ supply.shortages[0].packs }}</td>
+          <td>{{ supply.shortages[0].referenceNumber }}</td>
           <td>{{ supply.publicContact }}</td>
           <td>{{ supply.publicationDate }}</td>
           <td>{{ supply.forecastDate }}</td>
+          <td>{{ supply.name }}</td>
         </tr>
       </tbody>
     </table>
@@ -46,7 +48,7 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'GetData',
   methods: mapActions(['fetchSupplies']),
-  computed: mapGetters(['allSupplies']),
+  computed: mapGetters(['shortages']),
   created () {
     //  this.fetchSupplies();
   }

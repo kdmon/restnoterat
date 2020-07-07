@@ -4,7 +4,8 @@ import Vue from 'vue'
 const state = {
   shortages: {},
   products: {},
-  loading: true
+  loading: true,
+  combined: {}
 
 }
 
@@ -16,28 +17,48 @@ describing a product.
 */
 const getters = {
   allSupplies: state => state.shortages,
+  shortages: (state) => (currentShortage, query) => {
+    // return state.combined.currentShortage
+    const obj = {}
+    for (const nplid in state.combined) {
+      const shortage = state.combined[nplid]
+      if (shortage.currentShortage) {
+        obj[shortage.nplId] = shortage
+      }
+    }
+    console.log(Object.keys(obj).length)
+    return obj
+  },
   productByNplId: (state) => (id) => {
-    const product = {}
-    // Data from products state
-    product.name = state.products[id].name
-    product.prod = state.products[id].prod
-    product.rx = state.products[id].rx
-    product.flags = state.products[id].flags
-    product.substances = state.products[id].substances
-    product.form = state.products[id].form
-    product.strength = state.products[id].strength
-    product.packages = state.products[id].packages
-    product.atc = state.products[id].atc
+    return state.combined[id]
+    // const product = {}
+    // // Data from products state
+    // product.name = state.products[id].name
+    // product.prod = state.products[id].prod
+    // product.rx = state.products[id].rx
+    // product.flags = state.products[id].flags
+    // product.substances = state.products[id].substances
+    // product.form = state.products[id].form
+    // product.strength = state.products[id].strength
+    // product.packages = state.products[id].packages
+    // product.atc = state.products[id].atc
 
-    // Data from shortages state
-    product.shortages = state.shortages[id].shortages
-    // product.forecastDate = state.shortages[id].forecastDate
-    // product.nplId = state.shortages[id].nplId
-    // product.packs = state.shortages[id].packs
-    // product.publiccontact = state.shortages[id].publicContact
-    // product.publicationDate = state.shortages[id].publicationDate
-    // product.referenceNumber = state.shortages[id].referenceNumber
-    return product
+    // // Data from shortages state
+    // product.shortages = state.shortages[id].shortages
+    // product.currentShortage = false
+    // for (const shortage in state.shortages[id].shortages) {
+    //   if (!shortage.actualEndDate) {
+    //     product.currentShortage = true
+    //     break
+    //   }
+    // }
+    // // product.forecastDate = state.shortages[id].forecastDate
+    // // product.nplId = state.shortages[id].nplId
+    // // product.packs = state.shortages[id].packs
+    // // product.publiccontact = state.shortages[id].publicContact
+    // // product.publicationDate = state.shortages[id].publicationDate
+    // // product.referenceNumber = state.shortages[id].referenceNumber
+    // return product
   }
 }
 
@@ -61,11 +82,39 @@ const actions = {
   },
   async fetchData ({ commit }) {
     commit('setLoading', 'Hämtar restnoteringar')
-    let response = await axios.get('/supplyshortage.json')
-    commit('saveSupplies', response.data)
+    const shortages = await axios.get('/supplyshortage.json')
+    commit('saveSupplies', shortages.data)
     commit('setLoading', 'Hämtar läkemedelskatalog')
-    response = await axios.get('/products.json')
-    commit('saveProducts', response.data)
+    const products = await axios.get('/products.json')
+    commit('saveProducts', products.data)
+    const combined = {}
+    for (var id of Object.keys(shortages.data)) {
+      if (products.data[id]) { // TODO: fix latest catalog
+        combined[id] = {}
+        combined[id].nplId = id
+        combined[id].name = products.data[id].name
+        combined[id].prod = products.data[id].prod
+        combined[id].rx = products.data[id].rx
+        combined[id].flags = products.data[id].flags
+        combined[id].substances = products.data[id].substances
+        combined[id].form = products.data[id].form
+        combined[id].strength = products.data[id].strength
+        combined[id].packages = products.data[id].packages
+        combined[id].atc = products.data[id].atc
+
+        // Data from shortages state
+        combined[id].shortages = shortages.data[id].shortages
+        combined[id].currentShortage = false
+        for (const shortage in shortages.data[id].shortages) {
+          if (!shortage.actualEndDate) {
+            combined[id].currentShortage = true
+            break
+          }
+        }
+      }
+    }
+    commit('saveCombined', combined)
+    console.log('combined', combined)
     commit('setLoading', false)
   },
   async fetchProducts ({ commit }) {
@@ -82,6 +131,9 @@ const mutations = {
   },
   saveProducts (state, products) {
     Vue.set(state, 'products', products)
+  },
+  saveCombined (state, products) {
+    Vue.set(state, 'combined', products)
   },
   setLoading (state, value) {
     state.loading = value
