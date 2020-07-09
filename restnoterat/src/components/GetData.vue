@@ -9,6 +9,15 @@
       <p>Contact: {{ supply.publicContact }}</p>
       <br>
     </div> -->
+    <div id='checkboxes'>
+      <input type="checkbox" id="true" value="true" v-model="checkedOption">
+      <label>Pågående</label>
+      <input type="checkbox" id="false" value="" v-model="checkedOption">
+      <label>Avslutade</label>
+      <input type="checkbox" id="all" value="all" v-model="checkedOption">
+      <label>Alla</label>
+      </div>
+      <span>Checked names: {{ checkedOption }}</span>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -25,7 +34,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="supply in shortages()" v-bind:key="supply.nplId">
+        <tr v-for="supply in shortages(checkedOption)" v-bind:key="supply.nplId">
           <td>{{ supply.name }}</td>
           <td>{{ supply.atc }}</td>
           <router-link :to="{ path: '/nplid/' + supply.nplId }"
@@ -48,6 +57,11 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'GetData',
+  data: function () {
+    return {
+      checkedOption: []
+    }
+  },
   methods: mapActions(['fetchSupplies']),
   computed: mapGetters(['shortages']),
   created () {
