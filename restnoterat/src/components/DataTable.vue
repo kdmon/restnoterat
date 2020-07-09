@@ -1,19 +1,6 @@
 <template>
   <div>
     <!-- <pre> zzzz {{JSON.stringify(shortages(), null, 2)}}</pre> -->
-    <!-- <div v-for="supply in allSupplies" v-bind:key="supply.id" class="supplies">
-      <p>Advice: {{ supply.advice }}</p>
-      <p>Npldid: {{ supply.nplId }}</p>
-      <p>Packs: {{ supply.packs }}</p>
-      <p>Reference: {{ supply.referenceNumber }}</p>
-      <p>Contact: {{ supply.publicContact }}</p>
-      <br>
-    </div> -->
-    <div id='checkboxes'>
-      <input type="checkbox" id="true" value="true" v-model="checkedOption">
-      <label>Pågående</label>
-      </div>
-      <span>Checked names: {{ checkedOption }}</span>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -30,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(supply, i, c) in shortages(checkedOption)" v-bind:key="supply.nplId">
+        <tr v-for="(supply, i, c) in shortages(currentShortage)" :key="supply.nplId">
           <td>{{c}} {{ supply.name }}</td>
           <td>{{ supply.atc }}</td>
           <router-link :to="{ path: '/nplid/' + supply.nplId }"
@@ -49,20 +36,16 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
-  name: 'GetData',
+  name: 'DataTable',
+  props: ['currentShortage'],
   data: function () {
     return {
-      checkedOption: false
     }
   },
-  methods: mapActions(['fetchSupplies']),
-  computed: mapGetters(['shortages']),
-  created () {
-    //  this.fetchSupplies();
-  }
+  computed: mapGetters(['shortages'])
 }
 </script>
 
