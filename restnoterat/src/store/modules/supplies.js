@@ -18,16 +18,20 @@ describing a product.
 const getters = {
   allSupplies: state => state.shortages,
   shortages: (state) => (currentShortage, query) => {
-    // return state.combined.currentShortage
-    const obj = {}
-    for (const nplid in state.combined) {
-      const shortage = state.combined[nplid]
-      if (shortage.currentShortage) {
-        obj[shortage.nplId] = shortage
+    console.log(currentShortage)
+    if (currentShortage === true) {
+      const obj = {}
+      for (const nplid in state.combined) {
+        const shortage = state.combined[nplid]
+        if (shortage.currentShortage) {
+          obj[shortage.nplId] = shortage
+        }
       }
+      console.log('filtered', Object.keys(obj).length)
+      return obj
+    } else {
+      return state.combined
     }
-    console.log(Object.keys(obj).length)
-    return obj
   },
   productByNplId: (state) => (id) => {
     return state.combined[id]
@@ -83,11 +87,13 @@ const actions = {
   async fetchData ({ commit }) {
     commit('setLoading', 'Hämtar restnoteringar')
     const shortages = await axios.get('/supplyshortage.json')
+    console.log(Object.keys(shortages.data).length)
     commit('saveSupplies', shortages.data)
     commit('setLoading', 'Hämtar läkemedelskatalog')
     const products = await axios.get('/products.json')
     commit('saveProducts', products.data)
     const combined = {}
+    let c = 0
     for (var id of Object.keys(shortages.data)) {
       if (products.data[id]) { // TODO: fix latest catalog
         combined[id] = {}
@@ -105,14 +111,15 @@ const actions = {
         // Data from shortages state
         combined[id].shortages = shortages.data[id].shortages
         combined[id].currentShortage = false
-        for (const shortage in shortages.data[id].shortages) {
+        for (const shortage of shortages.data[id].shortages) {
           if (!shortage.actualEndDate) {
             combined[id].currentShortage = true
             break
           }
         }
-      }
+      } else c++
     }
+    console.log(c, 'combinedlength', Object.keys(combined).length)
     commit('saveCombined', combined)
     console.log('combined', combined)
     commit('setLoading', false)

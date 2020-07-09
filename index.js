@@ -37,7 +37,8 @@ parser.parseString(data.data, function (err, result) {
     var lastPublication = s['last-publication-date'] ? s['last-publication-date'][0] : ''
     var advice = s.advice ? s.advice[0] : ''
     var publicContact = s.publiccontactinfo ? s.publiccontactinfo[0] : ''
-    
+    var actualEndDate = s.medicinalproducts[0].medicinalproduct[0]['actual-end-date'] ? s.medicinalproducts[0].medicinalproduct[0]['actual-end-date'][0] : ''
+
 
     // if (nplId == "20040607003268") console.log(packs)
 
@@ -49,6 +50,7 @@ parser.parseString(data.data, function (err, result) {
         referenceNumber: referenceNumber,
         advice: advice,
         publicContact: publicContact,
+        actualEndDate: actualEndDate,
         publicationDate: {
           firstPublication: firstPublication,
           lastPublication: lastPublication
@@ -68,6 +70,7 @@ parser.parseString(data.data, function (err, result) {
           referenceNumber: referenceNumber,
           advice: advice,
           publicContact: publicContact,
+          actualEndDate: actualEndDate,
           publicationDate: {
             firstPublication: firstPublication,
             lastPublication: lastPublication
