@@ -114,6 +114,7 @@ const actions = {
         for (const shortage of shortages.data[id].shortages) {
           if (!shortage.actualEndDate) {
             combined[id].currentShortage = true
+            combined[id].actualEndDate = shortage.actualEndDate
             break
           }
         }

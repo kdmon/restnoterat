@@ -20,14 +20,15 @@
         <tr v-for="(supply, i, c) in shortages(currentShortage)" :key="supply.nplId">
           <td>{{c}} {{ supply.name }}</td>
           <td>{{ supply.atc }}</td>
-          <router-link :to="{ path: '/nplid/' + supply.nplId }"
-            ><td>{{ supply.nplId }}</td></router-link>
-            <td>{{ supply.shortages[0].referenceNumber }}</td>
+          <router-link :to="{ path: '/nplid/' + supply.nplId }">
+            <td>{{ supply.nplId }}</td>
+          </router-link>
+          <td>{{ supply.shortages[0].referenceNumber }}</td>
           <td>{{ supply.shortages[0].advice }}</td>
           <td>{{ supply.shortages[0].packs }}</td>
           <td>{{ supply.shortages[0].publicContact }}</td>
           <!-- <td>{{ supply.shortages[0].publicationDate.firstPublication }}</td> -->
-          <td v-if='supply.currentShortage'>Ja</td>
+          <td v-if="supply.currentShortage">Ja</td>
           <td v-else>Nej</td>
         </tr>
       </tbody>
@@ -42,8 +43,7 @@ export default {
   name: 'DataTable',
   props: ['currentShortage'],
   data: function () {
-    return {
-    }
+    return {}
   },
   computed: mapGetters(['shortages'])
 }
