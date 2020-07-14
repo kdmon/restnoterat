@@ -5,7 +5,9 @@ const state = {
   shortages: {},
   products: {},
   loading: true,
-  combined: {}
+  combined: {},
+  atcLexicon: {},
+  formLexicon: {}
 
 }
 
@@ -85,6 +87,11 @@ const actions = {
     commit('saveSupplies', response.data)
   },
   async fetchData ({ commit }) {
+    commit('setLoading', 'Hämtar lexikon')
+    const formLexicon = await axios.get('/lex.json')
+    commit('saveFormLexicon', formLexicon.data)
+    const atcLexicon = await axios.get('/atc.json')
+    commit('saveAtcLexicon', atcLexicon.data)
     commit('setLoading', 'Hämtar restnoteringar')
     const shortages = await axios.get('/supplyshortage.json')
     console.log(Object.keys(shortages.data).length)
@@ -123,12 +130,12 @@ const actions = {
     commit('saveCombined', combined)
     console.log('combined', combined)
     commit('setLoading', false)
-  },
-  async fetchProducts ({ commit }) {
-    const response = await axios.get('products.json')
-    console.log('Products', response.data)
-    commit('saveProducts', response.data)
   }
+  // async fetchProducts ({ commit }) {
+  //   const response = await axios.get('products.json')
+  //   console.log('Products', response.data)
+  //   commit('saveProducts', response.data)
+  // }
 }
 
 const mutations = {
@@ -144,6 +151,12 @@ const mutations = {
   },
   setLoading (state, value) {
     state.loading = value
+  },
+  saveAtcLexicon (state, atcLexicon) {
+    Vue.set(state, 'atcLexicon', atcLexicon)
+  },
+  saveFormLexicon (state, formLexicon) {
+    Vue.set(state, 'formLexicon', formLexicon)
   }
 }
 

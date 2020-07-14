@@ -1,0 +1,1401 @@
+{"-" : {"se" : "Ospecificerad",
+ "en" : "Unspecified"
+},"100000" : {"se" : "Granulat i kapslar avsedda att öppnas",
+ "en" : "Granules in capsule for opening"
+},"100001" : {"se" : "Pulver och vätska till tandköttsgel",
+ "en" : "Powder and solvent for gingival gel"
+},"100002" : {"se" : "Injektions-/infusionsvätska, lösning i ampull",
+ "en" : "Solution for injection/infusion in ampoule"
+},"100003" : {"se" : "Ögondroppar, emulsion i endosbehållare",
+ "en" : "Eye drops, emulsion in single-dose container"
+},"100004" : {"se" : "Pulver till bikupedispersion",
+ "en" : "Powder for bee-hive dispersion"
+},"100005" : {"se" : "Lösning för bikupedispersion",
+ "en" : "Solution for bee-hive dispersion"
+},"100006" : {"se" : "Pulver och lösning till bikupedispersion",
+ "en" : "Powder and solution for bee-hive dispersion"
+},"100007" : {"se" : "Nässpray, frystorkat pulver till suspension",
+ "en" : "Nasal spray, lyophilisate for suspension"
+},"100008" : {"se" : "Nässpray, frystorkat pulver och vätska till suspension",
+ "en" : "Nasal spray, lyophilisate and solvent for suspension"
+},"100009" : {"se" : "Transdermal salva",
+ "en" : "Transdermal ointment"
+},"100010" : {"se" : "Kutan lösning i endosbehållare",
+ "en" : "Cutaneous solution in single-dose container"
+},"100011" : {"se" : "Filmdragerad tablett + vagitorium",
+ "en" : "Film-coated tablet + pessary"
+},"100012" : {"se" : "Filmdragerad tablett + tablett",
+ "en" : "Film coated tablet +  tablet"
+},"100013" : {"se" : "Kapsel, mjuk + tablett",
+ "en" : "Capsule, soft + tablet"
+},"100014" : {"se" : "Kapsel, hård + tablett",
+ "en" : "Capsule, hard + tablet"
+},"100015" : {"se" : "Sublingualt pulver",
+ "en" : "Sublingual powder"
+},"100016" : {"se" : "Frystorkat pulver till okulonasal suspension/för användning i dricksvatten",
+ "en" : "Lyophilisate for oculonasal suspension/use in drinking water"
+},"100017" : {"se" : "Pulver och lösning till bikupedispersion",
+ "en" : "Powder and solution for bee-hive dispersion"
+},"100018" : {"se" : "Lösning för kardioplegi/organförvaring",
+ "en" : "Solution for cardioplegia/organ preservation"
+},"100019" : {"se" : "Oralt växtmaterial",
+ "en" : "Oral herbal material"
+},"100020" : {"se" : "Injektionsvätska, depotsuspension i förfylld injektionspenna",
+ "en" : "Prolonged-release suspension for injection in pre-filled pen"
+},"100021" : {"se" : "Injektionsvätska, lösning i flerdosbehållare",
+ "en" : "Solution for injection in multidose container"
+},"100022" : {"se" : "Laryngofaryngeal spray, lösning",
+ "en" : "Laryngopharyngeal spray, solution"
+},"100023" : {"se" : "Laryngofaryngeal lösning",
+ "en" : "Laryngopharyngeal solution"
+},"100024" : {"se" : "Suspension för oral administrering",
+ "en" : "Suspension for oral administration"
+},"100025" : {"se" : "Pulver till vaginallösning",
+ "en" : "Powder for vaginal solution"
+},"100026" : {"se" : "Pulver och vätska till injektionsvätska, suspension i flerdosbehållare",
+ "en" : "Powder and solvent for suspension for injection in multidose container"
+},"100027" : {"se" : "Injektionsvätska, depotsuspension i förfylld injektionspenna",
+ "en" : "Prolonged-release suspension for injection in pre-filled pen"
+},"100028" : {"se" : "Medicinsk våtservett",
+ "en" : "Medicated wipe"
+},"100029" : {"se" : "intrauterin gel",
+ "en" : "intrauterine gel"
+},"AVLIVV" : {"se" : "Avlivningsvätska för djur",
+ "en" : "Avlivningsvätska för djur"
+},"BATADD" : {"se" : "Badtillsats",
+ "en" : "Bath additive"
+},"BEHDIS" : {"se" : "Bikupedispersion",
+ "en" : "Bee-hive dispersion"
+},"BEHIGE" : {"se" : "Bikupegel",
+ "en" : "Bee-hive gel"
+},"BEHIST" : {"se" : "Bikupestrip",
+ "en" : "Bee-hive strip"
+},"BEHSOL" : {"se" : "Bikupelösning",
+ "en" : "Bee-hive solution"
+},"BESMPA" : {"se" : "Rökpapper för bi",
+ "en" : "Bee smoke paper"
+},"BESMST" : {"se" : "Rökstift för bi",
+ "en" : "Bee smoke stick"
+},"BHDISA" : {"se" : "Bikupedispersion i dospåse",
+ "en" : "Bee-hive dispersion in sachet"
+},"BLAIRR" : {"se" : "Spolvätska för urinblåsan",
+ "en" : "Bladder irrigation"
+},"BOMAPA" : {"se" : "Benmatrix, pasta",
+ "en" : "Bone matrix, paste"
+},"BOMAPU" : {"se" : "Benmatrix, kitt",
+ "en" : "Bone matrix, putty"
+},"BUCFIL" : {"se" : "Buckalfilm",
+ "en" : "Buccal film"
+},"BUCTAB" : {"se" : "Buckaltablett",
+ "en" : "Buccal tablet"
+},"CACHET" : {"se" : "Oblatkapsel",
+ "en" : "Cachet"
+},"CAPHAR" : {"se" : "Kapsel, hård",
+ "en" : "Capsule, hard"
+},"CAPSOF" : {"se" : "Kapsel, mjuk",
+ "en" : "Capsule, soft"
+},"CHCASO" : {"se" : "Tuggkapsel",
+ "en" : "Chewable capsule, soft"
+},"CHDITA" : {"se" : "Tuggtablett/dispergerbar tablett",
+ "en" : "Chewable/dispersible tablet"
+},"CHETAB" : {"se" : "Tuggtablett",
+ "en" : "Chewable tablet"
+},"COAGRA" : {"se" : "Dragerat granulat",
+ "en" : "Coated granules"
+},"COATAB" : {"se" : "Dragerad tablett",
+ "en" : "Coated tablet"
+},"COCSOI" : {"se" : "Koncentrat till koncentrat till infusionsvätska, lösning",
+ "en" : "Concentrate for concentrate for solution for infusion"
+},"COCUSO" : {"se" : "Koncentrat till kutan lösning",
+ "en" : "Concentrate for cutaneous solution"
+},"CODIIF" : {"se" : "Koncentrat till infusionsvätska, dispersion",
+ "en" : "Concentrate for dispersion for infusion"
+},"CODISO" : {"se" : "Koncentrat till bad, lösning",
+ "en" : "Concentrate for dip solution"
+},"CODLIF" : {"se" : "Koncentrat och spädningsvätska till infusionsvätska, lösning",
+ "en" : "Concentrate and diluent for solution for infusion"
+},"CODRWA" : {"se" : "Koncentrat för blandning i dricksvatten",
+ "en" : "Concentrate for in drinking water use"
+},"COEINF" : {"se" : "Koncentrat till infusionsvätska, emulsion",
+ "en" : "Concentrate for emulsion for infusion"
+},"COGRSA" : {"se" : "Dragerat granulat i dospåse",
+ "en" : "Coated granules in sachet"
+},"COHDSO" : {"se" : "Koncentrat till hemodialysvätska",
+ "en" : "Concentrate for solution for haemodialysis"
+},"COLLAR" : {"se" : "Halsband",
+ "en" : "Collar"
+},"COLLOD" : {"se" : "Kollodium",
+ "en" : "Collodion"
+},"COMLOZ" : {"se" : "Komprimerad sugtablett",
+ "en" : "Compressed lozenge"
+},"CONESO" : {"se" : "Koncentrat till lösning för nebulisator",
+ "en" : "Concentrate for nebuliser solution"
+},"CONGAR" : {"se" : "Koncentrat till gurgelvatten",
+ "en" : "Concentrate for gargle"
+},"CONINT" : {"se" : "Koncentrat till intravesikal lösning",
+ "en" : "Concentrate for intravesical solution"
+},"CONTAI" : {"se" : "Behållare",
+ "en" : "Container"
+},"COOMSO" : {"se" : "Koncentrat till munhålelösning",
+ "en" : "Concentrate for oromucosal solution"
+},"COORSO" : {"se" : "Koncentrat till oral lösning",
+ "en" : "Concentrate for oral solution"
+},"COORSU" : {"se" : "Koncentrat till oral suspension",
+ "en" : "Concentrate for oral suspension"
+},"COPEDI" : {"se" : "Koncentrat till peritonealdialysvätska",
+ "en" : "Concentrate for solution for peritoneal dialysis"
+},"CORESO" : {"se" : "Koncentrat till rektallösning",
+ "en" : "Concentrate for rectal solution"
+},"COSINF" : {"se" : "Koncentrat till infusionsvätska, lösning",
+ "en" : "Concentrate for solution for infusion"
+},"COSINJ" : {"se" : "Koncentrat till injektionsvätska, lösning",
+ "en" : "Concentrate for solution for injection"
+},"COSIOI" : {"se" : "Koncentrat till spolvätska, lösning för intraokulär användning",
+ "en" : "Concentrate for solution for intraocular irrigation"
+},"COSPEM" : {"se" : "Koncentrat till spray, emulsion",
+ "en" : "Concentrate for spray emulsion"
+},"COSUIF" : {"se" : "Koncentrat till infusionsvätska, suspension",
+ "en" : "Concentrate for suspension for infusion"
+},"COSUIJ" : {"se" : "Koncentrat till injektionsvätska, suspension",
+ "en" : "Concentrate for suspension for injection"
+},"CREAM" : {"se" : "Kräm",
+ "en" : "Cream"
+},"CRIRUD" : {"se" : "Intraruminalinlägg, kontinuerlig frisättning",
+ "en" : "Continuous-release intraruminal device"
+},"CSIJIF" : {"se" : "Koncentrat till injektions-/infusionsvätska, lösning",
+ "en" : "Concentrate for solution for injection/infusion"
+},"CSOCIF" : {"se" : "Koncentrat och vätska till koncentrat till infusionsvätska, lösning",
+ "en" : "Concentrate and solvent for concentrate for solution for infusion"
+},"CSOCSP" : {"se" : "Kutan lösning + medicinerad svamp",
+ "en" : "Cutaneous solution + medicated sponge"
+},"CSSIJF" : {"se" : "Koncentrat och vätska till injektions-/infusionsvätska, lösning",
+ "en" : "Concentrate and solvent for solution for injection/infusion"
+},"CSSOIF" : {"se" : "Koncentrat och vätska till infusionsvätska, lösning",
+ "en" : "Concentrate and solvent for solution for infusion"
+},"CSSUIJ" : {"se" : "Koncentrat och vätska till injektionsvätska, suspension",
+ "en" : "Concentrate and solvent for suspension for injection"
+},"CUNAOI" : {"se" : "Kutan salva/nässalva",
+ "en" : "Cutaneous/nasal ointment"
+},"CUSPEM" : {"se" : "Kutan spray, emulsion",
+ "en" : "Cutaneous spray, emulsion"
+},"CUSPGE" : {"se" : "Kutan spray, gel",
+ "en" : "Cutaneous spray, gel"
+},"CUSPPO" : {"se" : "Kutan spray, pulver",
+ "en" : "Cutaneous spray, powder"
+},"CUSPSO" : {"se" : "Kutan spray, lösning",
+ "en" : "Cutaneous spray, solution"
+},"CUSPSU" : {"se" : "Kutan spray, suspension",
+ "en" : "Cutaneous spray, suspension"
+},"CUTEMU" : {"se" : "Kutan emulsion",
+ "en" : "Cutaneous emulsion"
+},"CUTFOA" : {"se" : "Kutant skum",
+ "en" : "Cutaneous foam"
+},"CUTLIQ" : {"se" : "Kutan vätska",
+ "en" : "Cutaneous liquid"
+},"CUTORO" : {"se" : "Kutan lösning/koncentrat till munhålelösning",
+ "en" : "Cutaneous solution/concentrate for oromucosal solution"
+},"CUTPAS" : {"se" : "Kutan pasta",
+ "en" : "Cutaneous paste"
+},"CUTPAT" : {"se" : "Kutant plåster",
+ "en" : "Cutaneous patch"
+},"CUTPOW" : {"se" : "Puder",
+ "en" : "Cutaneous powder"
+},"CUTSOL" : {"se" : "Kutan lösning",
+ "en" : "Cutaneous solution"
+},"CUTSPO" : {"se" : "Kutan svamp",
+ "en" : "Cutaneous sponge"
+},"CUTSTI" : {"se" : "Kutant stift",
+ "en" : "Cutaneous stick"
+},"CUTSUS" : {"se" : "Kutan suspension",
+ "en" : "Cutaneous suspension"
+},"DENCEM" : {"se" : "Dental cement",
+ "en" : "Dental cement"
+},"DENEMU" : {"se" : "Dentalemulsion",
+ "en" : "Dental emulsion"
+},"DENGEL" : {"se" : "Dentalgel",
+ "en" : "Dental gel"
+},"DENINS" : {"se" : "Dentalinlägg",
+ "en" : "Dental insert"
+},"DENPOW" : {"se" : "Dentalpulver",
+ "en" : "Dental powder"
+},"DENSOL" : {"se" : "Dentallösning",
+ "en" : "Dental solution"
+},"DENSTI" : {"se" : "Dentalstift",
+ "en" : "Dental stick"
+},"DENSUS" : {"se" : "Dentalsuspension",
+ "en" : "Dental suspension"
+},"DEPBO" : {"se" : "DEPOTBOLI",
+ "en" : "BOLIS,  SUSTAINED RELEASE"
+},"DICHTA" : {"se" : "Dispergerbar tablett/tuggtablett",
+ "en" : "Dispersible/chewable tablet"
+},"DICOIF" : {"se" : "Dispersion till koncentrat till infusionsvätska, dispersion",
+ "en" : "Dispersion for concentrate for dispersion for infusion"
+},"DIFOIN" : {"se" : "Infusionsvätska, dispersion",
+ "en" : "Dispersion for infusion"
+},"DIPEMU" : {"se" : "Bad, emulsion",
+ "en" : "Dip emulsion"
+},"DIPSOL" : {"se" : "Bad, lösning",
+ "en" : "Dip solution"
+},"DIPSUS" : {"se" : "Bad, suspension",
+ "en" : "Dip suspension"
+},"DISINJ" : {"se" : "Injektionsvätska, dispersion",
+ "en" : "Dispersion for injection"
+},"DISTAB" : {"se" : "Dispergerbar tablett",
+ "en" : "Dispersible tablet"
+},"DISTAD" : {"se" : "Dispergerbara tabletter för dosdispenser",
+ "en" : "Dispersible tablets for dose dispenser"
+},"DOSDIC" : {"se" : "Kassett för dosdispenser",
+ "en" : "Dose - dispenser cartridge"
+},"DOSDIS" : {"se" : "Dosdispenser",
+ "en" : "Dose dispenser"
+},"DSIJIF" : {"se" : "Injektions-/infusionsvätska, dispersion",
+ "en" : "Dispersion for injection/infusion"
+},"EADCSU" : {"se" : "Örondroppar/kutan suspension",
+ "en" : "Ear drops/cutaneous suspension"
+},"EADPSS" : {"se" : "Örondroppar, pulver och vätska till suspension",
+ "en" : "Ear drops, powder and solvent for suspension"
+},"EADPSU" : {"se" : "Örondroppar, pulver till suspension",
+ "en" : "Ear drops, powder for suspension"
+},"EADREM" : {"se" : "Örondroppar, emulsion",
+ "en" : "Ear drops, emulsion"
+},"EADRIS" : {"se" : "Örondroppar, suspension i endosbehållare",
+ "en" : "Ear drops, suspension in single-dose container"
+},"EADRSO" : {"se" : "Örondroppar, lösning",
+ "en" : "Ear drops, solution"
+},"EADRSU" : {"se" : "Örondroppar, suspension",
+ "en" : "Ear drops, suspension"
+},"EADSOS" : {"se" : "Örondroppar, lösning i endosbehållare",
+ "en" : "Ear drops, solution in single-dose container"
+},"EAEYDR" : {"se" : "Öron-/ögondroppar, suspension",
+ "en" : "Ear/eye drops, suspension"
+},"EAEYNA" : {"se" : "Öron-/ögon-/näsdroppar, lösning",
+ "en" : "Ear/eye/nasal drops, solution"
+},"EAEYOI" : {"se" : "Öron-/ögonsalva",
+ "en" : "Ear/eye ointment"
+},"EANADR" : {"se" : "Ear/nasal drops, suspension",
+ "en" : "Ear/nasal drops, suspension"
+},"EARCRE" : {"se" : "Öronkräm",
+ "en" : "Ear cream"
+},"EARGEL" : {"se" : "Örongel",
+ "en" : "Ear gel"
+},"EAROIN" : {"se" : "Öronsalva",
+ "en" : "Ear ointment"
+},"EARPOW" : {"se" : "Öronpulver",
+ "en" : "Ear powder"
+},"EARSTI" : {"se" : "Öronstift",
+ "en" : "Ear stick"
+},"EARTAG" : {"se" : "Öronbricka",
+ "en" : "Ear tag"
+},"EARTAM" : {"se" : "Örontampong",
+ "en" : "Ear tampon"
+},"EASPEM" : {"se" : "Öronspray, emulsion",
+ "en" : "Ear spray, emulsion"
+},"EASPSO" : {"se" : "Öronspray, lösning",
+ "en" : "Ear spray, solution"
+},"EASPSU" : {"se" : "Öronspray, suspension",
+ "en" : "Ear spray, suspension"
+},"EAWAEM" : {"se" : "Öronsköljvätska, emulsion",
+ "en" : "Ear wash, emulsion"
+},"EAWASO" : {"se" : "Öronsköljvätska, lösning",
+ "en" : "Ear wash, solution"
+},"EDPOSO" : {"se" : "Ögondroppar, pulver till lösning",
+ "en" : "Eye drops, powder for solution"
+},"EDPOSU" : {"se" : "Eye drops, powder for suspension",
+ "en" : "Eye drops, powder for suspension"
+},"EDPRRE" : {"se" : "Depotögondroppar",
+ "en" : "Eye drops, prolonged-release"
+},"EDPSSO" : {"se" : "Ögondroppar, pulver och vätska till lösning",
+ "en" : "Eye drops, powder and solvent for solution"
+},"EDPSSU" : {"se" : "Ögondroppar, pulver och vätska till suspension",
+ "en" : "Eye drops, powder and solvent for suspension"
+},"EDSOSP" : {"se" : "Depotögondroppar, lösning i endosbehållare",
+ "en" : "Eye drops, prolonged-release solution in single-dose container"
+},"EDSSDC" : {"se" : "Ögondroppar, lösning i endosbehållare",
+ "en" : "Eye drops, solution in single-dose container"
+},"EDSSSI" : {"se" : "Ögondroppar, suspension i endosbehållare",
+ "en" : "Eye-drops, suspension in single-dose container"
+},"EDSUSD" : {"se" : "Ögondroppar, suspension i endosbehållare",
+ "en" : "Eye drops, suspension in single-dose container"
+},"EEDRSO" : {"se" : "Ögon-/örondroppar, lösning",
+ "en" : "Eye/ear drops, solution"
+},"EEDRSU" : {"se" : "Ögon-/örondroppar, suspension",
+ "en" : "Eye/eardrops, suspension"
+},"EFFGRA" : {"se" : "Brusgranulat",
+ "en" : "Effervescent granules"
+},"EFFPOW" : {"se" : "Bruspulver",
+ "en" : "Effervescent powder"
+},"EFFTAB" : {"se" : "Brustablett",
+ "en" : "Effervescent tablet"
+},"EFGOSU" : {"se" : "Brusgranulat till oral suspension",
+ "en" : "Effervescent granules for oral suspension"
+},"EFTAFT" : {"se" : "Brustablett + filmdragerad tablett",
+ "en" : "Effervescent tablet + film-coated tablet"
+},"EFVATA" : {"se" : "Vaginal brustablett",
+ "en" : "Effervescent vaginal tablet"
+},"EMEMIJ" : {"se" : "Emulsion till injektionsvätska, emulsion",
+ "en" : "Emulsion for emulsion for injection"
+},"EMIJPS" : {"se" : "Injektions-/infusionsvätska, emulsion i förfylld spruta",
+ "en" : "Emulsion for injection/infusion in pre-filled syringe"
+},"EMINIF" : {"se" : "Injektionsvätska/infusionsvätska, emulsion",
+ "en" : "Emulsion for injection and infusion"
+},"EMUINF" : {"se" : "Infusionsvätska, emulsion",
+ "en" : "Emulsion for infusion"
+},"EMUINJ" : {"se" : "Injektionsvätska, emulsion",
+ "en" : "Emulsion for injection"
+},"ENCEGE" : {"se" : "Endocervikalgel",
+ "en" : "Endocervical gel"
+},"ENSISO" : {"se" : "Endosinusial solution",
+ "en" : "Endosinusial solution"
+},"ENTGEL" : {"se" : "Intestinal gel",
+ "en" : "Intestinal gel"
+},"ENTKA" : {"se" : "ENTEROKAPSLAR",
+ "en" : "CAPSULES, ENTERIC COATED"
+},"ESUEIJ" : {"se" : "Emulsion och suspension till injektionsvätska, emulsion",
+ "en" : "Emulsion and suspension for emulsion for injection"
+},"ETIPSS" : {"se" : "Instillationsvätska för luftväg, pulv er och vätska  till lösning",
+ "en" : "Endotracheopulmonary instillation, powder and solvent for solution"
+},"ETPIPS" : {"se" : "Instillationsvätska för luftvägarna, pulver till lösning",
+ "en" : "Endotracheopulmonary instillation, powder for solution"
+},"ETPISO" : {"se" : "Instillationsvätska för luftvägarna, lösning",
+ "en" : "Endotracheopulmonary instillation, solution"
+},"ETPISS" : {"se" : "Endotracheopulmonary instillation, powder and solvent for suspension",
+ "en" : "Endotracheopulmonary instillation, powder and solvent for suspension"
+},"ETPISU" : {"se" : "Instillationsvätska för luftvägarna, suspension",
+ "en" : "Endotracheopulmonary instillation, suspension"
+},"ETPPSU" : {"se" : "Instillationsvätska för luftvägarna, pulver till suspension",
+ "en" : "Endotracheopulmonary instillation, powder for suspension"
+},"EYDREM" : {"se" : "Ögondroppar, emulsion",
+ "en" : "Eye drops, emulsion"
+},"EYDRSO" : {"se" : "Ögondroppar, lösning",
+ "en" : "Eye drops, solution"
+},"EYDRSU" : {"se" : "Ögondroppar, suspension",
+ "en" : "Eye drops, suspension"
+},"EYDSRE" : {"se" : "Vätska för beredning av ögondroppar",
+ "en" : "Eye drops, solvent for reconstitution"
+},"EYEAOI" : {"se" : "Ögon-/öronsalva",
+ "en" : "Eye/ear ointment"
+},"EYECRE" : {"se" : "Ögonkräm",
+ "en" : "Eye cream"
+},"EYEGEL" : {"se" : "Ögongel",
+ "en" : "Eye gel"
+},"EYELOT" : {"se" : "Ögonsköljvätska",
+ "en" : "Eye lotion"
+},"EYEOIN" : {"se" : "Ögonsalva",
+ "en" : "Eye ointment"
+},"EYGESD" : {"se" : "Ögongel i endosbehållare",
+ "en" : "Eye gel in single-dose container"
+},"EYLSRE" : {"se" : "Vätska för beredning av ögonsköljvätska",
+ "en" : "Eye lotion, solvent for reconstitution"
+},"EYOSDC" : {"se" : "Ögonsalva i endosbehållare",
+ "en" : "Eye ointment in single-dose container"
+},"FBIJV" : {"se" : "FÖR BEREDNING AV INJEKTIONSVÄTSKA",
+ "en" : "FOR PREPARATION OF INJECTION"
+},"FCTEFG" : {"se" : "Filmdragerad tablett och brusgranulat",
+ "en" : "Film-coated tablet and effervescent granules"
+},"FICOTA" : {"se" : "Filmdragerad tablett",
+ "en" : "Film-coated tablet"
+},"GADIIF" : {"se" : "Gas till infusionsvätska, dispersion",
+ "en" : "Gas for dispersion for infusion"
+},"GADIIJ" : {"se" : "Gas for dispersion for injection",
+ "en" : "Gas for dispersion for injection"
+},"GADIJF" : {"se" : "Gas till injektions-/infusionsvätska, dispersion",
+ "en" : "Gas for dispersion for injection/infusion"
+},"GAENEM" : {"se" : "Gastroenteral emulsion",
+ "en" : "Gastroenteral emulsion"
+},"GAENSO" : {"se" : "Gastroenteral lösning",
+ "en" : "Gastroenteral solution"
+},"GAENSU" : {"se" : "Gastroenteral suspension",
+ "en" : "Gastroenteral suspension"
+},"GAPOSO" : {"se" : "Gurgelvatten, pulver till lösning",
+ "en" : "Gargle, powder for solution"
+},"GARECH" : {"se" : "Enterokapsel, hård",
+ "en" : "Gastro-resistant capsule, hard"
+},"GARECS" : {"se" : "Enterokapsel, mjuk",
+ "en" : "Gastro-resistant capsule, soft"
+},"GAREGR" : {"se" : "Enterogranulat",
+ "en" : "Gastro-resistant granules"
+},"GARETA" : {"se" : "Enterotablett",
+ "en" : "Gastro-resistant tablet"
+},"GARGLE" : {"se" : "Gurgelvatten",
+ "en" : "Gargle"
+},"GARGNA" : {"se" : "Gurgelvatten/nässköljvätska",
+ "en" : "Gargle/nasal wash"
+},"GASDIF" : {"se" : "Gas och vätska till injektions-/infusionsvätska, dispersion",
+ "en" : "Gas and solvent for dispersion for injection/infusion"
+},"GATASO" : {"se" : "Gurgelvatten, tablett till lösning",
+ "en" : "Gargle, tablet for solution"
+},"GATRCS" : {"se" : "Enterotablett + rektalsuspension",
+ "en" : "Gastro-resistant tablet + rectal suspension"
+},"GEL1" : {"se" : "Gel",
+ "en" : "Gel"
+},"GELFGE" : {"se" : "Gel till gel",
+ "en" : "Gel for gel"
+},"GELPRE" : {"se" : "Gel i tryckbehållare",
+ "en" : "Gel in pressurised container"
+},"GELSAC" : {"se" : "Gel i dospåse",
+ "en" : "Gel in sachet"
+},"GELSDC" : {"se" : "Gel i endosbehållare",
+ "en" : "Gel in single-dose container"
+},"GEMEPU" : {"se" : "Gel i doseringspump",
+ "en" : "Gel in metering pump"
+},"GINGEL" : {"se" : "Tandköttsgel",
+ "en" : "Gingival gel"
+},"GINPAS" : {"se" : "Tandköttspasta",
+ "en" : "Gingival paste"
+},"GINSOL" : {"se" : "Tandköttslösning",
+ "en" : "Gingival solution"
+},"GODSOL" : {"se" : "Granulat till orala droppar, lösning",
+ "en" : "Granules for oral drops, solution"
+},"GOSOSA" : {"se" : "Granulat till oral lösning i dospåse",
+ "en" : "Granules for oral solution in sachets"
+},"GOSUSA" : {"se" : "Granulat till oral suspension i dospåse",
+ "en" : "Granules for oral suspension in sachet"
+},"GRANUL" : {"se" : "Granulat",
+ "en" : "Granules"
+},"GRASAC" : {"se" : "Granulat i dospåse",
+ "en" : "Granules in sachet"
+},"GRASYR" : {"se" : "Granulat till sirap",
+ "en" : "Granules for syrup"
+},"GRGSUS" : {"se" : "Enterogranulat till oral suspension i dospåse",
+ "en" : "Gastro-resistant granules for oral suspension in sachet"
+},"GRORRE" : {"se" : "Granulat till oral suspension/rektalsuspension",
+ "en" : "Granules for oral/rectal suspension"
+},"GRORSO" : {"se" : "Granulat till oral lösning",
+ "en" : "Granules for oral solution"
+},"GRORSU" : {"se" : "Granulat till oral suspension",
+ "en" : "Granules for oral suspension"
+},"GRPRGR" : {"se" : "Enterodepotgranulat",
+ "en" : "Gastro-resistant prolonged-release granules"
+},"GRPRGS" : {"se" : "Enterodepotgranulat, dospåse",
+ "en" : "Gastro-resistant prolonged-release granules, sachet"
+},"GRPRTA" : {"se" : "Enterodepottablett",
+ "en" : "Gastro-resistant prolonged-release tablet"
+},"GRRESU" : {"se" : "Granulat till rektalsuspension",
+ "en" : "Granules for rectal suspension"
+},"GRSUIJ" : {"se" : "Granulat till injektionsvätska, suspension",
+ "en" : "Granules for suspension for injection"
+},"GRUDWA" : {"se" : "Granulat för användning i dricksvatten",
+ "en" : "Granules for use in drinking water"
+},"GSORSU" : {"se" : "Granulat och vätska till oral suspension",
+ "en" : "Granules and solvent for oral suspension"
+},"HERTEA" : {"se" : "Örtte",
+ "en" : "Herbal tea"
+},"HETEBA" : {"se" : "Örtte i påse",
+ "en" : "Herbal tea in bag"
+},"IMIFDC" : {"se" : "Intramammarium, sintidsbehandling",
+ "en" : "Intramammary infusion, dry cow"
+},"IMMEST" : {"se" : "Salvstrumpa",
+ "en" : "Impregnated medicated stocking"
+},"IMPCHA" : {"se" : "Kedja för implantation",
+ "en" : "Implantation chain"
+},"IMPDRE" : {"se" : "Salvkompress",
+ "en" : "Impregnated dressing"
+},"IMPLAN" : {"se" : "Implantat",
+ "en" : "Implant"
+},"IMPMAT" : {"se" : "Matrix för implantation",
+ "en" : "Implantation matrix"
+},"IMPPAD" : {"se" : "Impregnerad kudde",
+ "en" : "Impregnated pad"
+},"IMPPAS" : {"se" : "Pasta för implantation",
+ "en" : "Implantation paste"
+},"IMPPFS" : {"se" : "Implantat i förfylld spruta",
+ "en" : "Implant in pre-filled syringe"
+},"IMPSUS" : {"se" : "Suspension för implantation",
+ "en" : "Implantation suspension"
+},"IMPTAB" : {"se" : "Tablett för implantation",
+ "en" : "Implantation tablet"
+},"INGLUS" : {"se" : "Intraglandulär användning",
+ "en" : "Intragladular use"
+},"INHETE" : {"se" : "Örtte, lösligt",
+ "en" : "Instant herbal tea"
+},"INHGAS" : {"se" : "Inhalationsgas",
+ "en" : "Inhalation gas"
+},"INHGCG" : {"se" : "Inhalationsgas, komprimerad",
+ "en" : "Inhalation gas, compressed"
+},"INHGLG" : {"se" : "Inhalationsgas, flytande",
+ "en" : "Inhalation gas, liquefied"
+},"INHPOW" : {"se" : "Inhalationspulver",
+ "en" : "Inhalation powder"
+},"INHSOL" : {"se" : "Inhalationsvätska, lösning",
+ "en" : "Inhalation solution"
+},"INIMPA" : {"se" : "Impregnerad inhalationskudde",
+ "en" : "Inhalation impregnated pad"
+},"INJLÖ" : {"se" : "INJEKTIONSLÖSNING",
+ "en" : "INJECTION"
+},"INJVÄ" : {"se" : "INJEKTIONSVÄTSKA",
+ "en" : "INJECTION"
+},"INMAEM" : {"se" : "Intramammär emulsion",
+ "en" : "Intramammary emulsion"
+},"INMAOI" : {"se" : "Intramammär salva",
+ "en" : "Intramammary ointment"
+},"INMASO" : {"se" : "Intramammär lösning",
+ "en" : "Intramammary solution"
+},"INMASU" : {"se" : "Intramammär suspension",
+ "en" : "Intramammary suspension"
+},"INMGEL" : {"se" : "Intramammär gel",
+ "en" : "Intramammary gel"
+},"INOCSO" : {"se" : "Injektionsvätska, lösning, för intraokulär användning",
+ "en" : "Solution for injection, intraocular use"
+},"INPESO" : {"se" : "Intraperitoneal lösning",
+ "en" : "Intraperitoneal solution"
+},"INPOHC" : {"se" : "Inhalationspulver, hård kapsel",
+ "en" : "Inhalation powder, hard capsule"
+},"INPOPD" : {"se" : "Inhalationspulver, avdelad dos",
+ "en" : "Inhalation powder, pre-dispensed"
+},"INTFOA" : {"se" : "Intrauterint skum",
+ "en" : "Intrauterine foam"
+},"INTSOL" : {"se" : "Intravesikal lösning",
+ "en" : "Intravesical solution"
+},"INUTCA" : {"se" : "Intrauterin kapsel",
+ "en" : "Intrauterine capsule"
+},"INUTDE" : {"se" : "Intrauterint inlägg",
+ "en" : "Intrauterine delivery system"
+},"INUTEM" : {"se" : "Intrauterin emulsion",
+ "en" : "Intrauterine emulsion"
+},"INUTSO" : {"se" : "Intrauterin lösning",
+ "en" : "Intrauterine solution"
+},"INUTSU" : {"se" : "Intrauterin suspension",
+ "en" : "Intrauterine suspension"
+},"INUTTA" : {"se" : "Intrauterin tablett",
+ "en" : "Intrauterine  tablet"
+},"INVACA" : {"se" : "Inhalationsånga, kapsel",
+ "en" : "Inhalation vapour, capsule"
+},"INVAIM" : {"se" : "Inhalationsånga, impregnerad kudde",
+ "en" : "Inhalation vapour, impregnated pad"
+},"INVALI" : {"se" : "Inhalationsånga, vätska",
+ "en" : "Inhalation vapour, liquid"
+},"INVAOI" : {"se" : "Inhalationsånga, salva",
+ "en" : "Inhalation vapour, ointment"
+},"INVAPO" : {"se" : "Inhalationsånga, pulver",
+ "en" : "Inhalation vapour, powder"
+},"INVASO" : {"se" : "Inhalationsånga, lösning",
+ "en" : "Inhalation vapour, solution"
+},"INVATA" : {"se" : "Inhalationsånga, tablett",
+ "en" : "Inhalation vapour, tablet"
+},"INVLÖ" : {"se" : "INJEKTIONSVÄTSKA, LÖSNING",
+ "en" : "SOLUTION FOR INJECTION"
+},"INVSUS" : {"se" : "Intravesikal suspension",
+ "en" : "Intravesical suspension"
+},"IOISSO" : {"se" : "Intraokulär instillationsvätska, lösning",
+ "en" : "Intraocular instillation solution"
+},"IOTRSY" : {"se" : "Jontoforetiskt transdermalt system",
+ "en" : "Iontophoretic transdermal system"
+},"IRRSOL" : {"se" : "Spolvätska",
+ "en" : "Irrigation solution"
+},"isosol" : {"se" : "Intravesikal lösning/injektionsvätska, lösning",
+ "en" : "Intravesical solution/solution for injection"
+},"IVIMAP" : {"se" : "Intravitrealt implantat i applikator",
+ "en" : "Intravitreal implant in applicator"
+},"IVLÖE" : {"se" : "INFUSIONSVÄTSKA, LÖSNING, ENDOSBEHÅLLARE",
+ "en" : "SOLUTION FOR INFUSION, SINGLE-DOSE CONTAINER"
+},"KAPSL" : {"se" : "KAPSLAR",
+ "en" : "CAPSULES"
+},"KIRAPR" : {"se" : "Beredningssats för radioaktivt läkemedel",
+ "en" : "Kit for radiopharmaceutical preparation"
+},"KITIMP" : {"se" : "Beredningssats för implantat",
+ "en" : "Kit for implant"
+},"KIVLÖ" : {"se" : "KONCENTRAT TILL INJEKTIONSVÄTSKA, LÖSNING",
+ "en" : "CONCENTRATE FOR SOLUTION FOR INJECTION"
+},"LICBLO" : {"se" : "Slicksten",
+ "en" : "Lick block"
+},"LITIEQ" : {"se" : "Levande vävnadsersättning",
+ "en" : "Living tissue equivalent"
+},"LOZENG" : {"se" : "Sugtablett",
+ "en" : "Lozenge"
+},"LSOIJF" : {"se" : "Frystorkat pulver till injektions-/infusionsvätska, lösning",
+ "en" : "Lyophilisate for solution for injection/infusion"
+},"LSSOIJ" : {"se" : "Frystorkat pulver och vätska till injektionsvätska, lösning",
+ "en" : "Lyophilisate and solvent for solution for injection"
+},"LSSUIJ" : {"se" : "Frystorkat pulver och vätska till injektionsvätska, suspension",
+ "en" : "Lyophilisate and solvent for suspension for injection"
+},"LSUONS" : {"se" : "Frystorkat pulver till suspension för okulonasal eller sprayadministrering",
+ "en" : "Lyophilisate for suspension for oculonasal or spray administration"
+},"LSUSIJ" : {"se" : "Frystorkat pulver och suspension till injektionsvätska, suspension",
+ "en" : "Lyophilisate and suspension for suspension for injection"
+},"LUSUIJ" : {"se" : "Frystorkat pulver till injektionsvätska, suspension",
+ "en" : "Lyophilisate for suspension for injection"
+},"LYDRWA" : {"se" : "Frystorkat pulver för användning i dricksvatten",
+ "en" : "Lyophilisate for use in drinking water"
+},"LYONSU" : {"se" : "Frystorkat pulver till okulonasal suspension",
+ "en" : "Lyophilisate for oculonasal suspension"
+},"LYORSU" : {"se" : "Frystorkat pulver till oral suspension",
+ "en" : "Lyophilisate for oral suspension"
+},"LYOSUS" : {"se" : "Frystorkat pulver för suspension",
+ "en" : "Lyophilisate for suspension"
+},"LYSNDS" : {"se" : "Frystorkat pulver och vätska till näsdroppar, suspension",
+ "en" : "Lyophilisate and solvent for nasal drops, suspension"
+},"LYSOIF" : {"se" : "Frystorkat pulver till infusionsvätska, lösning",
+ "en" : "Lyophilisate for solution for infusion"
+},"LYSOIJ" : {"se" : "Frystorkat pulver till injektionsvätska, lösning",
+ "en" : "Lyophilisate for solution for injection"
+},"LYSOSU" : {"se" : "Frystorkat pulver och vätska till oral suspension",
+ "en" : "Lyophilisate and solvent for oral suspension"
+},"LYSSUN" : {"se" : "Frystorkat pulver och vätska till suspension för nasal administrering",
+ "en" : "Lyophilisate and solvent for suspension for nasal administration"
+},"LYSSUS" : {"se" : "Frystorkat pulver och vätska till suspension",
+ "en" : "Lyophilisate and solvent for suspension"
+},"LYSUIF" : {"se" : "Frysttorkat pulver till infusionsvätska, suspension",
+ "en" : "Lyophilisate for suspension for infusion"
+},"LÖALL" : {"se" : "LÖSNING FÖR ALLERGITEST",
+ "en" : "SOLUTION FOR ALLERGY TEST"
+},"MAIMMA" : {"se" : "Matrix till matrix för implantation",
+ "en" : "Matrix for implantation matrix"
+},"MECHGU" : {"se" : "Medicinskt tuggummi",
+ "en" : "Medicated chewing-gum"
+},"MECUSP" : {"se" : "Medicinerad kutan svamp",
+ "en" : "Medicated cutaneous sponge"
+},"MEDCOL" : {"se" : "Medicinskt halsband",
+ "en" : "Medicated collar"
+},"MEDPAT" : {"se" : "Medicinskt plåster",
+ "en" : "Medicated plaster"
+},"MEDPEL" : {"se" : "Medicinska pelleter",
+ "en" : "Medicated pellets"
+},"MEDPEN" : {"se" : "Medicinerad manchett",
+ "en" : "Medicated pendant"
+},"MEDSPO" : {"se" : "Medicinerad svamp",
+ "en" : "Medicated sponge"
+},"MEDTHR" : {"se" : "Medicinerad tråd",
+ "en" : "Medicated thread"
+},"MEGACO" : {"se" : "Medicinsk gas, komprimerad",
+ "en" : "Medicinal gas, compressed"
+},"MEGACR" : {"se" : "Medicinsk gas, kryogen",
+ "en" : "Medicinal gas, cryogenic"
+},"MEGALI" : {"se" : "Medicinsk gas, flytande",
+ "en" : "Medicinal gas, liquefied"
+},"MENALA" : {"se" : "Medicinskt nagellack",
+ "en" : "Medicated nail lacquer"
+},"MEVATA" : {"se" : "Vaginaltampong",
+ "en" : "Medicated vaginal tampon"
+},"MOPOSO" : {"se" : "Munsköljvätska, pulver till lösning",
+ "en" : "Mouthwash, powder for solution"
+},"MORCAH" : {"se" : "Kapsel med modifierad frisättning, hård",
+ "en" : "Modified-release capsule, hard"
+},"MORCAS" : {"se" : "Kapsel med modifierad frisättning, mjuk",
+ "en" : "Modified-release capsule, soft"
+},"MOREGR" : {"se" : "Granulat med modifierad frisättning",
+ "en" : "Modified-release granules"
+},"MORETA" : {"se" : "Tablett med modifierad frisättning",
+ "en" : "Modified-release tablet"
+},"MOUWAS" : {"se" : "Munsköljvätska",
+ "en" : "Mouth wash"
+},"MOUWTS" : {"se" : "Munsköljvätska, tablett till lösning",
+ "en" : "Mouth wash, tablet for solution"
+},"MUADBT" : {"se" : "Buckaltablett, häftande",
+ "en" : "Muco-adhesive buccal tablet"
+},"NADLSU" : {"se" : "Näsdroppar, frystorkat pulver till suspension",
+ "en" : "Nasal drops, lyophilisate for suspension"
+},"NADPSO" : {"se" : "Näsdroppar, pulver till lösning",
+ "en" : "Nasal drops, powder for solution"
+},"NADREM" : {"se" : "Näsdroppar, emulsion",
+ "en" : "Nasal drops, emulsion"
+},"NADRSO" : {"se" : "Näsdroppar, lösning",
+ "en" : "Nasal drops, solution"
+},"NADRSU" : {"se" : "Näsdroppar, suspension",
+ "en" : "Nasal drops, suspension"
+},"NAOMSO" : {"se" : "Näs-/munhålelösning",
+ "en" : "Nasal/oromucosal solution"
+},"NAORSP" : {"se" : "Näs-/munhålespray, lösning",
+ "en" : "Nasal/oromucosal spray, solution"
+},"NASCRE" : {"se" : "Näskräm",
+ "en" : "Nasal cream"
+},"NASGEL" : {"se" : "Näsgel",
+ "en" : "Nasal gel"
+},"NASOIN" : {"se" : "Nässalva",
+ "en" : "Nasal ointment"
+},"NASOOR" : {"se" : "Nässpray/munhålelösning",
+ "en" : "Nasal spray, solution/oromucosal solution"
+},"NASPEM" : {"se" : "Nässpray, emulsion",
+ "en" : "Nasal spray, emulsion"
+},"NASPIN" : {"se" : "Nässpray, lösning i endosbehållare",
+ "en" : "Nasal spray, solution in single-dose container"
+},"NASPOW" : {"se" : "Näspulver",
+ "en" : "Nasal powder"
+},"NASPPO" : {"se" : "Nässpray, pulver till lösning",
+ "en" : "Nasal spray, powder for solution"
+},"NASPSO" : {"se" : "Nässpray, lösning",
+ "en" : "Nasal spray, solution"
+},"NASPSU" : {"se" : "Nässpray, suspension",
+ "en" : "Nasal spray, suspension"
+},"NASSTI" : {"se" : "Nässtift",
+ "en" : "Nasal stick"
+},"NASWAS" : {"se" : "Nässköljvätska",
+ "en" : "Nasal wash"
+},"NDSOSC" : {"se" : "Näsdroppar, lösning i endosbehållare",
+ "en" : "Nasal drops, solution in single-dose container"
+},"NEBNSO" : {"se" : "Nebulisationslösning",
+ "en" : "Nebulisation solution"
+},"NEBREM" : {"se" : "Emulsion för nebulisator",
+ "en" : "Nebuliser emulsion"
+},"NEBRSO" : {"se" : "Lösning för nebulisator",
+ "en" : "Nebuliser solution"
+},"NEBRSU" : {"se" : "Suspension för nebulisator",
+ "en" : "Nebuliser suspension"
+},"NESOSD" : {"se" : "Lösning för nebulisator i endosbehållare",
+ "en" : "Nebuliser solution in single-dose container"
+},"OINCRE" : {"se" : "Salva och kräm",
+ "en" : "Ointment and cream"
+},"OINTME" : {"se" : "Salva",
+ "en" : "Ointment"
+},"OLSPSU" : {"se" : "Oral spray, suspension",
+ "en" : "Oral spray, suspension"
+},"OMPOPO" : {"se" : "Munhålepulver i portionspåse",
+ "en" : "Oromucosal powder in pouch"
+},"OPHINS" : {"se" : "Ögonlamell",
+ "en" : "Ophthalmic insert"
+},"OPHSTR" : {"se" : "Ögonremsa",
+ "en" : "Ophthalmic strip"
+},"ORAEMU" : {"se" : "Oral emulsion",
+ "en" : "Oral emulsion"
+},"ORAGEL" : {"se" : "Oral gel",
+ "en" : "Oral gel"
+},"ORAGUM" : {"se" : "Oralt gummi",
+ "en" : "Oral gum"
+},"ORALIQ" : {"se" : "Oral vätska",
+ "en" : "Oral liquid"
+},"ORALYO" : {"se" : "Frystorkad tablett",
+ "en" : "Oral lyophilisate"
+},"ORAPAS" : {"se" : "Oral pasta",
+ "en" : "Oral paste"
+},"ORAPOW" : {"se" : "Oralt pulver",
+ "en" : "Oral powder"
+},"ORASOL" : {"se" : "Oral lösning",
+ "en" : "Oral solution"
+},"ORASUS" : {"se" : "Oral suspension",
+ "en" : "Oral suspension"
+},"ORCUPA" : {"se" : "Oral/kutan pasta",
+ "en" : "Oral/cutaneous paste"
+},"ORDITA" : {"se" : "Munsönderfallande tablett",
+ "en" : "Orodispersible tablet"
+},"ORDREM" : {"se" : "Orala droppar, emulsion",
+ "en" : "Oral drops, emulsion"
+},"ORDRGR" : {"se" : "Orala droppar, granulat till lösning",
+ "en" : "Oral drops, granules for solution"
+},"ORDRLI" : {"se" : "Orala droppar, vätska",
+ "en" : "Oral drops, liquid"
+},"ORDRSO" : {"se" : "Orala droppar, lösning",
+ "en" : "Oral drops, solution"
+},"ORDRSU" : {"se" : "Orala droppar, suspension",
+ "en" : "Oral drops, suspension"
+},"OREMSA" : {"se" : "Oral emulsion i dospåse",
+ "en" : "Oral emulsion in sachet"
+},"ORLASO" : {"se" : "Munhåle-/laryngofaryngeal lösning/spray",
+ "en" : "Oromucosal/laryngopharyngeal solution/spray, solution"
+},"ORMUCA" : {"se" : "Munhålekapsel",
+ "en" : "Oromucosal capsule"
+},"ORMUCR" : {"se" : "Munhålekräm",
+ "en" : "Oromucosal cream"
+},"ORMUDR" : {"se" : "Munhåledroppar",
+ "en" : "Oromucosal drops"
+},"ORMUGE" : {"se" : "Munhålegel",
+ "en" : "Oromucosal gel"
+},"ORMUPA" : {"se" : "Munhålepasta",
+ "en" : "Oromucosal paste"
+},"ORMUSO" : {"se" : "Munhålelösning",
+ "en" : "Oromucosal solution"
+},"ORMUSP" : {"se" : "Munhålespray",
+ "en" : "Oromucosal spray"
+},"ORMUSU" : {"se" : "Munhålesuspension",
+ "en" : "Oromucosal suspension"
+},"OROFIL" : {"se" : "Munsönderfallande film",
+ "en" : "Orodispersible film"
+},"OROOIN" : {"se" : "Munhålesalva",
+ "en" : "Oromucosal ointment"
+},"ORPOSA" : {"se" : "Oralt pulver i dospåse",
+ "en" : "Oral powder in sachet"
+},"ORPSAC" : {"se" : "Oral pasta i dospåse",
+ "en" : "Oral paste in sachet"
+},"ORRESO" : {"se" : "Oral lösning/rektallösning",
+ "en" : "Oral/rectal solution"
+},"ORRESU" : {"se" : "Oral /rektalsuspension",
+ "en" : "Oral/rectal suspension"
+},"ORSOSA" : {"se" : "Oral lösning i dospåse",
+ "en" : "Oral solution in sachet"
+},"ORSOSI" : {"se" : "Oral lösning i endosbehållare",
+ "en" : "Oral solution in single-dose container"
+},"ORSPEM" : {"se" : "Munhålespray, emulsion",
+ "en" : "Oromucosal spray, emulsion"
+},"ORSPSO" : {"se" : "Munhålespray, lösning",
+ "en" : "Oromucosal spray, solution"
+},"ORSPSU" : {"se" : "Munhålespray, suspension",
+ "en" : "Oromucosal spray, suspension"
+},"ORSUDR" : {"se" : "Oral suspension för användning i dricksvatten",
+ "en" : "Oral suspension for use in drinking water"
+},"ORSUSA" : {"se" : "Oral suspension i dospåse",
+ "en" : "Oral suspension in sachet"
+},"ORSUSI" : {"se" : "Oral suspension i endosbehållare",
+ "en" : "Oral suspension in single-dose container"
+},"OSUPFA" : {"se" : "Oral suspension i förfylld oral applikator",
+ "en" : "Oral suspension in pre-filled oral applicator"
+},"PASTIL" : {"se" : "Pastill",
+ "en" : "Pastille"
+},"PBEHSO" : {"se" : "Pulver till bikupelösning",
+ "en" : "Powder for bee-hive solution"
+},"PCDIIF" : {"se" : "Pulver till koncentrat till infusionsvätska, dispersion",
+ "en" : "Powder for concentrate for dispersion for infusion"
+},"PCDSIF" : {"se" : "Pulver till koncentrat och vätska till infusionsvätska, lösning",
+ "en" : "Powder for concentrate and diluent for solution for infusion"
+},"PCSOIF" : {"se" : "Pulver till koncentrat till infusionsvätska, lösning",
+ "en" : "Powder for concentrate for solution for infusion"
+},"PCSOII" : {"se" : "Pulver till koncentrat till injektions-/infusionsvätska, lösning",
+ "en" : "Powder for concentrate for solution for injection/infusion"
+},"PERGEL" : {"se" : "Periodontalgel",
+ "en" : "Periodontal gel"
+},"PERINS" : {"se" : "Peridontalinlägg",
+ "en" : "Periodontal insert"
+},"PERPOW" : {"se" : "Periodontalpulver",
+ "en" : "Periodontal powder"
+},"PESSAR" : {"se" : "Vagitorium",
+ "en" : "Pessary"
+},"PFGETU" : {"se" : "Förfylld sond för gastroenteral användning",
+ "en" : "Pre-filled gastroenteral tube"
+},"PILLUL" : {"se" : "Granuler",
+ "en" : "Pillules"
+},"PISSFI" : {"se" : "Pulver till intravesikal lösning/injektionsvätska, lösning",
+ "en" : "Powder for intravesical solution/solution for injection"
+},"PLEPTE" : {"se" : "Plåster för epikutantest",
+ "en" : "Plaster for epicutaneous test"
+},"PLPRTE" : {"se" : "Plåster för provokationstest",
+ "en" : "Plaster for provocation test"
+},"PLÅST" : {"se" : "PLÅSTER",
+ "en" : "PATCH"
+},"PMF" : {"se" : "Plasma Master File",
+ "en" : "Plasma Master File"
+},"POBLIR" : {"se" : "Pulver till spolvätska för urinblåsan",
+ "en" : "Powder for bladder irrigation"
+},"POCUIC" : {"se" : "Pulver till lösning för kutan/intrakavernös användning",
+ "en" : "Powder for solution for cutaneous/intracavernous use"
+},"POCUSO" : {"se" : "Pulver till kutan lösning",
+ "en" : "Powder for cutaneous solution"
+},"PODECE" : {"se" : "Powder for dental cement",
+ "en" : "Powder for dental cement"
+},"PODEGE" : {"se" : "Pulver till dentalgel",
+ "en" : "Powder for dental gel"
+},"PODIIF" : {"se" : "Pulver till infusionsvätska, dispersion",
+ "en" : "Powder for dispersion for infusion"
+},"PODIIJ" : {"se" : "Pulver till injektionsvätska, dispersion",
+ "en" : "Powder for dispersion for injection"
+},"PODIIN" : {"se" : "Pulver, dispersion och vätska till koncentrat till infusionsvätska, dispersion",
+ "en" : "Powder, dispersion and solvent for concentrate for dispersion for infusion"
+},"PODRWA" : {"se" : "Pulver för användning i dricksvatten/mjölk",
+ "en" : "Powder for use in drinking water/milk"
+},"POECGE" : {"se" : "Pulver till endocervikalgel",
+ "en" : "Powder for endocervical gel"
+},"POEMIJ" : {"se" : "Pulver till injektionsvätska, emulsion",
+ "en" : "Powder for emulsion for injection"
+},"POEPSO" : {"se" : "Pulver till epilesionalvätska, lösning",
+ "en" : "Powder for epilesional solution"
+},"POESSO" : {"se" : "Pulver till bihålelösning",
+ "en" : "Powder for endosinusial solution"
+},"POFOCO" : {"se" : "Pulver till koncentrat till intravesikal suspension",
+ "en" : "Powder for concentrate for intravesical suspension"
+},"POFODE" : {"se" : "Pulver till dentallösning",
+ "en" : "Powder for dental solution"
+},"POFOEP" : {"se" : "Pulver och vätska till epilesionalvätska, lösning",
+ "en" : "Powder and solvent for epilesional solution"
+},"POFOFO" : {"se" : "Pulver till koncentrat och lösning till infusionsvätska, lösning",
+ "en" : "Powder for concentrate and solution for solution for infusion"
+},"POFOIN" : {"se" : "Pulver till intravesikal lösning",
+ "en" : "Powder for intravesical solution"
+},"POGEGE" : {"se" : "Pulver och gel till gel",
+ "en" : "Powder and gel for gel"
+},"POGEL" : {"se" : "Pulver till gel",
+ "en" : "Powder for gel"
+},"POGIGE" : {"se" : "Pulver till tandköttsgel",
+ "en" : "Powder for gingival gel"
+},"POHAEM" : {"se" : "Pulver till koncentrat till hemodialysvätska",
+ "en" : "Powder for concentrate for solution for haemodialysis"
+},"POIMMA" : {"se" : "Pulver till matrix för implantation",
+ "en" : "Powder for implantation matrix"
+},"POIMPA" : {"se" : "Pulver till pasta för implantation",
+ "en" : "Powder for implantation paste"
+},"POIMSU" : {"se" : "Pulver till suspension för implantation",
+ "en" : "Powder for implantation suspension"
+},"POINSU" : {"se" : "Pulver och vätska till intravesikal suspension",
+ "en" : "Powder and solvent for intravesical suspension"
+},"POIOIO" : {"se" : "Pulver till intraokulär instillationsvätska, lösning",
+ "en" : "Powder for intraocular instillation solution"
+},"PONESO" : {"se" : "Pulver till lösning för nebulisator",
+ "en" : "Powder for nebuliser solution"
+},"PONESU" : {"se" : "Pulver till suspension för nebulisator",
+ "en" : "Powder for nebuliser suspension"
+},"POONEM" : {"se" : "Pour-on, emulsion",
+ "en" : "Pour-on emulsion"
+},"POONSO" : {"se" : "Pour-on, lösning",
+ "en" : "Pour-on solution"
+},"POONSU" : {"se" : "Pour-on, suspension",
+ "en" : "Pour-on suspension"
+},"POORSO" : {"se" : "Pulver till oral lösning",
+ "en" : "Powder for oral solution"
+},"POORSU" : {"se" : "Pulver till oral suspension",
+ "en" : "Powder for oral suspension"
+},"PORESO" : {"se" : "Pulver till rektallösning",
+ "en" : "Powder for rectal solution"
+},"PORESU" : {"se" : "Pulver till rektalsuspension",
+ "en" : "Powder for rectal suspension"
+},"PORSUC" : {"se" : "Pulver till oral/rektal suspension i dospåse",
+ "en" : "Powder for oral/rectal suspension in sachet"
+},"PORSUS" : {"se" : "Pulver till oral/rektal suspension",
+ "en" : "Powder for oral/rectal suspension"
+},"POSEAL" : {"se" : "Pulver till vävnadslim",
+ "en" : "Powder for sealant"
+},"POSECG" : {"se" : "Pulver och vätska till endocervikalgel",
+ "en" : "Powder and solvent for endocervical gel"
+},"POSION" : {"se" : "Pulver till lösning för jontofores",
+ "en" : "Powder for solution for iontophoresis"
+},"POSMIM" : {"se" : "Pulver, vätska och matrix till matrix för implantation",
+ "en" : "Powder, solvent and matrix for implantation matrix"
+},"POSOFI" : {"se" : "Pulver till lösning för behandling av fisk",
+ "en" : "Powder for solution for fish treatment"
+},"POSOIF" : {"se" : "Pulver till infusionsvätska, lösning",
+ "en" : "Powder for solution for infusion"
+},"POSOII" : {"se" : "Pulver till injektions-/infusionsvätska, lösning",
+ "en" : "Powder for solution for injection/infusion"
+},"POSOIJ" : {"se" : "Pulver till injektionsvätska, lösning",
+ "en" : "Powder for solution for injection"
+},"POSOIN" : {"se" : "Pulver och vätska till intravesikal lösning",
+ "en" : "Powder and solvent for intravesical solution"
+},"POSOIV" : {"se" : "Pulver till lösning för intravesikal användning",
+ "en" : "Powder for solution for intravesical use"
+},"POSOJS" : {"se" : "Pulver till injektionsvätska, lösning/ lösning för pricktest",
+ "en" : "Powder for solution for injection/skin-prick test"
+},"POSONE" : {"se" : "Pulver och vätska till lösning för nebulisator",
+ "en" : "Powder and solvent for nebuliser solution"
+},"POSOSA" : {"se" : "Pulver till oral lösning i dospåse",
+ "en" : "Powder for oral solution in sachet"
+},"POSOSE" : {"se" : "Pulver och vätska till vävnadslim",
+ "en" : "Powder and solvent for sealant"
+},"POSOSO" : {"se" : "Pulver och lösning till injektionsvätska, lösning",
+ "en" : "Powder and solution for solution for injection"
+},"POSOSP" : {"se" : "Pulver till lösning för pricktest",
+ "en" : "Powder for solution for skin-prick test"
+},"POSSIJ" : {"se" : "Pulver till injektionsvätska, lösning/suspension",
+ "en" : "Powder for solution/suspension for injection"
+},"POSUIF" : {"se" : "Pulver till infusionsvätska, suspension",
+ "en" : "Powder for suspension for infusion"
+},"POSUIJ" : {"se" : "Pulver till injektionsvätska, suspension",
+ "en" : "Powder for suspension for injection"
+},"POSUIM" : {"se" : "Pulver till implantation, suspension",
+ "en" : "Powder for suspension for implantation"
+},"POSUSA" : {"se" : "Pulver till oral suspension, dospåse",
+ "en" : "Powder for oral suspension, sachet"
+},"POUCHH" : {"se" : "Pouch",
+ "en" : "Pouch"
+},"POUDWA" : {"se" : "Pulver för användning i dricksvatten",
+ "en" : "Powder for use in drinking water"
+},"POULTI" : {"se" : "Medicinskt omslag",
+ "en" : "Poultice"
+},"POWSSY" : {"se" : "Pulver och vätska till sirap",
+ "en" : "Powder and solvent for syrap"
+},"POWSYR" : {"se" : "Pulver till sirap",
+ "en" : "Powder for syrup"
+},"PPCLDF" : {"se" : "Pulver och vätskor till koncentrat för infusionsvätska, liposom-dispersion",
+ "en" : "Powder and pre-admixtures for concentrate for liposomal dispersion for infusion"
+},"PRGOSU" : {"se" : "Depotgranulat till oral suspension",
+ "en" : "Prolonged-release granules for oral suspension"
+},"PRGRSA" : {"se" : "Depotgranulat i dospåse",
+ "en" : "Prolonged-release granules in sachet"
+},"PRINEM" : {"se" : "Inhalationsspray, emulsion",
+ "en" : "Pressurised inhalation, emulsion"
+},"PRINSO" : {"se" : "Inhalationsspray, lösning",
+ "en" : "Pressurised inhalation, solution"
+},"PRINSU" : {"se" : "Inhalationsspray, suspension",
+ "en" : "Pressurised inhalation, suspension"
+},"PRIRUD" : {"se" : "Intraruminalinlägg, periodvis frisättning",
+ "en" : "Pulsatile-release intraruminal device"
+},"PRMEFE" : {"se" : "Premix till medicinfoder",
+ "en" : "Premix for medicated feed"
+},"PRRECH" : {"se" : "Depotkapsel, hård",
+ "en" : "Prolonged-release capsule, hard"
+},"PRRECS" : {"se" : "Depotkapsel, mjuk",
+ "en" : "Prolonged-release capsule, soft"
+},"PRREGR" : {"se" : "Depotgranulat",
+ "en" : "Prolonged-release granules"
+},"PRRETA" : {"se" : "Depottablett",
+ "en" : "Prolonged-release tablet"
+},"PRRGRD" : {"se" : "Depotgranulat till oral suspension i dospåse",
+ "en" : "Prolonged-release granules for oral suspension in sachet"
+},"PRSIPS" : {"se" : "Injektionsvätska, depotsuspension i förfylld spruta",
+ "en" : "Prolonged-release suspension for injection in pre-filled syringe"
+},"PRSOIJ" : {"se" : "Injektionsvätska, depotlösning",
+ "en" : "Prolonged-release solution for injection"
+},"PRSUIJ" : {"se" : "Injektionsvätska, depotsuspension",
+ "en" : "Prolonged-release suspension for injection"
+},"PSCSIF" : {"se" : "Pulver och vätska till koncentrat till infusionsvätska, lösning",
+ "en" : "Powder and solvent for concentrate for solution for infusion"
+},"PSCUIC" : {"se" : "Pulver och vätska till lösning för kutan/intrakavernös användning",
+ "en" : "Powder and solvent for solution for cutaneous/intracavernous use"
+},"PSDECE" : {"se" : "Powder and solution for dental cement",
+ "en" : "Powder and solution for dental cement"
+},"PSDIIJ" : {"se" : "Pulver och vätska till injektionsvätska, dispersion",
+ "en" : "Powder and solvent for dispersion for injection"
+},"PSEMIJ" : {"se" : "Pulver och vätska till injektionsvätska, emulsion",
+ "en" : "Powder and solvent for emulsion for injection"
+},"PSGIGP" : {"se" : "Pulver och vätska till tandköttsgel i förfylld spruta",
+ "en" : "Powder and solvent for gingival gel in pre-filled syringe"
+},"PSIFVE" : {"se" : "Pulver till infusionsvätska/lösning för intravesikal användning",
+ "en" : "Powder for solution for infusion/intravesical use"
+},"PSIPRG" : {"se" : "Pulver till injektionsvätska, suspension, depotgranulat",
+ "en" : "Powder for suspension for injection, prolonged-release granules"
+},"PSISIU" : {"se" : "Pulver och vätska till instillationsvätska, lösning för intraokulär användning",
+ "en" : "Powder and solvent for instillation solution for intraocular use"
+},"PSIVES" : {"se" : "Pulver till injektionsvätska/lösning för intravesikal användning",
+ "en" : "Powder for solution for injection/intravesical use"
+},"PSNDSO" : {"se" : "Pulver och vätska till näsdroppar, lösning",
+ "en" : "Powder and solvent for nasal drops, solution"
+},"PSNDSU" : {"se" : "Pulver och vätska till näsdroppar, suspension",
+ "en" : "Powder and solvent for nasal drops, suspension"
+},"PSOIIN" : {"se" : "Pulver till injektions-/infusions-/nebulisatorvätska, lösning",
+ "en" : "Powder for solution for injection/infusion/nebuliser"
+},"PSOIJO" : {"se" : "Pulver till injektionsvätska, lösning/oral lösning",
+ "en" : "Powder for solution for injection/oral solution"
+},"PSORSO" : {"se" : "Pulver och vätska till oral lösning",
+ "en" : "Powder and solvent for oral solution"
+},"PSORSU" : {"se" : "Pulver och vätska till oral suspension",
+ "en" : "Powder and solvent for oral suspension"
+},"PSPRSI" : {"se" : "Pulver och vätska till injektionsvätska, depotsuspension",
+ "en" : "Powder and solvent for prolonged-release suspension for injection"
+},"PSPRSP" : {"se" : "Pulver och vätska till injektionsvätska, depotsuspension i förfylld injektionspenna",
+ "en" : "Powder and solvent for prolonged-release suspension for injection in pre-filled pen"
+},"PSPRSS" : {"se" : "Pulver och vätska till injektionsvätska, depotsuspension i förfylld spruta",
+ "en" : "Powder and solvent for prolonged-release suspension for injection in pre-filled syringe"
+},"PSSIFV" : {"se" : "Pulver och vätska till infusionsvätska/lösning för intravesikal användning",
+ "en" : "Powder and solvent for solution for infusion/intravesical use"
+},"PSSIIO" : {"se" : "Pulver och vätska till injektionsvätska, lösning för intraokulär användning",
+ "en" : "Powder and solvent for solution for injection, intraocular use"
+},"PSSIJC" : {"se" : "Pulver och vätska till injektionsvätska, lösning i cylinderampull",
+ "en" : "Powder and solvent for solution for injection in cartridge"
+},"PSSIJF" : {"se" : "Pulver och vätska till injektions-/infusionsvätska, lösning",
+ "en" : "Powder and solvent for solution for injection/infusion"
+},"PSSIJP" : {"se" : "Pulver och vätska till injektionsvätska, lösning i förfylld spruta",
+ "en" : "Powder and solvent for solution for injection in pre-filled syringe"
+},"PSSIPG" : {"se" : "Pulver och vätska till injektionsvätska, suspension, depotgranulat",
+ "en" : "Powder and solvent for suspension for injection, prolonged-release granules"
+},"PSSIPP" : {"se" : "Pulver och vätska till injektionsvätska, lösning i förfylld injektionspenna",
+ "en" : "Powder and solvent for solution for injection in pre-filled pen"
+},"PSSOIF" : {"se" : "Pulver och vätska till infusionsvätska, lösning",
+ "en" : "Powder and solvent for solution for infusion"
+},"PSSOIJ" : {"se" : "Pulver och vätska till injektionsvätska, lösning",
+ "en" : "Powder and solvent for solution for injection"
+},"PSSOIV" : {"se" : "Pulver och vätska till intravesikal användning, lösning",
+ "en" : "Powder and solvent for solution for intravesical use"
+},"PSSUIJ" : {"se" : "Pulver och vätska till injektionsvätska, suspension",
+ "en" : "Powder and solvent for suspension for injection"
+},"PSSUIP" : {"se" : "Pulver och vätska till injektionsvätska, suspension i förfylld spruta",
+ "en" : "Powder and solvent for suspension for injection in pre-filled syringe"
+},"PSSUIV" : {"se" : "Pulver och vätska till intravesikal användning, suspension",
+ "en" : "Powder and solvent for suspension for intravesical use"
+},"PSTBHS" : {"se" : "Pulver och lösning till bikupelösning",
+ "en" : "Powder and solution for bee-hive solution"
+},"PSUSUI" : {"se" : "Pulver och suspension till injektionsvätska, suspension",
+ "en" : "Powder and suspension for suspension for injection"
+},"PULVR" : {"se" : "Pulver",
+ "en" : "Powder"
+},"RANUGE" : {"se" : "Radionuklidgenerator",
+ "en" : "Radionuclide generator"
+},"RAPHPR" : {"se" : "Stamlösning till radioaktiva läkemedel",
+ "en" : "Radiopharmaceutical precursor"
+},"RECCAP" : {"se" : "Rektalkapsel",
+ "en" : "Rectal capsule"
+},"RECCRE" : {"se" : "Rektalkräm",
+ "en" : "Rectal cream"
+},"RECEMU" : {"se" : "Rektalemulsion",
+ "en" : "Rectal emulsion"
+},"RECFOA" : {"se" : "Rektalskum",
+ "en" : "Rectal foam"
+},"RECGEL" : {"se" : "Rektalgel",
+ "en" : "Rectal gel"
+},"RECOIN" : {"se" : "Rektalsalva",
+ "en" : "Rectal ointment"
+},"RECSOL" : {"se" : "Rektallösning",
+ "en" : "Rectal solution"
+},"RECSUS" : {"se" : "Rektalsuspension",
+ "en" : "Rectal suspension"
+},"RECTAM" : {"se" : "Rektaltampong",
+ "en" : "Rectal tampon"
+},"SCASOL" : {"se" : "Lösning för hårbotten",
+ "en" : "Scalp solution"
+},"SEALAN" : {"se" : "Vävnadslim",
+ "en" : "Sealant"
+},"SEAMAT" : {"se" : "Matrix till vävnadslim",
+ "en" : "Sealant matrix"
+},"SEAPOW" : {"se" : "Vävnadslim, pulver",
+ "en" : "Sealant powder"
+},"SEEINF" : {"se" : "Lösning och emulsion till infusionsvätska, emulsion",
+ "en" : "Solution and emulsion for emulsion for infusion"
+},"SEGOSU" : {"se" : "Suspension och brusgranulat till oral suspension",
+ "en" : "Suspension and effervescent granules for oral suspension"
+},"SHAMPO" : {"se" : "Schampo",
+ "en" : "Shampoo"
+},"SHDYHF" : {"se" : "Hemodialysvätska/hemofiltrationsvätska",
+ "en" : "Solution for haemodialysis/haemofiltration"
+},"SHFHDF" : {"se" : "Hemofiltrationsvätska/hemodiafiltrationsvätska",
+ "en" : "Solution for haemofiltration/haemodiafiltration"
+},"SHFHDY" : {"se" : "Hemofiltrationsvätska/hemodialysvätska",
+ "en" : "Solution for haemofiltration/haemodialysis"
+},"SIFCIF" : {"se" : "Infusionsvätska/koncentrat till infusionsvätska, lösning",
+ "en" : "Solution for infusion/concentrate for solution for infusion"
+},"SIJCIJ" : {"se" : "Injektionsvätska/koncentrat till infusionsvätska, lösning",
+ "en" : "Solution for injection/concentrate for solution for infusion"
+},"SIJCIP" : {"se" : "Injektionsvätska/koncentrat till infusionsvätska, lösning i förfylld spruta",
+ "en" : "Solution for injection/concentrate for solution for infusion in prefilled syringe"
+},"SIJEPS" : {"se" : "Injektionsvätska, suspension i emulsion i förfylld spruta",
+ "en" : "Suspension for injection in emulsion in pre-filled syringe"
+},"SOBEHI" : {"se" : "Lösning till bikupestrip",
+ "en" : "Solution for bee-hive strip"
+},"SOBFMO" : {"se" : "Lösning för modifiering av blodfraktion",
+ "en" : "Solution for blood fraction modification"
+},"SOBHSO" : {"se" : "Lösning till bikupelösning",
+ "en" : "Solution for bee-hive solution"
+},"SODECE" : {"se" : "Solution for dental cement",
+ "en" : "Solution for dental cement"
+},"SODRWA" : {"se" : "Lösning för användning i dricksvatten",
+ "en" : "Solution for use in drinking water"
+},"SODWMI" : {"se" : "Lösning för användning i dricksvatten/mjölk",
+ "en" : "Solution for use in drinking water/milk"
+},"SOFOIN" : {"se" : "Infusionsvätska, lösning och oral lösning",
+ "en" : "Solution for infusion and oral solution"
+},"SOHADF" : {"se" : "Hemodiafiltrationsvätska",
+ "en" : "Solution for haemodiafiltration"
+},"SOHADI" : {"se" : "Hemodialysvätska",
+ "en" : "Solution for haemodialysis"
+},"SOHAFI" : {"se" : "Hemofiltrationsvätska",
+ "en" : "Solution for haemofiltration"
+},"SOIFPS" : {"se" : "Infusionsvätska, lösning i förfylld spruta",
+ "en" : "Solution for infusion in pre-filled syringe"
+},"SOIJIF" : {"se" : "Injektions-/infusionsvätska, lösning",
+ "en" : "Solution for injection/infusion"
+},"SOIJIV" : {"se" : "Injektionsvätska/lösning för intravesikal användning",
+ "en" : "Solution for injection/intravesical use"
+},"SOIJPC" : {"se" : "Injektionsvätska, lösning i förfylld spruta/cylinderampull",
+ "en" : "Solution for injection in pre-filled syringe/cartridge"
+},"SOIJPR" : {"se" : "Injektionsvätska, lösning i förfylld injektor",
+ "en" : "Solution for injection in pre-filled injector"
+},"SOIJPS" : {"se" : "Injektionsvätska, lösning i förfylld spruta",
+ "en" : "Solution for injection in pre-filled syringe"
+},"SOINAD" : {"se" : "Infusionsvätska, lösning i administreringssats",
+ "en" : "Solution for infusion in administration system"
+},"SOINCA" : {"se" : "Injektionsvätska, lösning i cylinderampull",
+ "en" : "Solution for injection in cartridge"
+},"SOININ" : {"se" : "Injektions- / infusionsvätska, lösning i förfylld spruta",
+ "en" : "Solution for injection/infusion in pre-filled syringe"
+},"SOINJA" : {"se" : "Injektionsvätska, lösning i administreringssats",
+ "en" : "Solution for injection in administration system"
+},"SOINNE" : {"se" : "Injektionsvätska, lösning i nålfri injektor",
+ "en" : "Solution for injection in needle-free injector"
+},"SOINPP" : {"se" : "Injektionsvätska, lösning i förfylld injektionspenna",
+ "en" : "Solution for injection in pre-filled pen"
+},"SOINPU" : {"se" : "Lösning för intraperitoneal användning",
+ "en" : "Solution for intraperitoneal use"
+},"SOIOPH" : {"se" : "Lösning för jontofores",
+ "en" : "Solution for iontophoresis"
+},"SOIVEU" : {"se" : "Lösning för intravesikal användning",
+ "en" : "Solution for intravesical use"
+},"SOJDDC" : {"se" : "Injektionsvätska, lösning i kassett för dosdispenser",
+ "en" : "Solution for injection in dose-dispenser cartridge"
+},"SOJFPS" : {"se" : "Injektions- / infusionsvätska, lösning i förfylld spruta",
+ "en" : "Solution for injection/infusion in pre-filled syringe"
+},"SOJSPT" : {"se" : "Injektionsvätska, lösning/ lösning för pricktest",
+ "en" : "Solution for injection/skin-prick test"
+},"SOLCAR" : {"se" : "Lösning för kardioplegi",
+ "en" : "Solution for cardioplegia"
+},"SOLHHH" : {"se" : "Hemofiltrationsvätska/hemodialysvätska/hemodiafiltrationsvätska",
+ "en" : "Solution for haemofiltration/haemodialysis/haemodiafiltration"
+},"SOLINF" : {"se" : "Infusionsvätska, lösning",
+ "en" : "Solution for infusion"
+},"SOLINH" : {"se" : "Inhalationsvätska, lösning",
+ "en" : "Solution for inhalation"
+},"SOLINJ" : {"se" : "Injektionsvätska, lösning",
+ "en" : "Solution for injection"
+},"SOLIOI" : {"se" : "Spolvätska, lösning för intraokulär användning",
+ "en" : "Solution for intraocular irrigation"
+},"SOLPRT" : {"se" : "Lösning för pricktest",
+ "en" : "Solution for skin-prick test"
+},"SOLSEL" : {"se" : "Lösningar till vävnadslim",
+ "en" : "Solutions for sealant"
+},"SOLSUS" : {"se" : "Lösning och suspension till injektionsvätska, suspension i förfylld spruta",
+ "en" : "Solution and suspension for suspension for injection in pre-filled syringe"
+},"SOLTAB" : {"se" : "Löslig tablett",
+ "en" : "Soluble tablet"
+},"SOLVFO" : {"se" : "Vätska till...",
+ "en" : "Solvent for..."
+},"SOORPR" : {"se" : "Vätska för organförvaring",
+ "en" : "Solution for organ preservation"
+},"SOPAUS" : {"se" : "Spädningsvätska för parenteral användning",
+ "en" : "Solvent for parenteral use"
+},"SOPEDI" : {"se" : "Peritonealdialysvätska",
+ "en" : "Solution for peritoneal dialysis"
+},"SOPRAP" : {"se" : "Lösning för pricktestapplikator",
+ "en" : "Solution for prick test applicator"
+},"SOPRTE" : {"se" : "Lösning för provokationstest",
+ "en" : "Solution for provocation test"
+},"SOSCTE" : {"se" : "Lösning för risttest",
+ "en" : "Solution for skin-scratch test"
+},"SOSOIF" : {"se" : "Lösning till infusionsvätska, lösning",
+ "en" : "Solution for solution for infusion"
+},"SOSOIJ" : {"se" : "Lösning till injektionsvätska, lösning",
+ "en" : "Solution for solution for injection"
+},"SOSOSC" : {"se" : "Spot-on, lösning i endosbehållare",
+ "en" : "Spot-on, solution in single-dose container"
+},"SOSUIJ" : {"se" : "Lösning till injektionsvätska, suspension",
+ "en" : "Solution for suspension for injection"
+},"SPONEM" : {"se" : "Spot-on, emulsion",
+ "en" : "Spot-on emulsion"
+},"SPONSO" : {"se" : "Spot-on, lösning",
+ "en" : "Spot-on solution"
+},"SPONSU" : {"se" : "Spot-on, suspension",
+ "en" : "Spot-on suspension"
+},"SSORSP" : {"se" : "Suspension och vätska till oral spray",
+ "en" : "Suspension and solvent for oral spray"
+},"STOIRR" : {"se" : "Magspolvätska",
+ "en" : "Stomach irrigation"
+},"STPOSO" : {"se" : "Löslig tablett och pulver till oral lösning",
+ "en" : "Soluble tablet and powder for oral solution"
+},"SUBFIL" : {"se" : "Sublingual film",
+ "en" : "Sublingual film"
+},"SUBSOL" : {"se" : "Sublingual lösning",
+ "en" : "Sublingual solution"
+},"SUDRWA" : {"se" : "Suspension för användning i dricksvatten",
+ "en" : "Suspension for use in drinking water"
+},"SUEIJE" : {"se" : "Suspension och emulsion till injektionsvätska,emulsion",
+ "en" : "Suspension and emulsion for emulsion for injection"
+},"SUEMIJ" : {"se" : "Suspension till injektionsvätska, emulsion",
+ "en" : "Suspension for emulsion for injection"
+},"SUIJEM" : {"se" : "Injektionsvätska, suspension i emulsion",
+ "en" : "Suspension for injection in emulsion"
+},"SUIJMC" : {"se" : "Injektionsvätska, suspension i flerdosbehållare",
+ "en" : "Suspension for injection in multidose container"
+},"SUIJPR" : {"se" : "Injektionsvätska, suspension i förfylld injektor",
+ "en" : "Suspension for injection in pre-filled injector"
+},"SUIJSV" : {"se" : "Injektionsvätska, suspension i endosinjektionsflaska",
+ "en" : "Suspension for injektion in single dose vial"
+},"SUIJVI" : {"se" : "Suspension for injection in vial",
+ "en" : "Suspension for injection in vial"
+},"SUINCA" : {"se" : "Injektionsvätska, suspension, cylinderampull",
+ "en" : "Suspension for injection, cartridge"
+},"SUINPP" : {"se" : "Injektionsvätska, suspension i förfylld injektionspenna",
+ "en" : "Suspension for injection in pre-filled pen"
+},"SUINPS" : {"se" : "Injektionsvätska, suspension, förfylld spruta",
+ "en" : "Suspension for injection, pre-filled syringe"
+},"SULISP" : {"se" : "Sublingualspray",
+ "en" : "Sublingual spray"
+},"SULITA" : {"se" : "Resoriblett, sublingual",
+ "en" : "Sublingual tablet"
+},"SUORSU" : {"se" : "Suspension till oral suspension",
+ "en" : "Suspension for oral suspension"
+},"SUPJIJ" : {"se" : "Suspension för injektion intill ögats bakre vägg",
+ "en" : "Suspension for posterior juxtascleral injection"
+},"SUPPOS" : {"se" : "Suppositorium",
+ "en" : "Suppository"
+},"SUSINJ" : {"se" : "Injektionsvätska, suspension",
+ "en" : "Suspension for injection"
+},"SUSOIJ" : {"se" : "Suspension och vätska till injektionsvätska, suspension",
+ "en" : "Suspension and solvent for suspension for injection"
+},"SUSOJP" : {"se" : "Suspension och vätska till injektionsvätska, suspension, förfylld spruta",
+ "en" : "Suspension and solvent for suspension for injection in pre-filled syringe"
+},"SUSOSP" : {"se" : "Suspension och lösning till spray",
+ "en" : "Suspension and solution for spray"
+},"SUSUIJ" : {"se" : "Suspension till injektionsvätska, suspension",
+ "en" : "Suspension for suspension for injection"
+},"SYRUP" : {"se" : "Sirap",
+ "en" : "Syrup"
+},"TABCHE" : {"se" : "Tablett och tuggtablett",
+ "en" : "Tablet and chewable tablet"
+},"TABEFF" : {"se" : "Tablett och brustablett",
+ "en" : "Tablet and effervescent tablet"
+},"TABLET" : {"se" : "Tablett",
+ "en" : "Tablet"
+},"TABVAG" : {"se" : "Tablett + vaginaltablett",
+ "en" : "Tablet + vaginal tablet"
+},"TACUSO" : {"se" : "Tablett till kutan lösning",
+ "en" : "Tablet for cutaneous solution"
+},"TAGRSA" : {"se" : "Filmdragerad tablett och enterogranulat i dospåse",
+ "en" : "Film-coated tablet and gastro-resistant granules in sachet"
+},"TAGRTA" : {"se" : "Tablett och enterotablett",
+ "en" : "Tablet and gastro-resistant tablet"
+},"TARESO" : {"se" : "Tablett till rektallösning",
+ "en" : "Tablet for rectal solution"
+},"TARESU" : {"se" : "Tablett till rektalsuspension",
+ "en" : "Tablet for rectal suspension"
+},"TAVASO" : {"se" : "Tablett till vaginallösning",
+ "en" : "Tablet for vaginal solution"
+},"TDISPS" : {"se" : "Spendopp/spray, lösning",
+ "en" : "Teat dip/spray, solution"
+},"TEASTI" : {"se" : "Spenstift",
+ "en" : "Teat stick"
+},"TEDIEM" : {"se" : "Spendopp, emulsion",
+ "en" : "Teat dip emulsion"
+},"TEDISO" : {"se" : "Spendopp, lösning",
+ "en" : "Teat dip solution"
+},"TEDISU" : {"se" : "Spendopp, suspension",
+ "en" : "Teat dip suspension"
+},"TESPSO" : {"se" : "Spenspray, lösning",
+ "en" : "Teat spray solution"
+},"TOOPAS" : {"se" : "Tandkräm",
+ "en" : "Toothpaste"
+},"TRAGEL" : {"se" : "Transdermal gel",
+ "en" : "Transdermal gel"
+},"TRAPAT" : {"se" : "Depotplåster",
+ "en" : "Transdermal patch"
+},"TRASOL" : {"se" : "Transdermal lösning",
+ "en" : "Transdermal solution"
+},"TRASYS" : {"se" : "Transdermalt system",
+ "en" : "Transdermal system"
+},"TRFDB" : {"se" : "TRÅD FÖR DENTALT BRUK",
+ "en" : "THREAD FOR DENTAL USE"
+},"TRPATA" : {"se" : "Tablett och depotplåster",
+ "en" : "Tablet and transdermal patch"
+},"TRSPSO" : {"se" : "Transdermal spray, lösning",
+ "en" : "Transdermal spray, solution"
+},"TSORSU" : {"se" : "Tablett och vätska till rektal suspension",
+ "en" : "Tablet and solvent for rectal suspension"
+},"UREEMU" : {"se" : "Uretralemulsion",
+ "en" : "Urethral emulsion"
+},"UREGEL" : {"se" : "Uretralgel",
+ "en" : "Urethral gel"
+},"URESTI" : {"se" : "Uretralstift",
+ "en" : "Urethral stick"
+},"VACASO" : {"se" : "Vaginalkapsel, mjuk",
+ "en" : "Vaginal capsule, soft"
+},"VAGCAH" : {"se" : "Vaginalkapsel, hård",
+ "en" : "Vaginal capsule, hard"
+},"VAGCAS" : {"se" : "Vaginalkapsel, mjuk",
+ "en" : "Vaginal capsule, soft"
+},"VAGCRE" : {"se" : "Vaginalkräm",
+ "en" : "Vaginal cream"
+},"VAGDEL" : {"se" : "Vaginalinlägg",
+ "en" : "Vaginal delivery system"
+},"VAGDEV" : {"se" : "Vaginalinlägg",
+ "en" : "Vaginal device"
+},"VAGEMU" : {"se" : "Vaginalemulsion",
+ "en" : "Vaginal emulsion"
+},"VAGFOA" : {"se" : "Vaginalskum",
+ "en" : "Vaginal foam"
+},"VAGGEL" : {"se" : "Vaginalgel",
+ "en" : "Vaginal gel"
+},"VAGOIN" : {"se" : "Vaginalsalva",
+ "en" : "Vaginal ointment"
+},"VAGSOL" : {"se" : "Vaginallösning",
+ "en" : "Vaginal solution"
+},"VAGSPO" : {"se" : "Vaginalsvamp",
+ "en" : "Vaginal sponge"
+},"VAGSUS" : {"se" : "Vaginalsuspension",
+ "en" : "Vaginal suspension"
+},"VAGTAB" : {"se" : "Vaginaltablett",
+ "en" : "Vaginal tablet"
+},"VAMF" : {"se" : "Vaccine Antigen Master File",
+ "en" : "Vaccine Antigen Master File"
+},"VCSVCR" : {"se" : "Vaginalkapsel, mjuk + vaginalkräm",
+ "en" : "Vaginal capsule, soft + vaginal cream"
+},"VGCACR" : {"se" : "Vaginalkapsel, mjuk och kräm",
+ "en" : "Vaginal capsule, soft and cream"
+},"VGTACR" : {"se" : "Vaginaltablett och kräm",
+ "en" : "Vaginal tablet and cream"
+},"VGTCRE" : {"se" : "Vagitorium och kräm",
+ "en" : "Pessary and cream"
+},"VTAVCR" : {"se" : "Vaginalkräm + vaginaltablett",
+ "en" : "Vaginal cream + vaginal tablet"
+},"WOUSTI" : {"se" : "Sårstift",
+ "en" : "Wound stick"
+},"ÖGDRO" : {"se" : "ÖGONDROPPAR",
+ "en" : "EYE DROPS"
+}}

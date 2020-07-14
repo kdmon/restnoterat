@@ -19,7 +19,7 @@
         </div>
         <div v-else>
           <q-spinner/>
-          <h3>laddar</h3>
+          <h3>{{ $store.state.supplies.loading }}</h3>
         </div>
       </q-page>
     </q-page-container>

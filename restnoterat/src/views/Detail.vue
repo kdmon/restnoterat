@@ -6,15 +6,18 @@
         <q-breadcrumbs-el label="Hem" icon="home" to="/" />
         <q-breadcrumbs-el label="Detalj" />
       </q-breadcrumbs>
-    </div>
-        <div class="q-pa-md row items-start q-gutter-md ">
-      <q-card class="my-card">
+      <div class="row">
+      <q-card class="my-card headline">
         <div class="text-h5 text-center">Fakta</div>
         <q-card-section><strong>Läkemdel:</strong> {{ product.name }}</q-card-section>
-        <q-card-section><strong>ATC:</strong> {{ product.atc }}</q-card-section>
+        <q-card-section><strong>ATC:</strong> {{ $store.state.supplies.atcLexicon[product.atc].se }} ({{ product.atc }})</q-card-section>
         <q-card-section><strong>Nplid:</strong> {{ product.nplId }}</q-card-section>
-        <q-card-section><strong>Form:</strong> {{ product.form }}</q-card-section>
+        <q-card-section><strong>Form:</strong> {{ $store.state.supplies.formLexicon[product.form].se }}</q-card-section>
+        <q-card-section><strong>Styrka:</strong> {{ product.strength }}</q-card-section>
       </q-card>
+      </div>
+    </div>
+        <div class="q-pa-md row items-start q-gutter-md ">
       <q-card class="my-card" v-for="period in product.shortages" :key="period.referenceNumber">
         <div class="text-h5 text-center">Restnotering</div>
           <q-card-section><strong>Förpackning:</strong> {{ product.packages[period.packs[0].nplpackid[0]].text }}</q-card-section>
