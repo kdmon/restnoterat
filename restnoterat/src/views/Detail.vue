@@ -1,9 +1,8 @@
 <template>
   <div>
-    <h6>currentShortage: {{ productByNplId($route.params.id).currentShortage }}</h6>
+    <h6>currentShortage: {{ product.currentShortage }}</h6>
     <div class="q-pa-md q-gutter-sm">
       <q-breadcrumbs>
-        <!-- <router-link :to="{ path: '/' }"><q-breadcrumbs-el label="Hem" /></router-link> -->
         <q-breadcrumbs-el label="Hem" icon="home" to="/" />
         <q-breadcrumbs-el label="Detalj" />
       </q-breadcrumbs>
@@ -11,68 +10,75 @@
         <div class="q-pa-md row items-start q-gutter-md ">
       <q-card class="my-card">
         <div class="text-h5 text-center">Fakta</div>
-        <q-card-section><strong>Läkemdel:</strong> {{ productByNplId($route.params.id).name }}</q-card-section>
-        <q-card-section><strong>ATC:</strong> {{ productByNplId($route.params.id).atc }}</q-card-section>
-        <q-card-section><strong>Nplid:</strong> {{ productByNplId($route.params.id).nplId }}</q-card-section>
-        <q-card-section><strong>Referens:</strong> {{ productByNplId($route.params.id).shortages[0].referenceNumber }}</q-card-section>
-        <q-card-section><strong>Form:</strong> {{ productByNplId($route.params.id).form }}</q-card-section>
+        <q-card-section><strong>Läkemdel:</strong> {{ product.name }}</q-card-section>
+        <q-card-section><strong>ATC:</strong> {{ product.atc }}</q-card-section>
+        <q-card-section><strong>Nplid:</strong> {{ product.nplId }}</q-card-section>
+        <q-card-section><strong>Form:</strong> {{ product.form }}</q-card-section>
       </q-card>
-      <q-card class="my-card">
+      <q-card class="my-card" v-for="period in product.shortages" :key="period.referenceNumber">
         <div class="text-h5 text-center">Restnotering</div>
-          <q-card-section><strong>Nplpackid:</strong> {{ productByNplId($route.params.id).shortages[0].packs[0].nplpackid[0] }}</q-card-section>
-          <q-card-section><strong>Första Publicering:</strong> {{ productByNplId($route.params.id).shortages[0].publicationDate.firstPublication }}</q-card-section>
-          <q-card-section><strong>Senast Publicering:</strong> {{ productByNplId($route.params.id).shortages[0].publicationDate.lastPublication }}</q-card-section>
-          <q-card-section v-if="productByNplId($route.params.id).currentShortage"><strong>Pågoende restnotering:</strong> Ja</q-card-section>
-          <q-card-section v-if="productByNplId($route.params.id).currentShortage"><strong>Förslag:</strong> {{ productByNplId($route.params.id).shortages[0].advice }} </q-card-section>
-          <q-card-section v-if="productByNplId($route.params.id).currentShortage"><strong>Kontakt:</strong> {{ productByNplId($route.params.id).shortages[0].publicContact }} </q-card-section>
-          <q-card-section v-else><strong>Pågoende restnotering:</strong> Nej</q-card-section>
+          <q-card-section><strong>Förpackning:</strong> {{ product.packages[period.packs[0].nplpackid[0]].text }}</q-card-section>
+          <q-card-section><strong>Nplpackid:</strong> {{ period.packs[0].nplpackid[0] }}</q-card-section>
+          <q-card-section><strong>Första Publicering:</strong> {{ period.publicationDate.firstPublication }}</q-card-section>
+          <q-card-section><strong>Senast Publicering:</strong> {{ period.publicationDate.lastPublication }}</q-card-section>
+          <q-card-section><strong>Prognos:</strong> {{ period.forecastDate.startDate }} - {{ period.forecastDate.endDate }}</q-card-section>
+          <q-card-section><strong>Restnotering upphörd:</strong> {{ period.actualEndDate }}</q-card-section>
+          <q-card-section><strong>Referens:</strong> {{ period.referenceNumber }}</q-card-section>
+          <q-card-section><strong>Rekommendation:</strong> {{ period.advice }} </q-card-section>
+          <q-card-section v-if="period.actualEndDate"><strong>Pågoende restnotering:</strong> Nej</q-card-section>
+          <q-card-section v-else><strong>Pågoende restnotering:</strong> Ja</q-card-section>
+          <q-card-section v-if="!period.actualEndDate"><strong>Kontakt:</strong> {{ period.publicContact }} </q-card-section>
       </q-card>
-      <q-card class="my-card">
+      <!-- <q-card class="my-card">
         <div class="text-h5 text-center">Substans</div>
-          <q-card-section><strong>Namn:</strong> {{ productByNplId($route.params.id).substances[0].name }}</q-card-section>
-          <q-card-section><strong>Typ:</strong> {{ productByNplId($route.params.id).substances[0].type }}</q-card-section>
-          <q-card-section><strong>Qnt:</strong> {{ productByNplId($route.params.id).substances[0].qnt }}</q-card-section>
-          <q-card-section><strong>qunit:</strong> {{ productByNplId($route.params.id).substances[0].qunit }}</q-card-section>
-          <q-card-section><strong>qunit2:</strong> {{ productByNplId($route.params.id).substances[0].qunit2 }}</q-card-section>
-      </q-card>
+          <q-card-section><strong>Namn:</strong> {{ product.substances[0].name }}</q-card-section>
+          <q-card-section><strong>Typ:</strong> {{ product.substances[0].type }}</q-card-section>
+          <q-card-section><strong>Qnt:</strong> {{ product.substances[0].qnt }}</q-card-section>
+          <q-card-section><strong>qunit:</strong> {{ product.substances[0].qunit }}</q-card-section>
+          <q-card-section><strong>qunit2:</strong> {{ product.substances[0].qunit2 }}</q-card-section>
+      </q-card> -->
           </div>
-    <div v-if="productByNplId($route.params.id)">
+    <div v-if="product">
       <h6
-        v-if="productByNplId($route.params.id).name"
-      >Name: {{ productByNplId($route.params.id).name }}</h6>
-      <h6>Prod: {{ productByNplId($route.params.id).prod }}</h6>
-      <h6>Rx: {{ productByNplId($route.params.id).rx }}</h6>
-      <h6>Flags: {{ productByNplId($route.params.id).flags }}</h6>
-      <h6>Substances: {{ productByNplId($route.params.id).substances }}</h6>
-      <h6>Form: {{ productByNplId($route.params.id).form }}</h6>
-      <h6>Strength: {{ productByNplId($route.params.id).strength }}</h6>
-      <h6>packages: {{ productByNplId($route.params.id).packages }}</h6>
-      <h6>Atc: {{ productByNplId($route.params.id).atc }}</h6>
-      <h6>Advice: {{ productByNplId($route.params.id).shortages[0].advice }}</h6>
-      <h6>Forecast: {{ productByNplId($route.params.id).shortages[0].forecastDate }}</h6>
-      <h6>Npl: {{ productByNplId($route.params.id).nplId }}</h6>
-      <h6>Packs: {{ productByNplId($route.params.id).shortages[0].packs }}</h6>
-      <h6>Contact: {{ productByNplId($route.params.id).shortages[0].publicContact }}</h6>
-      <h6>Publication: {{ productByNplId($route.params.id).shortages[0].publicationDate }}</h6>
-      <h6>Reference: {{ productByNplId($route.params.id).shortages[0].referenceNumber }}</h6>
-      <!-- <pre>
-        {{ JSON.stringify(productByNplId($route.params.id).shortages, null, 2) }}
-      </pre>-->
+        v-if="product.name"
+      >Name: {{ product.name }}</h6>
+      <h6>Prod: {{ product.prod }}</h6>
+      <h6>Rx: {{ product.rx }}</h6>
+      <h6>Flags: {{ product.flags }}</h6>
+      <h6>Substances: {{ product.substances }}</h6>
+      <h6>Form: {{ product.form }}</h6>
+      <h6>Strength: {{ product.strength }}</h6>
+      <h6>packages: {{ product.packages }}</h6>
+      <h6>Atc: {{ product.atc }}</h6>
+      <h6>Advice: {{ product.shortages[0].advice }}</h6>
+      <h6>Forecast: {{ product.shortages[0].forecastDate }}</h6>
+      <h6>Npl: {{ product.nplId }}</h6>
+      <h6>Packs: {{ product.shortages[0].packs }}</h6>
+      <h6>Contact: {{ product.shortages[0].publicContact }}</h6>
+      <h6>Publication: {{ product.shortages[0].publicationDate }}</h6>
+      <h6>Reference: {{ product.shortages[0].referenceNumber }}</h6>
     </div>
     <h4 v-else>Kan inte hitta niplid du letar efter</h4>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'GetData',
-  computed: mapGetters(['productByNplId']),
+  computed: {
+    product () {
+      return this.$store.getters.productByNplId(this.$route.params.id)
+    }
+  },
   created () {
     // console.log(this.allSupplies[19930528000047])
   }
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+  .my-card {
+    max-width: 400px;
+  }
+</style>
