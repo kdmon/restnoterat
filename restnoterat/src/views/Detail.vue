@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h6>Prod: {{ productByNplId($route.params.id).currentShortage }}</h6>
+    <h6>currentShortage: {{ productByNplId($route.params.id).currentShortage }}</h6>
     <div class="q-pa-md q-gutter-sm">
       <q-breadcrumbs>
         <!-- <router-link :to="{ path: '/' }"><q-breadcrumbs-el label="Hem" /></router-link> -->
@@ -8,25 +8,34 @@
         <q-breadcrumbs-el label="Detalj" />
       </q-breadcrumbs>
     </div>
-    <h4>Details</h4>
-    <div class="q-pa-md row items-start q-gutter-md ">
+        <div class="q-pa-md row items-start q-gutter-md ">
       <q-card class="my-card">
         <div class="text-h5 text-center">Fakta</div>
         <q-card-section><strong>Läkemdel:</strong> {{ productByNplId($route.params.id).name }}</q-card-section>
         <q-card-section><strong>ATC:</strong> {{ productByNplId($route.params.id).atc }}</q-card-section>
         <q-card-section><strong>Nplid:</strong> {{ productByNplId($route.params.id).nplId }}</q-card-section>
-        <q-card-section v-if="productByNplId($route.params.id).currentShortage"><strong>Pågoende restnotering:</strong> Ja</q-card-section>
-        <q-card-section v-else><strong>Pågoende restnotering:</strong> Nej</q-card-section>
+        <q-card-section><strong>Referens:</strong> {{ productByNplId($route.params.id).shortages[0].referenceNumber }}</q-card-section>
+        <q-card-section><strong>Form:</strong> {{ productByNplId($route.params.id).form }}</q-card-section>
       </q-card>
       <q-card class="my-card">
         <div class="text-h5 text-center">Restnotering</div>
-        <q-card-section><strong>Läkemdel:</strong> {{ productByNplId($route.params.id).name }}</q-card-section>
-        <q-card-section><strong>ATC:</strong> {{ productByNplId($route.params.id).atc }}</q-card-section>
-        <q-card-section><strong>Nplid:</strong> {{ productByNplId($route.params.id).nplId }}</q-card-section>
-        <q-card-section v-if="productByNplId($route.params.id).currentShortage"><strong>Pågoende restnotering:</strong> Ja</q-card-section>
-        <q-card-section v-else><strong>Pågoende restnotering:</strong> Nej</q-card-section>
+          <q-card-section><strong>Nplpackid:</strong> {{ productByNplId($route.params.id).shortages[0].packs[0].nplpackid[0] }}</q-card-section>
+          <q-card-section><strong>Första Publicering:</strong> {{ productByNplId($route.params.id).shortages[0].publicationDate.firstPublication }}</q-card-section>
+          <q-card-section><strong>Senast Publicering:</strong> {{ productByNplId($route.params.id).shortages[0].publicationDate.lastPublication }}</q-card-section>
+          <q-card-section v-if="productByNplId($route.params.id).currentShortage"><strong>Pågoende restnotering:</strong> Ja</q-card-section>
+          <q-card-section v-if="productByNplId($route.params.id).currentShortage"><strong>Förslag:</strong> {{ productByNplId($route.params.id).shortages[0].advice }} </q-card-section>
+          <q-card-section v-if="productByNplId($route.params.id).currentShortage"><strong>Kontakt:</strong> {{ productByNplId($route.params.id).shortages[0].publicContact }} </q-card-section>
+          <q-card-section v-else><strong>Pågoende restnotering:</strong> Nej</q-card-section>
       </q-card>
-    </div>
+      <q-card class="my-card">
+        <div class="text-h5 text-center">Substans</div>
+          <q-card-section><strong>Namn:</strong> {{ productByNplId($route.params.id).substances[0].name }}</q-card-section>
+          <q-card-section><strong>Typ:</strong> {{ productByNplId($route.params.id).substances[0].type }}</q-card-section>
+          <q-card-section><strong>Qnt:</strong> {{ productByNplId($route.params.id).substances[0].qnt }}</q-card-section>
+          <q-card-section><strong>qunit:</strong> {{ productByNplId($route.params.id).substances[0].qunit }}</q-card-section>
+          <q-card-section><strong>qunit2:</strong> {{ productByNplId($route.params.id).substances[0].qunit2 }}</q-card-section>
+      </q-card>
+          </div>
     <div v-if="productByNplId($route.params.id)">
       <h6
         v-if="productByNplId($route.params.id).name"
