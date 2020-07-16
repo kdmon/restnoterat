@@ -28,7 +28,7 @@
           <td>{{ supply.shortages[0].packs }}</td>
           <td>{{ supply.shortages[0].publicContact }}</td>
           <!-- <td>{{ supply.shortages[0].publicationDate.firstPublication }}</td> -->
-          <td v-if="supply.currentShortage">Ja</td>
+          <td v-if="supply.currentShortages.length > 0">Ja</td>
           <td v-else>Nej</td>
         </tr>
       </tbody>

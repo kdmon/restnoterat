@@ -117,15 +117,52 @@ const actions = {
 
         // Data from shortages state
         combined[id].shortages = shortages.data[id].shortages
-        combined[id].currentShortage = false
+        combined[id].currentShortages = []
+        combined[id].previousShortages = []
+        // Looping thourgh all shortages to check for current shortages since there can be > 1
         for (const shortage of shortages.data[id].shortages) {
+          const packs = []
+          // Looping through the packs to split them into previous and current shortages
+          for (const pack of shortage.packs) {
+            if (combined[id].packages[pack.nplpackid]) {
+              packs.push({
+                name: combined[id].packages[pack.nplpackid].text,
+                nplPackId: pack.nplpackid
+              })
+            }
+          }
           if (!shortage.actualEndDate) {
-            combined[id].currentShortage = true
-            break
+            combined[id].currentShortages.push(
+              { ...shortage, packs }
+            )
+            console.log('current', combined[id].currentShortages)
+          } else {
+            combined[id].previousShortages.push(
+              { ...shortage, packs }
+            )
           }
         }
+        combined[id].currentShortages.sort(function (a, b) {
+          if (a.publicationDate.endDate > b.publicationDate.endDate) {
+            return 1
+          } else if (a.publicationDate.endDate < b.publicationDate.endDate) {
+            return -1
+          } else {
+            return 0
+          }
+        })
+        combined[id].previousShortages.sort(function (a, b) {
+          if (a.actualEndDate > b.actualEndDate) {
+            return 1
+          } else if (a.actualEndDate < b.actualEndDate) {
+            return -1
+          } else {
+            return 0
+          }
+        })
       } else c++
     }
+
     console.log(c, 'combinedlength', Object.keys(combined).length)
     commit('saveCombined', combined)
     console.log('combined', combined)
