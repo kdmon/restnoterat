@@ -47,22 +47,26 @@
         </div>
         <div class="col-7">
           <p> {{ shortage.advice }} </p>
+          <p> Senast uppdaterad: {{ shortage.publicationDate.lastPublication }}</p>
         </div>
       </div>
     </div>
+     <!-- END OF CURRENT SHORTAGESS -->
     <!-- START OF PREVIOUS SHORTAGES -->
     <h4>Tidgare restnoteringar</h4>
-    <div class="q-pa-md" v-for="period in product.shortages" :key="period.referenceNumber">
+    <div class="q-pa-md" v-for="shortage in product.previousShortages" :key="shortage.referenceNumber">
       <div class="row">
-        <div class="col-5 column">
-          <p>Förpackning: {{ product.packages[period.packs[0].nplpackid[0]].text }}</p>
-          <p>PackId: {{ period.packs[0].nplpackid[0] }}</p>
-          <p>Förslag: {{ period.advice }}</p>
+        <div class="col-5 column" v-for="pack in shortage.packs" :key="pack.nplPackId">
+          <p>{{ pack.name }}</p>
+          <!-- <p>PackId: {{ period.packs[0].nplpackid[0] }}</p>
+          <p>Förslag: {{ period.advice }}</p> -->
         </div>
         <div class="col-7">
-          <p>Publikation: {{ period.publicationDate.firstPublication }} - {{ period.publicationDate.lastPublication }}</p>
+          <p>{{ shortage.advice }}</p>
+          <p>Upphördes: {{ shortage.actualEndDate }}</p>
+          <!-- <p>Publikation: {{ period.publicationDate.firstPublication }} - {{ period.publicationDate.lastPublication }}</p>
           <p>Prognos: {{ period.forecastDate.startDate }} - {{ period.forecastDate.endDate }}</p>
-          <p>Upphörd: {{ period.actualEndDate }}</p>
+          <p>Upphörd: {{ period.actualEndDate }}</p> -->
         </div>
       </div>
     </div>

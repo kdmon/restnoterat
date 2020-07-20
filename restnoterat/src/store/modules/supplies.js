@@ -25,7 +25,7 @@ const getters = {
       const obj = {}
       for (const nplid in state.combined) {
         const shortage = state.combined[nplid]
-        if (shortage.currentShortage) {
+        if (shortage.currentShortages.length > 0) {
           obj[shortage.nplId] = shortage
         }
       }
@@ -135,7 +135,6 @@ const actions = {
             combined[id].currentShortages.push(
               { ...shortage, packs }
             )
-            console.log('current', combined[id].currentShortages)
           } else {
             combined[id].previousShortages.push(
               { ...shortage, packs }
@@ -153,9 +152,9 @@ const actions = {
         })
         combined[id].previousShortages.sort(function (a, b) {
           if (a.actualEndDate > b.actualEndDate) {
-            return 1
-          } else if (a.actualEndDate < b.actualEndDate) {
             return -1
+          } else if (a.actualEndDate < b.actualEndDate) {
+            return 1
           } else {
             return 0
           }
