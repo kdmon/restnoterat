@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- <pre> zzzz {{JSON.stringify(shortages(), null, 2)}}</pre> -->
+    <!-- <pre>{{ JSON.stringify($store.state.supplies.graph) }}</pre> -->
     <!-- <table class="table table-striped">
       <thead>
         <tr>
@@ -41,19 +42,58 @@
         <p>dsadad</p>
       </div>
     </div>-->
-    <div class="row" v-for="supply in shortages()" :key="supply.nplId" style="margin-top: 0">
-      <div class="col-1">
-        <h5 style="width: fit-content">{{ supply.atc }}</h5>
+    <q-card style="padding: 1em">
+      <!-- <p>{{scalingFactor}}: <q-slider v-model="scalingFactor" :min="1" :max="5"></q-slider></p> -->
+
+      <div class="row">
+        <div class="col-2" style="border: 1px solid black">
+          atckod
+        </div>
+        <div class="col-10" style="border: 1px solid black">
+          <div style="width: auto; height: 500px; overflow: auto;">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              :width="(Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
+              :height="$store.state.supplies.graph.rows * 25"
+              vviewBox="0 0 18 18"
+              aria-labelledby="diagram"
+              role="presentation">
+              <title id="diagram" lang="en">Diagram</title>
+
+              <!-- plot timelines/scale -->
+              <g>
+                <g v-for="day in (Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max)" :key="day">
+                  <rect :x="day *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale" y="50" height="4000" width="1" fill="#ccc"></rect>
+                  <rect v-if="day %$store.state.supplies.graph.pixelsPerDay == 0" :x="day *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale" y="50" height="400" width="3" fill="#ccc"></rect>
+                  <!--
+                  <text v-if="day %$store.state.supplies.graph.pixelsPerDay == 0" :x="day *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale" y="20" fill="black">Dag {{day - daysSinceFirstShortage}}</text>
+                  -->
+                  <text v-if="day %$store.state.supplies.graph.pixelsPerDay == 0" :x="day *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale" y="40" fill="black"> {{ 'hej' }}</text>
+                </g>
+
+                <!-- mark today's date -->
+                <rect :x="Math.abs($store.state.supplies.graph.min) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale" y="30" height="4000" width="5" fill="red"></rect>
+                <text :x="Math.abs($store.state.supplies.graph.min) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale" y="20" fill="black">Idag!</text>
+
+              </g>
+
+              <!-- plot packages -->
+              <!-- Group by nplid -->
+              <g v-for="(row, i) of shortages()" :key="i" :transform="`translate(0, ${(row.offset * 25) + 50 || 0})`">
+                <rect x="0" y="0" :height="row.packCount * 25" width="5000" :fill=" i % 2 == 0 ? '#eeeeee80' : '#cccccc80'"></rect>
+                <!-- Group by nplpackid -->
+                <g v-for="(period, p) of row.shortages" :key="p" tabindex="0" @click="alert(period.nplpack)" >
+                  <rect class="drug-row" :x="period.relativeStartDay *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale" :y="p*25" :width="(Math.abs(period.duration) || 100) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale" height="20" fill="red"></rect>
+                  <!-- <text :x="(period.start *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale) + 10" :y="p*50 + 25" fill="black">{{period.nplpack}}</text> -->
+                </g>
+              </g>
+
+            </svg>
+
+          </div>
+        </div>
       </div>
-      <div class="col-11">
-        <svg xmlns="http://www.w3.org/2000/svg">
-          <g>
-            <rect x="0" y="0" width="600" height="100" fill="red" />
-            <text x="0" y="50" fill="black">{{ supply.shortages[0].packs }}</text>
-          </g>
-        </svg>
-      </div>
-    </div>
+    </q-card>
   </div>
 </template>
 

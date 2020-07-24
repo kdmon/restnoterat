@@ -7,7 +7,14 @@ const state = {
   loading: true,
   combined: {},
   atcLexicon: {},
-  formLexicon: {}
+  formLexicon: {},
+  graph: {
+    min: -10,
+    max: 10,
+    rows: 0,
+    scale: 1,
+    pixelsPerDay: 10
+  }
 
 }
 
@@ -101,6 +108,9 @@ const actions = {
     commit('saveProducts', products.data)
     const combined = {}
     let c = 0
+    let earliestDay = 0
+    let latestDay = 0
+    let rows = 0
     for (var id of Object.keys(shortages.data)) {
       if (products.data[id]) { // TODO: fix latest catalog
         combined[id] = {}
@@ -120,20 +130,37 @@ const actions = {
         combined[id].currentShortages = []
         combined[id].previousShortages = []
         // Loop through forecast dates to convert into days
+        let i = 0
+        let packCount = 0
+        combined[id].offset = rows
         for (const dates of shortages.data[id].shortages) {
           // Get days between forcast start date and end date
-          // console.log(dates.forecastDate)
+          // N.B: The duration can be NULL if it has no end date
+          console.log(dates.forecastDate)
           const startDate = dates.forecastDate.startDate
-          const endDate = dates.forecastDate.endDate
+          const endDate = dates.actualEndDate ? dates.actualEndDate : dates.forecastDate.endDate
           const timeDiffForecast = (new Date(startDate)) - (new Date(endDate))
           const forecastDays = timeDiffForecast / (1000 * 60 * 60 * 24)
-          console.log(forecastDays, dates.forecastDate)
+          console.log(forecastDays, dates.actualEndDate)
           // Get days since shortage
           const today = new Date().toISOString().slice(0, 10)
-          const timeDiffDaysPast = (new Date(today)) - (new Date(startDate))
+          const timeDiffDaysPast = (new Date(startDate)) - (new Date(today))
           const daysPast = timeDiffDaysPast / (1000 * 60 * 60 * 24)
-          console.log(daysPast, dates.forecastDate.startDate)
+          console.log(daysPast)
+          combined[id].shortages[i].relativeStartDay = daysPast
+          combined[id].shortages[i].duration = forecastDays
+          i++
+          // Check for earliest shortage start date
+          if (daysPast < earliestDay) {
+            earliestDay = daysPast
+          }
+          if (forecastDays + daysPast > latestDay && forecastDays != null) {
+            latestDay = forecastDays + daysPast
+          }
+          rows += dates.packs.length
+          packCount += dates.packs.length
         }
+        combined[id].packCount = packCount
         // Looping thourgh all shortages to check for current shortages since there can be > 1
         for (const shortage of shortages.data[id].shortages) {
           const packs = []
@@ -176,11 +203,11 @@ const actions = {
         })
       } else c++
     }
-
     console.log(c, 'combinedlength', Object.keys(combined).length)
     commit('saveCombined', combined)
     console.log('combined', combined)
     commit('setLoading', false)
+    commit('setBound', { max: latestDay, min: earliestDay, rows: rows })
   }
   // async fetchProducts ({ commit }) {
   //   const response = await axios.get('products.json')
@@ -208,6 +235,12 @@ const mutations = {
   },
   saveFormLexicon (state, formLexicon) {
     Vue.set(state, 'formLexicon', formLexicon)
+  },
+  setBound (state, { min, max, rows }) {
+    console.log('KOLLA HÄÄÄR', min, max)
+    Vue.set(state.graph, 'min', min)
+    Vue.set(state.graph, 'max', max)
+    Vue.set(state.graph, 'rows', rows)
   }
 }
 

@@ -17,6 +17,7 @@ export default {
   data: function () {
     return {
       input: '',
+      checkbox: false,
       currentShortage: false
     }
   },
