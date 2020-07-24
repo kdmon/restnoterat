@@ -119,6 +119,21 @@ const actions = {
         combined[id].shortages = shortages.data[id].shortages
         combined[id].currentShortages = []
         combined[id].previousShortages = []
+        // Loop through forecast dates to convert into days
+        for (const dates of shortages.data[id].shortages) {
+          // Get days between forcast start date and end date
+          // console.log(dates.forecastDate)
+          const startDate = dates.forecastDate.startDate
+          const endDate = dates.forecastDate.endDate
+          const timeDiffForecast = (new Date(startDate)) - (new Date(endDate))
+          const forecastDays = timeDiffForecast / (1000 * 60 * 60 * 24)
+          console.log(forecastDays, dates.forecastDate)
+          // Get days since shortage
+          const today = new Date().toISOString().slice(0, 10)
+          const timeDiffDaysPast = (new Date(today)) - (new Date(startDate))
+          const daysPast = timeDiffDaysPast / (1000 * 60 * 60 * 24)
+          console.log(daysPast, dates.forecastDate.startDate)
+        }
         // Looping thourgh all shortages to check for current shortages since there can be > 1
         for (const shortage of shortages.data[id].shortages) {
           const packs = []
