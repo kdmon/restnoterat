@@ -12,7 +12,7 @@ const state = {
     min: -10,
     max: 10,
     rows: 0,
-    scale: 1,
+    scale: 0.1,
     pixelsPerDay: 10
   }
 
@@ -134,19 +134,17 @@ const actions = {
         let packCount = 0
         combined[id].offset = rows
         for (const dates of shortages.data[id].shortages) {
+          if (id === '20051220000015') console.log('this is date', dates)
           // Get days between forcast start date and end date
           // N.B: The duration can be NULL if it has no end date
-          console.log(dates.forecastDate)
           const startDate = dates.forecastDate.startDate
           const endDate = dates.actualEndDate ? dates.actualEndDate : dates.forecastDate.endDate
-          const timeDiffForecast = (new Date(startDate)) - (new Date(endDate))
+          const timeDiffForecast = (new Date(endDate)) - (new Date(startDate))
           const forecastDays = timeDiffForecast / (1000 * 60 * 60 * 24)
-          console.log(forecastDays, dates.actualEndDate)
           // Get days since shortage
           const today = new Date().toISOString().slice(0, 10)
           const timeDiffDaysPast = (new Date(startDate)) - (new Date(today))
           const daysPast = timeDiffDaysPast / (1000 * 60 * 60 * 24)
-          console.log(daysPast)
           combined[id].shortages[i].relativeStartDay = daysPast
           combined[id].shortages[i].duration = forecastDays
           i++
