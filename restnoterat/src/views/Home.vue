@@ -16,7 +16,7 @@ export default {
     return {
       input: '',
       checkbox: false,
-      currentShortage: false
+      currentShortage: true
     }
   },
   components: {

@@ -70,6 +70,8 @@
         </div>
       </div>
     </div>
+
+    <!--
     <h6>currentShortage: {{ product.currentShortage }}</h6>
     <div class="q-pa-md q-gutter-sm">
       <div class="q-pa-md headline">
@@ -154,14 +156,14 @@
           {{ period.publicContact }}
         </q-card-section>
       </q-card>
-      <!-- <q-card class="my-card">
+      <q-card class="my-card">
         <div class="text-h5 text-center">Substans</div>
           <q-card-section><strong>Namn:</strong> {{ product.substances[0].name }}</q-card-section>
           <q-card-section><strong>Typ:</strong> {{ product.substances[0].type }}</q-card-section>
           <q-card-section><strong>Qnt:</strong> {{ product.substances[0].qnt }}</q-card-section>
           <q-card-section><strong>qunit:</strong> {{ product.substances[0].qunit }}</q-card-section>
           <q-card-section><strong>qunit2:</strong> {{ product.substances[0].qunit2 }}</q-card-section>
-      </q-card>-->
+      </q-card>
     </div>
     <div v-if="product">
       <h6 v-if="product.name">Name: {{ product.name }}</h6>
@@ -183,7 +185,7 @@
     </div>
     <h4 v-else>Kan inte hitta niplid du letar efter</h4>
 
-    <pre>{{ JSON.stringify(product,null,2) }}</pre>
+    <pre>{{ JSON.stringify(product,null,2) }}</pre>-->
   </div>
 </template>
 

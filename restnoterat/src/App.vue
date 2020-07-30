@@ -1,6 +1,6 @@
 <template>
    <q-layout view="hHh Lpr lff" class="shadow-2 rounded-borders">
-      <q-header elevated class="bg-black">
+      <q-header elevated class="bg-blue">
         <q-toolbar>
           <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
           <q-toolbar-title>Restnoterat</q-toolbar-title>
@@ -35,9 +35,7 @@
         </q-scroll-area>
       </q-drawer>
 
-      <q-page-container>
-        <q-page padding>
-         <q-page-container>
+    <q-page-container>
       <q-page class="q-pa-xl">
         <div v-if="!$store.state.supplies.loading">
           <router-view />
@@ -48,8 +46,6 @@
         </div>
       </q-page>
     </q-page-container>
-        </q-page>
-      </q-page-container>
   </q-layout>
 </template>
 
@@ -64,7 +60,8 @@ const menuList = [
   {
     icon: 'send',
     label: 'Om',
-    separator: false
+    separator: false,
+    route: '/om'
   },
   {
     icon: 'delete',

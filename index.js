@@ -21,7 +21,7 @@ var parser = new xml2js.Parser();
 parser.parseString(data.data, function (err, result) {
   var resultObject = {}
   // console.log(JSON.stringify(result, null, 2))
-  for (var s of result.supplyshortages.supplyshortage) {
+  for (var s of result.supplyshortages.supplyshortage.reverse()) {
     
     // OBS: There can be more than one advice per nplid!
 

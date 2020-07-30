@@ -43,10 +43,12 @@
       </div>
     </div>-->
     <q-card style="padding: 1em">
-      <!-- <p>{{scalingFactor}}: <q-slider v-model="scalingFactor" :min="1" :max="5"></q-slider></p> -->
-
-      <div class="row">
-        <div class="col-6" style="border: 1px solid black; overflow: auto; height: 700px;">
+      <p>
+        {{ $store.state.supplies.graph.scale }}:
+        <q-slider v-model="$store.state.supplies.graph.scale" :min="0" :max="2" :step="0.1"></q-slider>
+      </p>
+      <q-splitter v-model="splitterModel" style="height: 400px">
+        <template v-slot:before>
           <table class="table table-striped">
             <thead>
               <tr>
@@ -61,7 +63,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(supply, i, c) in shortages(currentShortage)" :key="supply.nplId">
+              <tr v-for="(supply, i, c) in shortages" :key="supply.nplId">
                 <td>{{c}} {{ supply.name }}</td>
                 <td>{{ supply.atc }}</td>
                 <router-link :to="{ path: '/nplid/' + supply.nplId }">
@@ -69,17 +71,27 @@
                 </router-link>
                 <!-- <td>{{ supply.shortages[0].referenceNumber }}</td> -->
                 <!-- <td>{{ supply.shortages[0].advice }}</td> -->
-                <td><span v-for="i in supply.shortages.length" :key="i">{{ supply.shortages[i - 1].packs }}</span></td>
-                <td><span v-for="i in supply.shortages.length" :key="i">{{ supply.shortages[0].forecastDate }}</span></td>
+                <td>
+                  <span
+                    v-for="i in supply.shortages.length"
+                    :key="i"
+                  >{{ supply.shortages[i - 1].packs }}</span>
+                </td>
+                <td>
+                  <span
+                    v-for="i in supply.shortages.length"
+                    :key="i"
+                  >{{ supply.shortages[0].forecastDate }}</span>
+                </td>
                 <td v-if="supply.currentShortages.length > 0">Ja</td>
                 <td v-else>Nej</td>
               </tr>
             </tbody>
           </table>
-        </div>
-        <div class="col-6" style="border: 1px solid black; overflow: auto; height: 700px;">
-          <div style="width: auto; height: 500px;">
-            <svg
+        </template>
+
+        <template v-slot:after>
+         <svg
               xmlns="http://www.w3.org/2000/svg"
               :width="(Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
               :height="$store.state.supplies.graph.rows * 25"
@@ -97,12 +109,23 @@
                   :key="day"
                 >
                   <rect
+                    v-if="Math.floor((day % (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale) == 0)"
                     :x="day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
                     y="50"
                     height="4000"
                     width="1"
-                    fill="#ccc"
+                    fill="red"
                   />
+
+                  <rect
+                    v-if="Math.floor((day % (10 * (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale)) == 0)"
+                    :x="day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
+                    y="50"
+                    height="4000"
+                    width="3"
+                    fill="red"
+                  />
+                  <!--
                   <rect
                     v-if="day % $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale == 0"
                     :x="day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
@@ -111,11 +134,12 @@
                     width="3"
                     fill="#ccc"
                   />
+                  -->
                   <!--
                   <text v-if="day %$store.state.supplies.graph.pixelsPerDay == 0" :x="day *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale" y="20" fill="black">Dag {{day - daysSinceFirstShortage}}</text>
                   -->
                   <text
-                    v-if="day % $store.state.supplies.graph.pixelsPerDay == 0"
+                    v-if="Math.floor((day % (10 * (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale)) == 0)"
                     :x="day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
                     y="40"
                     fill="black"
@@ -126,7 +150,7 @@
                 <rect
                   :x="Math.abs($store.state.supplies.graph.min) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
                   y="30"
-                  height="4000"
+                  height="1140000"
                   width="5"
                   fill="red"
                 />
@@ -140,7 +164,7 @@
               <!-- plot packages -->
               <!-- Group by nplid -->
               <g
-                v-for="(row, i) of shortages()"
+                v-for="(row, i) of shortages"
                 :key="i"
                 :transform="`translate(0, ${(row.offset * 25) + 50 || 0})`"
               >
@@ -148,7 +172,7 @@
                   x="0"
                   y="0"
                   :height="row.packCount * 25"
-                  width="5000"
+                  width="1115000"
                   :fill=" i % 2 == 0 ? '#eeeeee80' : '#cccccc80'"
                 />
                 <!-- Group by nplpackid -->
@@ -156,7 +180,7 @@
                   v-for="(period, p) of row.shortages"
                   :key="p"
                   tabindex="0"
-                  @click="alert(period.nplpack)"
+                  @click="clickHandler(row.nplId)"
                 >
                   <rect
                     class="drug-row"
@@ -164,34 +188,47 @@
                     :y="p*25"
                     :width="(Math.abs(period.duration) || 100) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
                     height="20"
-                    fill="red"
+                    :fill="period.status ? 'red': 'red'"
                   />
-                  <text :x="period.relativeStartDay *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale" :y="p*25" fill="black">{{period.packs}}</text>
+                  <text
+                    :x="(period.relativeStartDay + Math.abs($store.state.supplies.graph.min)) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
+                    :y="p*25 + 20"
+                    fill="black"
+                  >{{period.packs}}</text>
                 </g>
               </g>
             </svg>
-          </div>
-        </div>
-      </div>
+        </template>
+      </q-splitter>
     </q-card>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+// import { mapGetters } from 'vuex'
 
 export default {
   name: 'DataTable',
   props: ['currentShortage'],
   data: function () {
-    return {}
+    return {
+      splitterModel: 50
+    }
   },
-  computed: mapGetters(['shortages']),
+  computed: {
+    shortages () {
+      return this.$store.getters.shortages(this.currentShortage)
+    }
+  },
+  // computed: mapGetters(['shortages']),
   methods: {
     calculateDate: function (daysAgo) {
       const d = new Date()
       d.setDate(d.getDate() + daysAgo)
       return d.toISOString().slice(0, 10)
+    },
+    clickHandler: function (id) {
+      this.$router.push({ name: 'Detail', params: { id: id } })
     }
   }
 }

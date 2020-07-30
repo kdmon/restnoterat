@@ -12,7 +12,7 @@ const state = {
     min: -10,
     max: 10,
     rows: 0,
-    scale: 0.1,
+    scale: 1,
     pixelsPerDay: 10
   }
 
@@ -202,6 +202,7 @@ const actions = {
       } else c++
     }
     console.log(c, 'combinedlength', Object.keys(combined).length)
+    Object.freeze(combined)
     commit('saveCombined', combined)
     console.log('combined', combined)
     commit('setLoading', false)
