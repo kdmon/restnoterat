@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Detail from '../views/Detail.vue'
 import About from '../views/About.vue'
+import Feedback from '../views/Feedback.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/om',
     name: 'About',
     component: About
+  },
+  {
+    path: '/feedback',
+    name: 'Feedback',
+    component: Feedback
   }
 ]
 

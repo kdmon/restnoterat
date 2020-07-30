@@ -1,7 +1,5 @@
 <template>
   <div>
-    <q-btn label="martin" color="red"/>
-    <q-input debounce="500" label="jag är ett textfält" v-model="input"/>
     <q-toggle debounce="3500" v-model="currentShortage"/>
       {{ input }} <br>
       {{ checkbox }}
