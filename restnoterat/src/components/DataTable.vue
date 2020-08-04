@@ -47,7 +47,7 @@
         {{ $store.state.supplies.graph.scale }}:
         <q-slider v-model="$store.state.supplies.graph.scale" :min="0" :max="2" :step="0.1"></q-slider>
       </p>
-      <q-splitter v-model="splitterModel" style="height: 400px">
+      <q-splitter v-model="splitterModel" style="height: 65vh">
         <template v-slot:before>
           <table class="table table-striped">
             <thead>
@@ -91,10 +91,11 @@
         </template>
 
         <template v-slot:after>
-         <svg
+          <svg
+              id="graph"
               xmlns="http://www.w3.org/2000/svg"
               :width="(Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
-              :height="$store.state.supplies.graph.rows * 25"
+              :height="$store.state.supplies.graph.rows * $store.state.supplies.graph.rowHeight"
               vviewBox="0 0 18 18"
               aria-labelledby="diagram"
               role="presentation"
@@ -112,18 +113,18 @@
                     v-if="Math.floor((day % (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale) == 0)"
                     :x="day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
                     y="50"
-                    height="4000"
+                    :height="$store.state.supplies.graph.rows * $store.state.supplies.graph.rowHeight"
                     width="1"
-                    fill="red"
+                    fill="black"
                   />
 
                   <rect
                     v-if="Math.floor((day % (10 * (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale)) == 0)"
                     :x="day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
                     y="50"
-                    height="4000"
+                    :height="$store.state.supplies.graph.rows * $store.state.supplies.graph.rowHeight"
                     width="3"
-                    fill="red"
+                    fill="black"
                   />
                   <!--
                   <rect
@@ -166,12 +167,12 @@
               <g
                 v-for="(row, i) of shortages"
                 :key="i"
-                :transform="`translate(0, ${(row.offset * 25) + 50 || 0})`"
+                :transform="`translate(0, ${(row.offset * $store.state.supplies.graph.rowHeight) + 50 || 0})`"
               >
                 <rect
                   x="0"
                   y="0"
-                  :height="row.packCount * 25"
+                  :height="row.packCount * $store.state.supplies.graph.rowHeight"
                   width="1115000"
                   :fill=" i % 2 == 0 ? '#eeeeee80' : '#cccccc80'"
                 />
@@ -185,16 +186,17 @@
                   <rect
                     class="drug-row"
                     :x="(period.relativeStartDay + Math.abs($store.state.supplies.graph.min)) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
-                    :y="p*25"
+                    :y="p*$store.state.supplies.graph.rowHeight"
                     :width="(Math.abs(period.duration) || 100) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
-                    height="20"
-                    :fill="period.status ? 'red': 'red'"
+                    :height="$store.state.supplies.graph.rowHeight"
+                    :fill="pickColor(period.status)"
                   />
                   <text
                     :x="(period.relativeStartDay + Math.abs($store.state.supplies.graph.min)) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
-                    :y="p*25 + 20"
+                    :y="p*$store.state.supplies.graph.rowHeight + ($store.state.supplies.graph.rowHeight / 1.5)"
                     fill="black"
-                  >{{period.packs}}</text>
+                    font-size="24"
+                  >{{ getPacks(period.packs, row.packages) }}</text>
                 </g>
               </g>
             </svg>
@@ -212,7 +214,7 @@ export default {
   props: ['currentShortage'],
   data: function () {
     return {
-      splitterModel: 50
+      splitterModel: 20
     }
   },
   computed: {
@@ -220,7 +222,11 @@ export default {
       return this.$store.getters.shortages(this.currentShortage)
     }
   },
-  // computed: mapGetters(['shortages']),
+  mounted: function () {
+    const e = document.getElementById('graph')
+    // TODO calculate where it should start
+    e.parentElement.scrollLeft = 19500
+  },
   methods: {
     calculateDate: function (daysAgo) {
       const d = new Date()
@@ -229,6 +235,26 @@ export default {
     },
     clickHandler: function (id) {
       this.$router.push({ name: 'Detail', params: { id: id } })
+    },
+    pickColor: function (status) {
+      const color = {
+        upcoming: '#cccccc',
+        current: '#3cb2c5',
+        previous: '#474a4a'
+      }
+      return color[status]
+    },
+    // TODO: fix latest catalog
+    getPacks: function (packIds, packages) {
+      if (packIds.length > 1) {
+        return 'Flera förpackningar'
+      } else {
+        if (packages[packIds[0].nplpackid[0]]) {
+          return packages[packIds[0].nplpackid[0]].text
+        } else {
+          return 'Okänd förpackning'
+        }
+      }
     }
   }
 }

@@ -13,7 +13,8 @@ const state = {
     max: 10,
     rows: 0,
     scale: 1,
-    pixelsPerDay: 10
+    pixelsPerDay: 10,
+    rowHeight: 36
   }
 
 }
@@ -133,12 +134,13 @@ const actions = {
         let i = 0
         let packCount = 0
         combined[id].offset = rows
-        for (const dates of shortages.data[id].shortages) {
-          if (id === '20051220000015') console.log('this is date', dates)
+        for (const shortage of shortages.data[id].shortages) {
+          // Adding a default status for all shortages
+          combined[id].shortages[i].status = 'current'
           // Get days between forcast start date and end date
           // N.B: The duration can be NULL if it has no end date
-          const startDate = dates.forecastDate.startDate
-          const endDate = dates.actualEndDate ? dates.actualEndDate : dates.forecastDate.endDate
+          const startDate = shortage.forecastDate.startDate
+          const endDate = shortage.actualEndDate ? shortage.actualEndDate : shortage.forecastDate.endDate
           const timeDiffForecast = (new Date(endDate)) - (new Date(startDate))
           const forecastDays = timeDiffForecast / (1000 * 60 * 60 * 24)
           // Get days since shortage
@@ -147,20 +149,11 @@ const actions = {
           const daysPast = timeDiffDaysPast / (1000 * 60 * 60 * 24)
           combined[id].shortages[i].relativeStartDay = daysPast
           combined[id].shortages[i].duration = forecastDays
-          i++
-          // Check for earliest shortage start date
-          if (daysPast < earliestDay) {
-            earliestDay = daysPast
+          // ADD status for upcoming shortages
+          // Some upcoming forecasts has an existing actual end date
+          if (today < shortage.forecastDate.startDate) {
+            combined[id].shortages[i].status = 'upcoming'
           }
-          if (forecastDays + daysPast > latestDay && forecastDays != null) {
-            latestDay = forecastDays + daysPast
-          }
-          rows += dates.packs.length
-          packCount += dates.packs.length
-        }
-        combined[id].packCount = packCount
-        // Looping thourgh all shortages to check for current shortages since there can be > 1
-        for (const shortage of shortages.data[id].shortages) {
           const packs = []
           // Looping through the packs to split them into previous and current shortages
           for (const pack of shortage.packs) {
@@ -176,11 +169,24 @@ const actions = {
               { ...shortage, packs }
             )
           } else {
+            combined[id].shortages[i].status = 'previous'
             combined[id].previousShortages.push(
               { ...shortage, packs }
             )
           }
+          i++
+          // Check for earliest shortage start date
+          if (daysPast < earliestDay) {
+            earliestDay = daysPast
+          }
+          if (forecastDays + daysPast > latestDay && forecastDays != null) {
+            latestDay = forecastDays + daysPast
+          }
+          rows += shortage.packs.length
+          packCount += shortage.packs.length
         }
+        combined[id].packCount = packCount
+        // Looping thourgh all shortages to check for current shortages since there can be > 1
         combined[id].currentShortages.sort(function (a, b) {
           if (a.publicationDate.endDate > b.publicationDate.endDate) {
             return 1
@@ -204,7 +210,7 @@ const actions = {
     console.log(c, 'combinedlength', Object.keys(combined).length)
     Object.freeze(combined)
     commit('saveCombined', combined)
-    console.log('combined', combined)
+    console.log('combined', combined[20040607001097])
     commit('setLoading', false)
     commit('setBound', { max: latestDay, min: earliestDay, rows: rows })
   }
