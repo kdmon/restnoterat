@@ -2,46 +2,11 @@
   <div>
     <!-- <pre> zzzz {{JSON.stringify(shortages(), null, 2)}}</pre> -->
     <!-- <pre>{{ JSON.stringify($store.state.supplies.graph) }}</pre> -->
-    <!-- <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Namn</th>
-          <th>Atc</th>
-          <th>Npl id</th>
-          <th>Referens</th>
-          <th>Förslag</th>
-          <th>Pack</th>
-          <th>Contact</th>
-          <th>Pågående</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(supply, i, c) in shortages(currentShortage)" :key="supply.nplId">
-          <td>{{c}} {{ supply.name }}</td>
-          <td>{{ supply.atc }}</td>
-          <router-link :to="{ path: '/nplid/' + supply.nplId }">
-            <td>{{ supply.nplId }}</td>
-          </router-link>
-          <td>{{ supply.shortages[0].referenceNumber }}</td>
-          <td>{{ supply.shortages[0].advice }}</td>
-          <td>{{ supply.shortages[0].packs }}</td>
-          <td>{{ supply.shortages[0].publicContact }}</td>
-          <td v-if="supply.currentShortages.length > 0">Ja</td>
-          <td v-else>Nej</td>
-        </tr>
-      </tbody>
-    </table>-->
-    <!-- <div class="row">
-      <div class="col-1 column atc">
-        <h4>ssdada</h4>
-        <h4>ssdada</h4>
-      </div>
-      <div class="col-11 column">
-        <p>dsadad</p>
-        <p>dsadad</p>
-        <p>dsadad</p>
-      </div>
-    </div>-->
+    <div class="q-gutter-md" style="max-width: 300px">
+      <q-input v-model="search" debounce="500" label="Nplid" hint="Sök efter nplid" @input="searchHandler"/>
+      <p> sökning: {{ search }}</p>
+    </div>
+
     <q-card style="padding: 1em">
       <p>
         {{ $store.state.supplies.graph.scale }}:
@@ -205,16 +170,15 @@
     </q-card>
   </div>
 </template>
-
 <script>
 // import { mapGetters } from 'vuex'
-
 export default {
   name: 'DataTable',
   props: ['currentShortage'],
   data: function () {
     return {
-      splitterModel: 20
+      splitterModel: 20,
+      search: ''
     }
   },
   computed: {
@@ -232,6 +196,16 @@ export default {
       const d = new Date()
       d.setDate(d.getDate() + daysAgo)
       return d.toISOString().slice(0, 10)
+    },
+    searchHandler: function () {
+      // console.log('detta e log', this.search)
+      // console.log('detta e log', this.$store.state.supplies.combined)
+      let products
+      for (products in this.$store.state.supplies.combined) {
+        if (this.$store.state.supplies.combined[products].name.includes(this.search)) {
+          console.log(this.$store.state.supplies.combined[products].name)
+        }
+      }
     },
     clickHandler: function (id) {
       this.$router.push({ name: 'Detail', params: { id: id } })
