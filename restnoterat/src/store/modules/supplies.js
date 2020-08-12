@@ -111,16 +111,16 @@ const actions = {
   },
   async fetchData ({ commit }) {
     commit('setLoading', 'Hämtar lexikon')
-    const formLexicon = await axios.get('/lex.json')
+    const formLexicon = await axios.get('lex.json')
     commit('saveFormLexicon', formLexicon.data)
-    const atcLexicon = await axios.get('/atc.json')
+    const atcLexicon = await axios.get('atc.json')
     commit('saveAtcLexicon', atcLexicon.data)
     commit('setLoading', 'Hämtar restnoteringar')
-    const shortages = await axios.get('/supplyshortage.json')
+    const shortages = await axios.get('supplyshortage.json')
     console.log(Object.keys(shortages.data).length)
     commit('saveSupplies', shortages.data)
     commit('setLoading', 'Hämtar läkemedelskatalog')
-    const products = await axios.get('/products.json')
+    const products = await axios.get('products.json')
     commit('saveProducts', products.data)
     const combined = {}
     let c = 0
