@@ -58,36 +58,16 @@ const menuList = [
     route: '/'
   },
   {
-    icon: 'send',
+    icon: 'contact_support',
     label: 'Om',
     separator: false,
     route: '/om'
   },
   {
-    icon: 'delete',
-    label: 'Trash',
-    separator: false
-  },
-  {
-    icon: 'error',
-    label: 'Spam',
-    separator: true
-  },
-  {
-    icon: 'settings',
-    label: 'Settings',
-    separator: false
-  },
-  {
-    icon: 'feedback',
-    label: 'Send Feedback',
-    separator: false
-  },
-  {
-    icon: 'help',
-    iconColor: 'primary',
-    label: 'Help',
-    separator: false
+    icon: 'bug_report',
+    label: 'Feedback',
+    separator: false,
+    route: '/feedback'
   }
 ]
 
