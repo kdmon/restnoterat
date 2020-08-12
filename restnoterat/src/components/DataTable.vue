@@ -65,6 +65,9 @@
         </template>
 
         <template v-slot:after>
+          <!--<div style="position: sticky; top: 10px; left: 0; background:red;">Läkemedel 1</div>
+          <div style="position: sticky; top: 100px; left: 0; background:red;">Läkemedel 2</div>
+          <div style="position: sticky; top: 200px; left: 0; background:red;">Läkemedel 3</div>-->
           <svg
               id="graph"
               xmlns="http://www.w3.org/2000/svg"
@@ -221,9 +224,9 @@ export default {
     },
     pickColor: function (status) {
       const color = {
-        upcoming: '#cccccc',
-        current: '#3cb2c5',
-        previous: '#474a4a'
+        upcoming: '#2196F3',
+        current: '#00BCD4',
+        previous: '#4caf50'
       }
       return color[status]
     },

@@ -12,7 +12,7 @@ const state = {
     min: -10,
     max: 10,
     rows: 0,
-    scale: 1,
+    scale: 0.2,
     pixelsPerDay: 10,
     rowHeight: 36
   }
@@ -145,6 +145,7 @@ const actions = {
         combined[id].shortages = shortages.data[id].shortages
         combined[id].currentShortages = []
         combined[id].previousShortages = []
+        combined[id].upcomingShortages = []
         // Loop through forecast dates to convert into days
         let i = 0
         let packCount = 0
@@ -168,6 +169,7 @@ const actions = {
           // Some upcoming forecasts has an existing actual end date
           if (today < shortage.forecastDate.startDate) {
             combined[id].shortages[i].status = 'upcoming'
+            console.log('upcoming', shortage)
           }
           const packs = []
           // Looping through the packs to split them into previous and current shortages
@@ -180,9 +182,15 @@ const actions = {
             }
           }
           if (!shortage.actualEndDate) {
-            combined[id].currentShortages.push(
-              { ...shortage, packs }
-            )
+            if (today > shortage.forecastDate.startDate) {
+              combined[id].currentShortages.push(
+                { ...shortage, packs }
+              )
+            } else {
+              combined[id].upcomingShortages.push(
+                { ...shortage, packs }
+              )
+            }
           } else {
             combined[id].shortages[i].status = 'previous'
             combined[id].previousShortages.push(

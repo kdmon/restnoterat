@@ -16,8 +16,9 @@
           <!-- <p>{{ JSON.stringify(product.packages) }}</p> -->
         </div>
         <div class="col-7">
-          <q-chip v-if="product.currentShortages.length > 0" color="red">PÅGÅENDE</q-chip>
-          <q-chip v-else color="green">Avslutad</q-chip>
+          <q-chip v-if="product.currentShortages.length > 0" color="cyan">PÅGÅENDE</q-chip>
+          <q-chip v-if="product.upcomingShortages.length > 0" color="blue">Kommande</q-chip>
+          <q-chip v-if="product.currentShortages.length === 0 && product.upcomingShortages.length === 0" color="green">Avslutad</q-chip>
           <!-- <p
             v-if="product.currentShortage"
           >Beräknas upphöra {{ product.shortages.slice(-1)[0].forecastDate.endDate}}</p>
@@ -52,6 +53,22 @@
       </div>
     </div>
      <!-- END OF CURRENT SHORTAGESS -->
+      <h4 v-if="product.upcomingShortages.length > 0">Kommande restnoteringar</h4>
+    <h4 v-else>Inga kommande restnoteringar</h4>
+    <!-- START OF UPCOMING SHORTAGES -->
+    <div class="q-pa-md" v-for="shortage in product.upcomingShortages" :key="shortage.referenceNumber">
+      <div class="row">
+        <div class="col-5 column">
+         <ul>
+           <li v-for="pack in shortage.packs" :key="pack.nplPackId">{{ pack.name }}</li>
+         </ul>
+        </div>
+        <div class="col-7">
+          <p> {{ shortage.advice }} </p>
+          <p> Senast uppdaterad: {{ shortage.publicationDate.lastPublication }}</p>
+        </div>
+      </div>
+    </div>
     <!-- START OF PREVIOUS SHORTAGES -->
     <h4>Tidgare restnoteringar</h4>
     <div class="q-pa-md" v-for="shortage in product.previousShortages" :key="shortage.referenceNumber">
