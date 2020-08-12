@@ -3,8 +3,8 @@
     <!-- <pre> zzzz {{JSON.stringify(shortages(), null, 2)}}</pre> -->
     <!-- <pre>{{ JSON.stringify($store.state.supplies.graph) }}</pre> -->
     <div class="q-gutter-md" style="max-width: 300px">
-      <q-input v-model="search" debounce="500" label="Nplid" hint="Sök efter nplid" @input="searchHandler"/>
-      <p> sökning: {{ search }}</p>
+      <q-input v-model="query" debounce="500" label="Nplid" hint="Sök efter nplid"/>
+      <p> sökning: {{ query }}</p>
     </div>
 
     <q-card style="padding: 1em">
@@ -25,6 +25,8 @@
                 <th>Pack</th>
                 <th>datum</th>
                 <th>Pågående</th>
+                <th>EndDate</th>
+                <th>FASS</th>
               </tr>
             </thead>
             <tbody>
@@ -50,6 +52,13 @@
                 </td>
                 <td v-if="supply.currentShortages.length > 0">Ja</td>
                 <td v-else>Nej</td>
+                <td>
+                  <span
+                    v-for="i in supply.shortages.length"
+                    :key="i"
+                  >{{ supply.shortages[0].actualEndDate }}</span>
+                </td>
+                <td><a :href="`https://www.fass.se/LIF/product?userType=0&nplId=${supply.nplId}`">fass</a></td>
               </tr>
             </tbody>
           </table>
@@ -178,12 +187,12 @@ export default {
   data: function () {
     return {
       splitterModel: 20,
-      search: ''
+      query: ''
     }
   },
   computed: {
     shortages () {
-      return this.$store.getters.shortages(this.currentShortage)
+      return this.$store.getters.shortages(this.currentShortage, this.query)
     }
   },
   mounted: function () {
@@ -197,16 +206,16 @@ export default {
       d.setDate(d.getDate() + daysAgo)
       return d.toISOString().slice(0, 10)
     },
-    searchHandler: function () {
-      // console.log('detta e log', this.search)
-      // console.log('detta e log', this.$store.state.supplies.combined)
-      let products
-      for (products in this.$store.state.supplies.combined) {
-        if (this.$store.state.supplies.combined[products].name.includes(this.search)) {
-          console.log(this.$store.state.supplies.combined[products].name)
-        }
-      }
-    },
+    // searchHandler: function () {
+    //   // console.log('detta e log', this.search)
+    //   // console.log('detta e log', this.$store.state.supplies.combined)
+    //   let products
+    //   for (products in this.$store.state.supplies.combined) {
+    //     if (this.$store.state.supplies.combined[products].name.includes(this.query)) {
+    //       console.log(this.$store.state.supplies.combined[products].name)
+    //     }
+    //   }
+    // },
     clickHandler: function (id) {
       this.$router.push({ name: 'Detail', params: { id: id } })
     },

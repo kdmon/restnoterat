@@ -19,6 +19,22 @@ const state = {
 
 }
 
+const methods = {
+  // Returns a filtered object containing products matching name and atc based on queries
+  searchHandler: function (query, data) {
+    console.log(query)
+    query = query.trim().toLowerCase()
+    const filteredObj = {}
+    for (const nplId in data) {
+      if (data[nplId].name.toLowerCase().includes(query) ||
+        data[nplId].atc.toLowerCase().substring(0, query.length) === query) {
+        filteredObj[nplId] = data[nplId]
+      }
+    }
+    return filteredObj
+  }
+}
+
 /*
 Receives the state and then brings out the object of a specific ID
 the ID is a nplid is based on the route params from /npld:id.
@@ -28,19 +44,18 @@ describing a product.
 const getters = {
   allSupplies: state => state.shortages,
   shortages: (state) => (currentShortage, query) => {
-    console.log(currentShortage)
     if (currentShortage === true) {
       const obj = {}
       for (const nplid in state.combined) {
         const shortage = state.combined[nplid]
         if (shortage.currentShortages.length > 0) {
           obj[shortage.nplId] = shortage
+          obj[shortage.nplId].shortages = obj[shortage.nplId].shortages.filter(period => period.status === 'current')
         }
       }
-      console.log('filtered', Object.keys(obj).length)
-      return obj
+      return methods.searchHandler(query, obj)
     } else {
-      return state.combined
+      return methods.searchHandler(query, state.combined)
     }
   },
   productByNplId: (state) => (id) => {
