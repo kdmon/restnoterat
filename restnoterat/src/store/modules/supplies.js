@@ -1,3 +1,13 @@
+/* TODO:
+UX/UI:
+Färgschema
+Defaultvärden
+Flytta närmare reglage (inputs)
+Instruktioner/huvudsida
+Utv:
+Filtrering
+Sortera på atckod - datum
+*/
 import axios from 'axios'
 import Vue from 'vue'
 
@@ -14,7 +24,7 @@ const state = {
     rows: 0,
     scale: 0.2,
     pixelsPerDay: 10,
-    rowHeight: 36
+    rowHeight: 40
   }
 
 }

@@ -78,11 +78,12 @@
                 >{{ new Date().toISOString().slice(0, 10)}}</text>
                 </g>
             </svg>
-            <div v-for="(supply, i, c) in shortages" :key="i" style="ddisplay: none">
-               <div style="display: block; position: sticky; top: 50px; background:yellow;">
+            <template v-for="(supply, i, c) in shortages">
+               <div :key="i" style="display: block; position: sticky; top: 50px; left: 0; background: white;">
                     {{c+1}}. {{supply.name}} ({{i}})
                 </div>
                 <svg
+                :key="i + 'a'"
                 id="graph"
                 xmlns="http://www.w3.org/2000/svg"
                 :width="(Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
@@ -96,11 +97,7 @@
 
                 <!-- Plot packages -->
                 <!-- Group by nplid -->
-                <g
-                    v-for="(row) of supply"
-                    :key="row.nplId"
-                    :ttransform="`translate(0, ${(row.offset * $store.state.supplies.graph.rowHeight) + 50 || 0})`"
-                >
+                <g>
                     <rect
                     x="0"
                     y="0"
@@ -137,7 +134,7 @@
                     </g>
                 </g>
                 </svg>
-            </div>
+            </template>
         </div>
     </div>
 </template>
