@@ -1,141 +1,141 @@
 <template>
-    <div>
-        <div style="border: 2px solid black; padding: 0; height: 500px; overflow: auto;">
-            <!-- Date scale -->
-            <svg
-                id="graph"
-                xmlns="http://www.w3.org/2000/svg"
-                :width="(Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
-                height="50"
-                :hheight="$store.state.supplies.graph.rows * $store.state.supplies.graph.rowHeight"
-                vviewbox="0 0 100 100"
-                aaria-labelledby="diagram"
-                role="presentation"
-                style="display: block; z-index: 1; position: sticky; top: 0px; left: 0;"
-            >
-                <ttitle id="diagram" lang="en">Diagram</ttitle>
+    <div style="border: 2px solid black; padding: 0; hheight: 500px; overflow: auto;">
+        <!-- Date scale -->
+        <svg
+            id="graph"
+            xmlns="http://www.w3.org/2000/svg"
+            :width="(Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
+            height="50"
+            :hheight="$store.state.supplies.graph.rows * $store.state.supplies.graph.rowHeight"
+            vviewbox="0 0 100 100"
+            aaria-labelledby="diagram"
+            role="presentation"
+            style="display: block; z-index: 1; position: sticky; top: 0px; left: 0;"
+        >
+            <ttitle id="diagram" lang="en">Diagram</ttitle>
 
-                <!-- plot timelines/scale -->
-                <g>
-                    <!-- Background fill -->
-                    <rect
-                    y="0"
-                    x="0"
-                    height="50"
-                    :width="(Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
-                    fill="white"
-                    />
-                <g
-                    v-for="day in (Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max)"
-                    :key="day"
-                >
-
-                    <!-- Mark minor grid lines -->
-                    <rect
-                    v-if="Math.floor((day % (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale) == 0)"
-                    :x="day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
-                    y="40"
-                    height="50"
-                    :gheight="$store.state.supplies.graph.rows * $store.state.supplies.graph.rowHeight"
-                    width="1"
-                    :fill="pickColor('minorLine')"
-                    />
-
-                    <!-- Mark major grid lines -->
-                    <rect
-                    v-if="Math.floor((day % (10 * (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale)) == 0)"
-                    :x="day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
-                    y="35"
-                    height="50"
-                    :gheight="$store.state.supplies.graph.rows * $store.state.supplies.graph.rowHeight"
-                    width="3"
-                    :fill="pickColor('majorLine')"
-                    />
-
-                    <!-- Print dates -->
-                    <text
-                    v-if="Math.floor((day % (10 * (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale)) == 0)"
-                    :x="(day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale) - 30"
-                    y="30"
-                    fill="black"
-                    >{{ calculateDate(day - Math.abs($store.state.supplies.graph.min)) }}</text>
-                </g>
-
-                <!-- Mark today's date -->
+            <!-- plot timelines/scale -->
+            <g>
+                <!-- Background fill -->
                 <rect
-                    :x="Math.abs($store.state.supplies.graph.min) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
-                    y="15"
-                    height="60"
-                    width="5"
-                    fill="red"
+                y="0"
+                x="0"
+                height="50"
+                :width="(Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
+                fill="white"
+                />
+            <g
+                v-for="day in (Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max)"
+                :key="day"
+            >
+
+                <!-- Mark minor grid lines -->
+                <rect
+                v-if="Math.floor((day % (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale) == 0)"
+                :x="day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
+                y="40"
+                height="50"
+                :gheight="$store.state.supplies.graph.rows * $store.state.supplies.graph.rowHeight"
+                width="1"
+                :fill="pickColor('minorLine')"
                 />
 
-                <!-- Print todays date -->
-                <text
-                    :x="(Math.abs($store.state.supplies.graph.min) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale) - 30"
-                    y="12"
-                    fill="black"
-                >{{ new Date().toISOString().slice(0, 10)}}</text>
-                </g>
-            </svg>
-            <template v-for="(supply, i, c) in shortages">
-               <div :key="i" style="display: block; position: sticky; top: 50px; left: 0; background: white;">
-                    {{c+1}}. {{supply.name}} ({{i}})
-                </div>
-                <svg
-                :key="i + 'a'"
-                id="graph"
-                xmlns="http://www.w3.org/2000/svg"
-                :width="(Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
-                :height="supply.shortages.length * $store.state.supplies.graph.rowHeight"
-                vviewBox="0 0 18 18"
-                aaria-labelledby="diagram"
-                role="presentation"
-                style="display: block;"
-                >
-                <ttitle id="diagram" lang="en">Diagram</ttitle>
+                <!-- Mark major grid lines -->
+                <rect
+                v-if="Math.floor((day % (10 * (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale)) == 0)"
+                :x="day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
+                y="35"
+                height="50"
+                :gheight="$store.state.supplies.graph.rows * $store.state.supplies.graph.rowHeight"
+                width="3"
+                :fill="pickColor('majorLine')"
+                />
 
-                <!-- Plot packages -->
-                <!-- Group by nplid -->
-                <g>
+                <!-- Print dates -->
+                <text
+                v-if="Math.floor((day % (10 * (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale)) == 0)"
+                :x="(day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale) - 30"
+                y="30"
+                fill="black"
+                >{{ calculateDate(day - Math.abs($store.state.supplies.graph.min)) }}</text>
+            </g>
+
+            <!-- Mark today's date -->
+            <rect
+                :x="Math.abs($store.state.supplies.graph.min) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
+                y="15"
+                height="60"
+                width="5"
+                fill="red"
+            />
+
+            <!-- Print todays date -->
+            <text
+                :x="(Math.abs($store.state.supplies.graph.min) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale) - 30"
+                y="12"
+                fill="black"
+            >{{ new Date().toISOString().slice(0, 10)}}</text>
+            </g>
+        </svg>
+        <template v-for="(supply, i, c) in shortages">
+            <div :key="i" :style="c % 2 == 0 ? `background: ${pickColor('even')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px` : `background: ${pickColor('odd')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px`" style="display: block; width: 250px; overflow: hidden; white-space: z-index: 10; white-space: nowrap; text-overflow: ellipsis; box-shadow: inset 0 0 12px 0 #000000aa; position: sticky; top: 50px; left: 0;">
+                <strong>{{c+1}}. {{supply.name}}</strong>
+                <br>{{$store.state.supplies.atcLexicon[supply.atc].se}} | {{supply.atc}} <!--| {{i}}-->
+            </div>
+            <svg
+            :key="i + 'a'"
+            id="graph"
+            xmlns="http://www.w3.org/2000/svg"
+            :width="(Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
+            :height="supply.shortages.length * $store.state.supplies.graph.rowHeight"
+            vviewBox="0 0 18 18"
+            aaria-labelledby="diagram"
+            role="presentation"
+            style="display: block;"
+            :style="`margin-top: -${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px`"
+            >
+            <ttitle id="diagram" lang="en">Diagram</ttitle>
+
+            <!-- Plot packages -->
+            <!-- Group by nplid -->
+            <g>
+                <rect
+                x="0"
+                y="0"
+                :height="(supply.shortages.length) * $store.state.supplies.graph.rowHeight"
+                :width="(Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
+                :fill=" c % 2 == 0 ? pickColor('even') : pickColor('odd') "
+                />
+                <!-- Group by nplpackid -->
+                <g
+                v-for="(period, p) of supply.shortages"
+                :key="p"
+                tabindex="0"
+                @cclick="clickHandler(supply.nplId)"
+                sstyle="cursor: pointer;"
+                >
+                <a @click="clickHandler(supply.nplId)" xxlink:hhref="#" cursor="pointer" pointer-events="all">
                     <rect
-                    x="0"
-                    y="0"
-                    :height="(supply.shortages.length) * $store.state.supplies.graph.rowHeight"
-                    :width="(Math.abs($store.state.supplies.graph.min) + $store.state.supplies.graph.max) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
-                    :fill=" i % 2 == 0 ? pickColor('even') : pickColor('odd') "
+                    class="drug-row"
+                    rx="10"
+                    ry="10"
+                    :x="(period.relativeStartDay + Math.abs($store.state.supplies.graph.min)) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
+                    :y="p*$store.state.supplies.graph.rowHeight"
+                    :width="(Math.abs(period.duration) || 100) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
+                    :height="$store.state.supplies.graph.rowHeight - 4"
+                    :fill="pickColor(period.status)"
                     />
-                    <!-- Group by nplpackid -->
-                    <g
-                    v-for="(period, p) of supply.shortages"
-                    :key="p"
-                    tabindex="0"
-                    @cclick="clickHandler(supply.nplId)"
-                    sstyle="cursor: pointer;"
-                    >
-                    <a @click="clickHandler(supply.nplId)" xxlink:hhref="#" cursor="pointer" pointer-events="all">
-                        <rect
-                        class="drug-row"
-                        rx="10"
-                        ry="10"
-                        :x="(period.relativeStartDay + Math.abs($store.state.supplies.graph.min)) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
-                        :y="p*$store.state.supplies.graph.rowHeight"
-                        :width="(Math.abs(period.duration) || 100) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
-                        :height="$store.state.supplies.graph.rowHeight"
-                        :fill="pickColor(period.status)"
-                        />
-                        <text
-                        :x="(period.relativeStartDay + Math.abs($store.state.supplies.graph.min)) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
-                        :y="p*$store.state.supplies.graph.rowHeight + ($store.state.supplies.graph.rowHeight / 1.5)"
-                        fill="black"
-                        font-size="24"
-                        >{{ getPacks(period.packs, supply.packages) }}</text>
-                    </a>
-                    </g>
+                    <text
+                    :x="(period.relativeStartDay + Math.abs($store.state.supplies.graph.min)) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
+                    :y="p*$store.state.supplies.graph.rowHeight + ($store.state.supplies.graph.rowHeight / 1.5)"
+                    fill="black"
+                    font-size="16"
+                    >{{ getPacks(period.packs, supply.packages) }}</text>
+                </a>
                 </g>
-                </svg>
-            </template>
-        </div>
+            </g>
+            </svg>
+        </template>
     </div>
 </template>
 <script>
@@ -154,9 +154,9 @@ export default {
     }
   },
   mounted: function () {
-    const e = document.getElementById('graph')
+    // const e = document.getElementById('graph')
     // TODO calculate where it should start
-    e.parentElement.scrollLeft = 19500
+    // e.parentElement.scrollLeft = 19500
   },
   methods: {
     calculateDate: function (daysAgo) {

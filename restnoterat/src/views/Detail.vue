@@ -70,7 +70,7 @@
       </div>
     </div>
     <!-- START OF PREVIOUS SHORTAGES -->
-    <h4>Tidgare restnoteringar</h4>
+    <h4>Tidigare restnoteringar</h4>
     <div class="q-pa-md" v-for="shortage in product.previousShortages" :key="shortage.referenceNumber">
       <div class="row">
         <div class="col-5 column" v-for="pack in shortage.packs" :key="pack.nplPackId">
@@ -80,7 +80,7 @@
         </div>
         <div class="col-7">
           <p>{{ shortage.advice }}</p>
-          <p>Upphördes: {{ shortage.actualEndDate }}</p>
+          <p>Upphörde: {{ shortage.actualEndDate }}</p>
           <!-- <p>Publikation: {{ period.publicationDate.firstPublication }} - {{ period.publicationDate.lastPublication }}</p>
           <p>Prognos: {{ period.forecastDate.startDate }} - {{ period.forecastDate.endDate }}</p>
           <p>Upphörd: {{ period.actualEndDate }}</p> -->

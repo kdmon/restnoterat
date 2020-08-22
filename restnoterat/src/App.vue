@@ -36,7 +36,7 @@
       </q-drawer>
 
     <q-page-container>
-      <q-page class="q-pa-xl">
+      <q-page class="q-pt-md">
         <div v-if="!$store.state.supplies.loading">
           <router-view />
         </div>

@@ -22,7 +22,7 @@ const state = {
     min: -10,
     max: 10,
     rows: 0,
-    scale: 0.2,
+    scale: 0.09,
     pixelsPerDay: 10,
     rowHeight: 40
   }
@@ -32,11 +32,12 @@ const state = {
 const methods = {
   // Returns a filtered object containing products matching name and atc based on queries
   searchHandler: function (query, data) {
-    console.log(query)
     query = query.trim().toLowerCase()
+    if (!query) return data
     const filteredObj = {}
     for (const nplId in data) {
       if (data[nplId].name.toLowerCase().includes(query) ||
+        nplId.toLowerCase().includes(query) ||
         data[nplId].atc.toLowerCase().substring(0, query.length) === query) {
         filteredObj[nplId] = data[nplId]
       }
@@ -162,6 +163,7 @@ const actions = {
         combined[id].offset = rows
         for (const shortage of shortages.data[id].shortages) {
           // Adding a default status for all shortages
+          combined[id].shortages[i] = shortage
           combined[id].shortages[i].status = 'current'
           // Get days between forcast start date and end date
           // N.B: The duration can be NULL if it has no end date
