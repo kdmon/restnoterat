@@ -22,8 +22,8 @@ const state = {
     min: -10,
     max: 10,
     rows: 0,
-    scale: 0.09,
-    pixelsPerDay: 10,
+    scale: 0.148,
+    pixelsPerDay: 4,
     rowHeight: 40
   }
 
@@ -247,7 +247,7 @@ const actions = {
     commit('saveCombined', combined)
     console.log('combined', combined[20040607001097])
     commit('setLoading', false)
-    commit('setBound', { max: latestDay, min: earliestDay, rows: rows })
+    commit('setBound', { max: latestDay + 120, min: earliestDay - 50, rows: rows })
   }
   // async fetchProducts ({ commit }) {
   //   const response = await axios.get('products.json')

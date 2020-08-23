@@ -1,9 +1,14 @@
 <template>
-  <div cclass="bg-teal" style="overflow: auto; max-height: 80vh; margin-top: 0">
+  <div cclass="bg-teal" style="overflow: auto; height: calc(100vh - 80px); margin-top: 0; will-change: transform; transform: translateZ(0);">
         <div class="row bg-white" style="position: sticky; top: 0px; left: 0; z-index: 50;">
             <div class="col q-pl-xl">
                 <div class="q-gutter-md" style="max-width: 400px">
-                    <q-input dense outlined v-model="query" debounce="500" label="Sök på namn, nplid eller atc-kod"/> <p style="margin: 0.5em 0 0 2em; font-weight: 600;">Visar {{Object.keys(shortages).length}} träffar, sorterat på senast uppdaterad.</p>
+                    <q-input dense outlined v-model="query" debounce="500" label="Sök på namn, nplid eller atc-kod">
+                      <template v-if="query" v-slot:append>
+                        <q-icon name="cancel" @click.stop="query = ''" class="cursor-pointer" />
+                      </template>
+                    </q-input>
+                    <p style="margin: 0.5em 0 0 2em; font-weight: 600;">Visar {{Object.keys(shortages).length}} träffar, sorterat på senast uppdaterad.</p>
                 </div>
             </div>
             <div class="col q-pr-lg">
@@ -42,7 +47,7 @@
 
                 <!-- Mark minor grid lines -->
                 <rect
-                v-if="Math.floor((day % (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale) == 0)"
+                v-if="Math.floor(day % (365.25/12)) == 0"
                 :x="day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
                 y="40"
                 height="50"
@@ -51,9 +56,18 @@
                 :fill="pickColor('minorLine')"
                 />
 
+                <!-- Print dates -->
+                <text
+                v-if="Math.floor(day % (365.25/12)) == 0"
+                :x="(day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale) - 6"
+                y="40"
+                fill="#777777"
+                font-size="9"
+                >{{ months[Math.floor(day / (365.25/12))]}}</text>
+
                 <!-- Mark major grid lines -->
                 <rect
-                v-if="Math.floor((day % (10 * (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale)) == 0)"
+                v-if="Math.floor(day % 365.25) == 0"
                 :x="day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale"
                 y="35"
                 height="50"
@@ -64,8 +78,8 @@
 
                 <!-- Print dates -->
                 <text
-                v-if="Math.floor((day % (10 * (1/$store.state.supplies.graph.scale) * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale)) == 0)"
-                :x="(day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale) - 30"
+                v-if="Math.floor(day % 365.25) == 0"
+                :x="(day * $store.state.supplies.graph.pixelsPerDay * $store.state.supplies.graph.scale) - 15"
                 y="30"
                 fill="black"
                 >{{ calculateDate(day - Math.abs($store.state.supplies.graph.min)) }}</text>
@@ -77,7 +91,7 @@
                 y="15"
                 height="60"
                 width="5"
-                fill="red"
+                :fill="pickColor('today')"
             />
 
             <!-- Print todays date -->
@@ -142,7 +156,7 @@
                     :x="(period.relativeStartDay + Math.abs($store.state.supplies.graph.min)) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
                     :y="p*$store.state.supplies.graph.rowHeight + ($store.state.supplies.graph.rowHeight / 1.5) -8"
                     fill="black"
-                    font-size="16"
+                    font-size="14"
                     >{{ getPacks(period.packs, supply.packages) }}</text>
                 </a>
                 </g>
@@ -160,6 +174,7 @@ export default {
   name: 'Home',
   data: function () {
     return {
+      months: ['', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
       query: '',
       sortAtc: false,
       currentShortage: true
@@ -174,7 +189,7 @@ export default {
     calculateDate: function (daysAgo) {
       const d = new Date()
       d.setDate(d.getDate() + daysAgo)
-      return d.toISOString().slice(0, 10)
+      return d.toISOString().slice(0, 4)
     },
     // searchHandler: function () {
     //   // console.log('detta e log', this.search)
@@ -191,16 +206,16 @@ export default {
     },
     pickColor: function (status) {
       const color = {
-        upcoming: '#2196F3',
-        current: '#00BCD4',
-        previous: '#4caf50',
+        upcoming: '#ffa726', // '#2196F3',
+        current: '#f50000', // '#00BCD4',
+        previous: '#777777', // '#4caf50',
         majorLine: '#00000020',
         minorLine: '#00000020',
         odd: '#f5f5f5',
         even: '#eeeeee',
         odd2: '#fafaff',
         even2: '#f0f0fa',
-        today: '#ff0000'
+        today: '#2196f3' // '#ff0000'
       }
       return color[status]
     },

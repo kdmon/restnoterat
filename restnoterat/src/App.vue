@@ -38,7 +38,9 @@
     <q-page-container>
       <q-page class="q-pt-md">
         <div v-if="!$store.state.supplies.loading">
-          <router-view />
+          <keep-alive>
+            <router-view />
+          </keep-alive>
         </div>
         <div v-else>
           <q-spinner/>
