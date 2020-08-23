@@ -1,5 +1,6 @@
 <template>
   <div>
+    <q-btn class="q-ma-lg" @click="$router.go(-1)" text-color="black" label="Tillbaka" icon="arrow_back" unelevated no-caps/>
     <q-breadcrumbs>
       <q-breadcrumbs-el label="Hem" icon="home" to="/" />
       <q-breadcrumbs-el label="Om" />

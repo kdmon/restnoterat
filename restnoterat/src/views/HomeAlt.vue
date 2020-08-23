@@ -1,5 +1,5 @@
 <template>
-  <div cclass="bg-teal" style="overflow: auto; height: calc(100vh - 80px); margin-top: 0; will-change: transform; transform: translateZ(0);">
+  <div cclass="bg-teal" style="overflow: auto; height: calc(100vh - 80px); margin-top: 0; will-change: transform;">
         <div class="row bg-white" style="position: sticky; top: 0px; left: 0; z-index: 50;">
             <div class="col q-pl-xl">
                 <div class="q-gutter-md" style="max-width: 400px">
@@ -103,7 +103,7 @@
             </g>
         </svg>
         <template v-for="(supply, i, c) in shortages">
-            <div @click="clickHandler(supply.nplId)" :key="i" :style="c % 2 == 0 ? `background: ${pickColor('even2')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px` : `background: ${pickColor('odd2')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px`" style="cursor: pointer; display: block; width: 350px; overflow: hidden; z-index: 10; white-space: nowrap; text-overflow: ellipsis; padding-left: 8px; border-bottom: 1px solid #ccc; border-right: 1px dashed #ccc; position: sticky; top: 50px; left: 0;">
+            <div @click="clickHandler(supply.nplId)" :key="i" :style="c % 2 == 0 ? `background: ${pickColor('even2')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px` : `background: ${pickColor('odd2')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px`" style="cursor: pointer; display: block; width: 350px; overflow: hidden; z-index: 10; white-space: nowrap; text-overflow: ellipsis; padding-left: 8px; border-bottom: 1px solid #ccc; border-right: 1px dashed #ccc; position: sticky; top: 135px; left: 0;">
                 {{c+1}}. <strong>{{supply.name}} {{supply.strength}}</strong> <br>
                 <span style="display: inline-block; margin-top: -0.3em; font-size: 0.8em; line-height: 1em; margin-left: 3.5em;">
                 {{$store.state.supplies.formLexicon[supply.form].se}}

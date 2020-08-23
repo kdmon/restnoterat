@@ -11,6 +11,10 @@ Sortera på atckod - datum
 import axios from 'axios'
 import Vue from 'vue'
 
+const res = {
+  1920: 0.148,
+  2560: 0.209
+}
 const state = {
   shortages: {},
   products: {},
@@ -22,7 +26,7 @@ const state = {
     min: -10,
     max: 10,
     rows: 0,
-    scale: 0.148,
+    scale: res[screen.availWidth] ? res[screen.availWidth] : 0.148,
     pixelsPerDay: 4,
     rowHeight: 40
   }
