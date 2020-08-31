@@ -62,7 +62,7 @@ const getters = {
     if (currentShortage === true) {
       const obj = {}
       for (const nplid in state.combined) {
-        const shortage = state.combined[nplid]
+        const shortage = { ...state.combined[nplid] } // Creating a deep clone
         if (shortage.currentShortages.length > 0) {
           obj[shortage.nplId] = shortage
           obj[shortage.nplId].shortages = obj[shortage.nplId].shortages.filter(period => period.status === 'current')
