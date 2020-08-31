@@ -70,6 +70,7 @@ const getters = {
       }
       return methods.searchHandler(query, obj)
     } else {
+      console.log('state', state.combined[19630926000020])
       return methods.searchHandler(query, state.combined)
     }
   },
@@ -165,18 +166,25 @@ const actions = {
         let i = 0
         let packCount = 0
         combined[id].offset = rows
+        Vue.set(combined[id].shortages, shortages.data[id].shortages)
+        if (id === '19630926000020') console.log('vanq', combined[id].shortages)
         for (const shortage of shortages.data[id].shortages) {
           // Adding a default status for all shortages
-          combined[id].shortages[i] = shortage
+          // combined[id].shortages[i] = shortage
           combined[id].shortages[i].status = 'current'
           // Get days between forcast start date and end date
-          // N.B: The duration can be NULL if it has no end date
+          /* N.B: The duration can be NULL if it has no end date,
+            if that is the case we set the enddate to todays date
+          */
           const startDate = shortage.forecastDate.startDate
-          const endDate = shortage.actualEndDate ? shortage.actualEndDate : shortage.forecastDate.endDate
+          let endDate = shortage.actualEndDate ? shortage.actualEndDate : shortage.forecastDate.endDate
+          const today = new Date().toISOString().slice(0, 10)
+          if (endDate === '') {
+            endDate = '2022-01-01'
+          }
           const timeDiffForecast = (new Date(endDate)) - (new Date(startDate))
           const forecastDays = timeDiffForecast / (1000 * 60 * 60 * 24)
           // Get days since shortage
-          const today = new Date().toISOString().slice(0, 10)
           const timeDiffDaysPast = (new Date(startDate)) - (new Date(today))
           const daysPast = timeDiffDaysPast / (1000 * 60 * 60 * 24)
           combined[id].shortages[i].relativeStartDay = daysPast
@@ -185,7 +193,6 @@ const actions = {
           // Some upcoming forecasts has an existing actual end date
           if (today < shortage.forecastDate.startDate) {
             combined[id].shortages[i].status = 'upcoming'
-            console.log('upcoming', shortage)
           }
           const packs = []
           // Looping through the packs to split them into previous and current shortages
@@ -195,6 +202,8 @@ const actions = {
                 name: combined[id].packages[pack.nplpackid].text,
                 nplPackId: pack.nplpackid
               })
+            } else {
+              console.log('package not found')
             }
           }
           if (!shortage.actualEndDate) {
@@ -248,8 +257,9 @@ const actions = {
     }
     console.log(c, 'combinedlength', Object.keys(combined).length)
     Object.freeze(combined)
+    // console.log('vanq', combined[19630926000020])
     commit('saveCombined', combined)
-    console.log('combined', combined[20040607001097])
+    console.log('dsdsdsdsd', combined[20150303000130])
     commit('setLoading', false)
     commit('setBound', { max: latestDay + 120, min: earliestDay - 50, rows: rows })
   }

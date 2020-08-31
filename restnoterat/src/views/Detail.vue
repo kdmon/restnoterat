@@ -17,13 +17,14 @@
           <!-- <p>{{ JSON.stringify(product.packages) }}</p> -->
         </div>
         <div class="col-7">
-          <q-chip v-if="product.currentShortages.length > 0" color="cyan">PÅGÅENDE</q-chip>
-          <q-chip v-if="product.upcomingShortages.length > 0" color="blue">Kommande</q-chip>
-          <q-chip v-if="product.currentShortages.length === 0 && product.upcomingShortages.length === 0" color="green">Avslutad</q-chip>
-          <!-- <p
-            v-if="product.currentShortage"
-          >Beräknas upphöra {{ product.shortages.slice(-1)[0].forecastDate.endDate}}</p>
-          <p v-else>Upphördes {{ product.shortages.slice(-1)[0].actualEndDate}}</p> -->
+          <q-chip v-if="product.currentShortages.length > 0" color="red">PÅGÅENDE</q-chip>
+          <q-chip v-if="product.upcomingShortages.length > 0" color="yellow">Kommande</q-chip>
+          <q-chip v-if="product.currentShortages.length === 0 && product.upcomingShortages.length === 0" color="gray">Avslutad</q-chip>
+          <br>
+          <br>
+          <br>
+          <p v-if="product.currentShortages.length >  0"> Beräknas upphöra {{ product.shortages.slice(-1)[0].forecastDate.endDate}}</p>
+          <p v-if="product.currentShortages.length === 0 && product.upcomingShortages.length === 0">Upphördes {{ product.shortages[0].actualEndDate}}</p>
           <!-- <div
             class="bg-white q-pa-sm sshadow-2"
             style="max-width: 50em; box-shadow: rgb(170, 170, 170) 0px 0px 6px -2px !important; padding-left: 1em; margin: 0px 1em 0px 0px;"
@@ -40,7 +41,24 @@
     <h4 v-if="product.currentShortages.length > 0">Pågående restnoteringar</h4>
     <h4 v-else>Inga pågående restnoteringar</h4>
     <!-- START OF CURRENT SHORTAGES -->
-    <div class="q-pa-md" v-for="shortage in product.currentShortages" :key="shortage.referenceNumber">
+      <q-list bordered class="rounded-borders">
+      <q-expansion-item
+        expand-separator
+        v-for="shortage in product.currentShortages" :key="shortage.referenceNumber"
+        icon="perm_identity"
+        :label="shortage.packs.length > 1 ? 'Flera förpackningar' : shortage.packs[0].name"
+        caption="hej"
+      >
+        <q-card>
+          <q-card-section>
+            <p> <span class="text-bold">Förslag:</span> {{shortage.advice}} </p>
+            <p> <span class="text-bold">Senast Uppdaterad:</span> {{shortage.publicationDate.lastPublication}} </p>
+            <p> <span class="text-bold">Beräknas upphöra:</span> {{shortage.forecastDate.endDate}} </p>
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+      </q-list>
+    <!-- <div class="q-pa-md" v-for="shortage in product.currentShortages" :key="shortage.referenceNumber">
       <div class="row">
         <div class="col-5 column">
          <ul>
@@ -52,7 +70,7 @@
           <p> Senast uppdaterad: {{ shortage.publicationDate.lastPublication }}</p>
         </div>
       </div>
-    </div>
+    </div> -->
      <!-- END OF CURRENT SHORTAGESS -->
       <h4 v-if="product.upcomingShortages.length > 0">Kommande restnoteringar</h4>
     <h4 v-else>Inga kommande restnoteringar</h4>
