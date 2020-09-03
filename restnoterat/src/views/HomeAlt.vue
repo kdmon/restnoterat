@@ -103,7 +103,7 @@
             </g>
         </svg>
         <template v-for="(supply, i, c) in shortages">
-            <div @click="clickHandler(supply.nplId)" :key="i" :style="c % 2 == 0 ? `background: ${pickColor('even2')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px` : `background: ${pickColor('odd2')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px`" style="cursor: pointer; display: block; width: 350px; overflow: hidden; z-index: 10; white-space: nowrap; text-overflow: ellipsis; padding-left: 8px; border-bottom: 1px solid #ccc; border-right: 1px dashed #ccc; position: sticky; top: 135px; left: 0;">
+            <div @click="clickHandler(supply.nplId)" :key="i" :style="c % 2 == 0 ? `background: ${pickColor('even2')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px` : `background: ${pickColor('odd2')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px`" style="cursor: pointer; display: block; width: 350px; overflow: hidden; z-index: 10; white-space: nowrap; text-overflow: ellipsis; padding-left: 8px; border-bottom: 1px solid #ccc; border-right: 1px dashed #ccc; position: sticky; top: 130px; left: 0;">
                 {{c+1}}. <strong>{{supply.name}} {{supply.strength}}</strong> <br>
                 <span style="display: inline-block; margin-top: -0.3em; font-size: 0.8em; line-height: 1em; margin-left: 3.5em;">
                 {{$store.state.supplies.formLexicon[supply.form].se}}
@@ -177,7 +177,7 @@ export default {
       months: ['', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
       query: '',
       sortAtc: false,
-      currentShortage: false
+      currentShortage: true
     }
   },
   computed: {
@@ -208,9 +208,9 @@ export default {
     },
     pickColor: function (status) {
       const color = {
-        upcoming: '#ffa726', // '#2196F3',
-        current: '#f50000', // '#00BCD4',
-        previous: '#777777', // '#4caf50',
+        upcoming: '#ffab00', // '#2196F3',
+        current: '#d50000', // '#00BCD4',
+        previous: '#757575', // '#4caf50',
         majorLine: '#00000020',
         minorLine: '#00000020',
         odd: '#f5f5f5',
