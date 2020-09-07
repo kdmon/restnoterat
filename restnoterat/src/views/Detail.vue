@@ -11,7 +11,7 @@
     />
     <div class="q-pa-md">
       <div class="row">
-        <div class="col-5 column">
+        <div class="col-8 column">
           <h1>
             {{ product.name }}
             {{ product.strength }}
@@ -20,7 +20,7 @@
           <h2>{{ $store.state.supplies.atcLexicon[product.atc].se }} ({{ product.atc }})</h2>
           <!-- <p>{{ JSON.stringify(product.packages) }}</p> -->
         </div>
-        <div class="col-7" style="display: flex; align-items: baseline;">
+        <div class="col-4" style="display: flex; align-items: baseline;">
           <q-chip
             class="rounded"
             text-color="white"
@@ -50,8 +50,7 @@
     <div class="q-pa-md">
       <!-- END OF UPCOMING SHORTAGES -->
       <div>
-        <h4 v-if="product.currentShortages.length > 0">Pågående restnoteringar</h4>
-        <h4 v-else>Inga pågående restnoteringar</h4>
+        <h4>Pågående restnoteringar ({{product.currentShortages.length}})</h4>
         <!-- START OF CURRENT SHORTAGES -->
         <q-list bordered class="rounded-borders">
           <q-expansion-item
@@ -74,7 +73,7 @@
                   </ul>
                 </div>
                 <p>
-                  <span class="text-bold">Informatin från läkemedelsverket:</span>
+                  <span class="text-bold">Information från läkemedelsverket:</span>
                   {{shortage.advice}}
                 </p>
                 <p>
@@ -92,8 +91,7 @@
       </div>
       <!-- END OF CURRENT SHORTAGESS -->
       <div>
-        <h4 v-if="product.upcomingShortages.length > 0">Kommande restnoteringar</h4>
-        <h4 v-else>Inga kommande restnoteringar</h4>
+        <h4>Kommande restnoteringar ({{product.upcomingShortages.length}})</h4>
         <!-- START OF UPCOMING SHORTAGES -->
         <q-list bordered class="rounded-borders">
           <q-expansion-item
@@ -134,7 +132,7 @@
       </div>
       <!-- START OF PREVIOUS SHORTAGES -->
       <div>
-        <h4>Tidigare restnoteringar</h4>
+        <h4>Tidigare restnoteringar ({{product.previousShortages.length}})</h4>
         <q-list bordered class="rounded-borders">
           <q-expansion-item
             icon="stop_circle"
@@ -217,12 +215,14 @@ h4 {
   margin-bottom: 0.5em;
 }
 h1 {
+  line-height: 1em;
   margin: 0;
-  font-size: 3.5em;
+  font-size: 3.25em;
 }
 h2 {
   margin: 0.25em 0;
-  font-size: 2.75em;
+  line-height: 1em;
+  font-size: 2.15em;
 }
 .rounded {
   border-radius: 48px;

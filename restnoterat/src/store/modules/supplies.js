@@ -180,7 +180,8 @@ const actions = {
           let endDate = shortage.actualEndDate ? shortage.actualEndDate : shortage.forecastDate.endDate
           const today = new Date().toISOString().slice(0, 10)
           if (endDate === '') {
-            endDate = '2022-01-01'
+            endDate = today // '2022-01-01'
+            combined[id].shortages[i].indefinite = true
           }
           const timeDiffForecast = (new Date(endDate)) - (new Date(startDate))
           const forecastDays = timeDiffForecast / (1000 * 60 * 60 * 24)

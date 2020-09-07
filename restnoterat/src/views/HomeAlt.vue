@@ -1,5 +1,5 @@
 <template>
-  <div cclass="bg-teal" style="overflow: auto; height: calc(100vh - 80px); margin-top: 0; will-change: transform;">
+  <div id="graph-container" cclass="bg-teal" style="overflow: auto; height: calc(100vh - 80px); margin-top: 0; will-change: transform;">
         <div class="row bg-white" style="position: sticky; top: 0px; left: 0; z-index: 50;">
             <div class="col q-pl-xl">
                 <div class="q-gutter-md" style="max-width: 400px">
@@ -152,6 +152,18 @@
                     :height="8"
                     :fill="pickColor(period.status)"
                     />
+                    <rect
+                    v-if="period.indefinite"
+                    :transform="`rotate(45, ${(period.relativeStartDay + period.duration + Math.abs($store.state.supplies.graph.min)) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale}, ${p*$store.state.supplies.graph.rowHeight + 22})`"
+                    class="drug-row"
+                    rx="0"
+                    ry="0"
+                    :x="(period.relativeStartDay + period.duration + Math.abs($store.state.supplies.graph.min)) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
+                    :y="p*$store.state.supplies.graph.rowHeight + 22"
+                    :width="10"
+                    :height="10"
+                    :fill="pickColor(period.status)"
+                    />
                     <text
                     :x="(period.relativeStartDay + Math.abs($store.state.supplies.graph.min)) *$store.state.supplies.graph.pixelsPerDay *$store.state.supplies.graph.scale"
                     :y="p*$store.state.supplies.graph.rowHeight + ($store.state.supplies.graph.rowHeight / 1.5) -8"
@@ -236,6 +248,12 @@ export default {
   },
   components: {
     Graph
+  },
+  mounted: function () {
+    setTimeout(function () {
+      const e = document.getElementById('graph-container')
+      e.scrollTo(500000, 0)
+    }, 0)
   }
 }
 </script>
