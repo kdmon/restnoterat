@@ -11,7 +11,7 @@
         Om du hittar något fel på webbsidan eller vill föreslå en förbättning kan du
         skapa en issue på <a href="https://github.com/kdmon/restnoterat/issues">github</a>
         eller skicka iväg ett mail till <a href='mailto:hej@martinkassar.se'>hej@martinkassar.se</a>.
-        Eftersom webbplatsen inte är av prioritet så kan det dröja innan ändringar implementeras.
+        Eftersom det är ett ideellt projekt så kan det dröja innan ändringar implementeras.
       </p>
     </div>
     <h4>För utvecklare</h4>
@@ -19,7 +19,7 @@
       <p>
         Webbplatsen är skriven i JavaScript med ramverket Vue.js och Node.js.
         Datan om restnoterignar som hämtas från läkemedelsverker är i XML och
-        koverteras till JSON via Node. Gränsnittet för webbplatsen är byggt med
+        konverteras till JSON via Node. Gränsnittet för webbplatsen är byggt med
         Quasar.
         <br>
         <br>
