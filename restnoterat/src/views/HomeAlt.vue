@@ -3,7 +3,7 @@
         <div class="row bg-white" style="position: sticky; top: 0px; left: 0; z-index: 50;">
             <div class="col q-pl-xl">
                 <div class="q-gutter-md" style="max-width: 400px">
-                    <q-input dense outlined v-model="query" debounce="500" label="Sök på namn, nplid eller atc-kod">
+                    <q-input outlined v-model="query" debounce="500" label="Sök på namn, nplid eller atc-kod">
                       <template v-if="query" v-slot:append>
                         <q-icon name="cancel" @click.stop="query = ''" class="cursor-pointer" />
                       </template>
@@ -12,11 +12,15 @@
                 </div>
             </div>
             <div class="col q-pr-lg">
-                <q-toggle debounce="500" v-model="currentShortage" label="Enbart pågående restnoteringar"/>
+                <q-checkbox v-model="currentShortage" keep-color label="Pågående" color="red-14" />
                 <br>
-                <q-toggle debounce="500" v-model="sortAtc" label="Sortera på ATC-kod"/>
+                <q-checkbox v-model="upcomingShortage" keep-color label="Kommande" color="amber-14" />
+                <br>
+                <q-checkbox v-model="previousShortage" keep-color label="Avslutade" color="grey-7" />
+                <br>
           </div>
         </div>
+        <div v-if="currentShortage || previousShortage || upcomingShortage">
         <svg
             id="graph"
             xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +30,7 @@
             vviewbox="0 0 100 100"
             aaria-labelledby="diagram"
             role="presentation"
-            style="padding-left: 350px; background: white; box-shadow: 0 4px 4px 0 #00000040; display: block; z-index: 100; position: sticky; top: 80px; left: 0;"
+            style="padding-left: 350px; background: white; box-shadow: 0 4px 4px 0 #00000040; display: block; z-index: 100; position: sticky; top: 110px; left: 0;"
         >
             <ttitle id="diagram" lang="en">Diagram</ttitle>
 
@@ -103,7 +107,7 @@
             </g>
         </svg>
         <template v-for="(supply, i, c) in shortages">
-            <div @click="clickHandler(supply.nplId)" :key="i" :style="c % 2 == 0 ? `background: ${pickColor('even2')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px` : `background: ${pickColor('odd2')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px`" style="cursor: pointer; display: block; width: 350px; overflow: hidden; z-index: 10; white-space: nowrap; text-overflow: ellipsis; padding-left: 8px; border-bottom: 1px solid #ccc; border-right: 1px dashed #ccc; position: sticky; top: 130px; left: 0;">
+            <div @click="clickHandler(supply.nplId)" :key="i" :style="c % 2 == 0 ? `background: ${pickColor('even2')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px` : `background: ${pickColor('odd2')}; height: ${(supply.shortages.length) * $store.state.supplies.graph.rowHeight}px`" style="cursor: pointer; display: block; width: 350px; overflow: hidden; z-index: 10; white-space: nowrap; text-overflow: ellipsis; padding-left: 8px; border-bottom: 1px solid #ccc; border-right: 1px dashed #ccc; position: sticky; top: 160px; left: 0;">
                 {{c+1}}. <strong>{{supply.name}} {{supply.strength}}</strong> <br>
                 <span style="display: inline-block; margin-top: -0.3em; font-size: 0.8em; line-height: 1em; margin-left: 3.5em;">
                 {{$store.state.supplies.formLexicon[supply.form].se}}
@@ -175,7 +179,9 @@
             </g>
             </svg>
         </template>
+      </div>
         <graph style="display: none;" :current-shortage="currentShortage" :query="query"/>
+        <h1 v-if="!currentShortage && !upcomingShortage && !previousShortage">Välj en typ av restnotering</h1>
   </div>
 </template>
 
@@ -189,13 +195,15 @@ export default {
       months: ['', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec', '', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
       query: '',
       sortAtc: false,
-      currentShortage: true
+      currentShortage: true,
+      previousShortage: false,
+      upcomingShortage: true
     }
   },
   computed: {
     shortages: {
       get: function () {
-        return this.$store.getters.shortages(this.currentShortage, this.query)
+        return this.$store.getters.shortages(this.currentShortage, this.upcomingShortage, this.previousShortage, this.query)
       }
     }
   },

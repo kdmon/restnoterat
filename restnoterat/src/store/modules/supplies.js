@@ -36,7 +36,7 @@ const state = {
 const methods = {
   // Returns a filtered object containing products matching name and atc based on queries
   searchHandler: function (query, data) {
-    query = query.trim().toLowerCase()
+    if (query) query = query.trim().toLowerCase()
     if (!query) return data
     const filteredObj = {}
     for (const nplId in data) {
@@ -58,21 +58,30 @@ describing a product.
 */
 const getters = {
   allSupplies: state => state.shortages,
-  shortages: (state) => (currentShortage, query) => {
-    if (currentShortage === true) {
-      const obj = {}
-      for (const nplid in state.combined) {
-        const shortage = { ...state.combined[nplid] } // Creating a deep clone
-        if (shortage.currentShortages.length > 0) {
-          obj[shortage.nplId] = shortage
-          obj[shortage.nplId].shortages = obj[shortage.nplId].shortages.filter(period => period.status === 'current')
-        }
+  shortages: (state) => (currentShortage, upcomingShortage, previousShortage, query) => {
+    const obj = {}
+    for (const nplid in state.combined) {
+      const shortage = { ...state.combined[nplid] } // Creating a deep clone to keep reactiveness
+      let c = []
+      let u = []
+      let p = []
+      if (currentShortage && shortage.currentShortages.length > 0) {
+        obj[shortage.nplId] = shortage
+        c = obj[shortage.nplId].shortages.filter(period => period.status === 'current')
       }
-      return methods.searchHandler(query, obj)
-    } else {
-      console.log('state', state.combined[19630926000020])
-      return methods.searchHandler(query, state.combined)
+      if (upcomingShortage && shortage.upcomingShortages.length > 0) {
+        obj[shortage.nplId] = shortage
+        u = obj[shortage.nplId].shortages.filter(period => period.status === 'upcoming')
+      }
+      if (previousShortage && shortage.previousShortages.length > 0) {
+        obj[shortage.nplId] = shortage
+        p = obj[shortage.nplId].shortages.filter(period => period.status === 'previous')
+      }
+      if (c.length > 0 || u.length > 0 || p.length > 0) {
+        obj[shortage.nplId].shortages = c.concat(u, p)
+      }
     }
+    return methods.searchHandler(query, obj)
   },
   productByNplId: (state) => (id) => {
     return state.combined[id]

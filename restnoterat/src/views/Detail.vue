@@ -36,6 +36,7 @@
           >Kommande</q-chip>
           <q-chip
             class="rounded"
+            text-color="white"
             size="24px"
             v-if="product.currentShortages.length === 0 && product.upcomingShortages.length === 0"
             color="grey-7"
@@ -132,7 +133,7 @@
       </div>
       <!-- START OF PREVIOUS SHORTAGES -->
       <div>
-        <h4>Tidigare restnoteringar ({{product.previousShortages.length}})</h4>
+        <h4>Avslutade restnoteringar ({{product.previousShortages.length}})</h4>
         <q-list bordered class="rounded-borders">
           <q-expansion-item
             icon="stop_circle"
