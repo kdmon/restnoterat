@@ -12,12 +12,12 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: HomeAlt
   },
   {
     path: '/alt',
-    name: 'Home',
-    component: HomeAlt
+    name: 'HomeAlt',
+    component: Home
   },
   {
     path: '/nplid/:id',
