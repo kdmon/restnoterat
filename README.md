@@ -20,6 +20,10 @@ npm run build
 npm run lint
 ```
 
+### Fetch data and build
+```
+npm run download
+```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
