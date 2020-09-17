@@ -30,7 +30,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # Documentation
 
 ### About
-The purpose with the website is that people in healthcare, pharmacy and other people easily can get an overview of medicinal prodcuts that is, has, or are expected to run out at manufacturers.
+The purpose with the website is that people in healthcare, pharmacy and other people in Sweden easily can get an overview of medicinal prodcuts that is, has, or are expected to run out at manufacturers.
 
 ### The development of the project
 The project is built with Vue using Vuex. It also contains Node.js to convert data from XML to JSON.
