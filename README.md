@@ -35,5 +35,7 @@ The data about shortage in medicinal products is coming from Läkemedelsverket i
 
 The most important data is the shortage in medicinal products and the structure of the json object is divided in each nplid containing one or several shortage periods. The other JSON files containnig information and translation into products name are later pushed into each object.
 
+The graph displaying different periods of shortages is drawn out with svg based on calculations. 
+
 ### The development of the project
 If you want to get in touch or suggest an improvement you can create an issue, reach out directly on github or send me an email on hej@martinkassar.se
