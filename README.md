@@ -37,5 +37,5 @@ The most important data is the shortage in medicinal products and the structure 
 
 The graph displaying different periods of shortages is drawn out with svg based on calculations. 
 
-### The development of the project
+### Get in touch
 If you want to get in touch or suggest an improvement you can create an issue, reach out directly on github or send me an email on hej@martinkassar.se
