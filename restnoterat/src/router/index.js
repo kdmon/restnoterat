@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import HomeAlt from '../views/HomeAlt.vue'
 import Detail from '../views/Detail.vue'
 import About from '../views/About.vue'
 import Feedback from '../views/Feedback.vue'
@@ -12,11 +11,6 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: HomeAlt
-  },
-  {
-    path: '/alt',
-    name: 'HomeAlt',
     component: Home
   },
   {
