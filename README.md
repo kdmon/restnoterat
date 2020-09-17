@@ -26,4 +26,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # Documentation
 
 ### About
-testing
+The purpose with the website is that people in healthcare, pharmacy and other people easily can get an overview of medicinal prodcuts that is, has, or are expected to run out at manufacturers.
+
+
